@@ -1,0 +1,7 @@
+<launch>
+  <arg name="model" default="tugcar" doc="model type"/>
+  <param name="model" value="$(arg model)"/>
+
+  <node pkg="tugcar_teleop" type="tugcar_teleop_key" name="tugcar_teleop_keyboard"  output="screen">
+  </node>
+</launch>

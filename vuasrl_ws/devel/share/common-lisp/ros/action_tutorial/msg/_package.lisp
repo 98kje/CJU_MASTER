@@ -1,0 +1,19 @@
+(cl:defpackage action_tutorial-msg
+  (:use )
+  (:export
+   "<MAZEACTION>"
+   "MAZEACTION"
+   "<MAZEACTIONFEEDBACK>"
+   "MAZEACTIONFEEDBACK"
+   "<MAZEACTIONGOAL>"
+   "MAZEACTIONGOAL"
+   "<MAZEACTIONRESULT>"
+   "MAZEACTIONRESULT"
+   "<MAZEFEEDBACK>"
+   "MAZEFEEDBACK"
+   "<MAZEGOAL>"
+   "MAZEGOAL"
+   "<MAZERESULT>"
+   "MAZERESULT"
+  ))
+

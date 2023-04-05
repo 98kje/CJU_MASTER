@@ -1,0 +1,2 @@
+ros_marvelmind_package
+-DCATKIN_DEVEL_PREFIX=/home/kimjaen/mavel_ws/devel -DCMAKE_INSTALL_PREFIX=/home/kimjaen/mavel_ws/install -G Unix Makefiles

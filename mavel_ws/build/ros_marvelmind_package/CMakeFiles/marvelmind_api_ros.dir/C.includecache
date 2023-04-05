@@ -1,0 +1,28 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/kimjaen/mavel_ws/src/ros_marvelmind_package/include/marvelmind_nav/marvelmind_api.h
+stdio.h
+-
+stdlib.h
+-
+stdbool.h
+-
+stdint.h
+-
+
+/home/kimjaen/mavel_ws/src/ros_marvelmind_package/src/marvelmind_api.c
+marvelmind_nav/marvelmind_api.h
+/home/kimjaen/mavel_ws/src/ros_marvelmind_package/src/marvelmind_nav/marvelmind_api.h
+windows.h
+-
+dlfcn.h
+-
+string.h
+-
+

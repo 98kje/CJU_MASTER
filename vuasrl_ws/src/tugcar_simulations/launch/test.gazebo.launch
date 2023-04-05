@@ -1,0 +1,19 @@
+<launch>
+  <include file="$(find tugcar_simulations)/launch/tugcar_gazebo_world.launch" />
+  
+  <rosparam file="$(find tugcar_simulations)/config/smart_tugcar_gazebo_control.yaml" command="load"/>
+  
+  <node name="controller_spawner" pkg="controller_manager" type="spawner" respawn="false" output="screen" ns="/smart_tugcar" args="joint_state_controller
+                    joint1_position_controller
+                    joint2_position_controller
+                    joint3_position_controller
+                    joint4_position_controller
+                    gripper_controller"/>
+  
+  <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" respawn="false" output="screen">
+    <remap from="/joint_states" to="/smart_tugcar/joints_states" />
+  </node>
+  
+</launch>
+                                         
+   

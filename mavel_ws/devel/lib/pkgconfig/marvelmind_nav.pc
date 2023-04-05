@@ -1,0 +1,8 @@
+prefix=/home/kimjaen/mavel_ws/devel
+
+Name: marvelmind_nav
+Description: Description of marvelmind_nav
+Version: 1.0.13
+Cflags: -I/home/kimjaen/mavel_ws/devel/include -I/home/kimjaen/mavel_ws/src/ros_marvelmind_package/include/marvelmind_nav/
+Libs: -L${prefix}/lib 
+Requires: message_runtime

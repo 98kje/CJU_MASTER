@@ -1,0 +1,1 @@
+/usr/bin/cc -fPIC   -shared -Wl,-soname,libmarvelmind_api.so -o /home/kimjaen/mavel_ws/devel/lib/libmarvelmind_api.so CMakeFiles/marvelmind_api.dir/src/marvelmind_api.c.o 
