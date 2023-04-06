@@ -17,14 +17,16 @@
         action_monitor_rate: 10      
         
   smart_tugcar_gripper_controller:
-    type: position_controllers/JointTrajectoryController
-    joints:
+    type: effort_controllers/JointTrajectoryController
+    joints:  # Change this line
       - gripper
+    gains:
+      gripper: {p: 5.0, i: 0.01, d: 0.1, i_clamp: 1}
     constraints:
         goal_time: 0.6
         stopped_velocity_tolerance: 0.05
         gripper: {trajectory: 0.1, goal: 0.1}
-    stop_trajectory_duration: 0.5
-    state_publish_rate:  25
-    action_monitor_rate: 10
+        stop_trajectory_duration: 0.5
+        state_publish_rate:  25
+        action_monitor_rate: 10
 
