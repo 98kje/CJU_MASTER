@@ -5,8 +5,10 @@
   <rosparam file="$(find tugcar_simulations)/config/joint_state_controller.yaml" command="load" />
   <rosparam file="$(find tugcar_simulations)/config/gazebo_controller.yaml" command="load" />
 
-  <node name="controller_spawner" pkg="controller_manager" type="spawner" respawn="false" output="screen" ns="/smart_tugcar" args="smart_tugcar_joint_controller smart_tugcar_gripper_controller"/>
-  
+ <group ns="smart_tugcar">
+  <node name="controller_spawner" pkg="controller_manager" type="spawner" respawn="false" output="screen" args="smart_tugcar_joint_controller smart_tugcar_gripper_controller"/>
+ </group> 
+ 
   <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" respawn="false" output="screen">
     <remap from="/joint_state" to="/smart_tugcar/joint_states"/>
   </node>
@@ -25,5 +27,8 @@
   <include file="$(find tugcar_moveit)/launch/moveit_rviz.launch">
     <arg name="rviz_config" value="$(find tugcar_moveit)/launch/moveit.rviz" />
   </include>
+  
+  <rosparam command="load" ns="smart_tugcar" file="$(find tugcar_moveit)/config/ros_controllers.yaml"/>
+
   
 </launch>

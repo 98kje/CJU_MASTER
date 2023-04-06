@@ -12,7 +12,7 @@ smart_tugcar:
     - name: smart_tugcar_gripper_controller
       action_ns: follow_joint_trajectory
       default: True
-      type: FollowJointTrajectory
+      type: GripperCommand
       joints:
         - gripper
 
