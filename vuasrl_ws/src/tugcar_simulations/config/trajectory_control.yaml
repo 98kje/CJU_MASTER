@@ -1,4 +1,3 @@
-smart_tugcar:    
   smart_tugcar_joint_controller:
     type: position_controllers/JointTrajectoryController
     joints:
@@ -18,8 +17,9 @@ smart_tugcar:
         action_monitor_rate: 10      
         
   smart_tugcar_gripper_controller:
-    type: effort_controllers/JointEffortController
-    joint: gripper
+    type: position_controllers/JointTrajectoryController
+    joints:
+      - gripper
     constraints:
         goal_time: 0.6
         stopped_velocity_tolerance: 0.05
@@ -27,3 +27,4 @@ smart_tugcar:
     stop_trajectory_duration: 0.5
     state_publish_rate:  25
     action_monitor_rate: 10
+
