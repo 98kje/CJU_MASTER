@@ -20,6 +20,14 @@ BUILD_GMOCK:BOOL=ON
 //Build dynamically-linked binaries
 BUILD_SHARED_LIBS:BOOL=ON
 
+//The directory containing a CMake configuration file for Boost.
+Boost_DIR:PATH=/usr/lib/x86_64-linux-gnu/cmake/Boost-1.71.0
+
+//Path to a file.
+Boost_INCLUDE_DIR:PATH=/usr/include
+
+Boost_SYSTEM_LIBRARY_RELEASE:STRING=/usr/lib/x86_64-linux-gnu/libboost_system.so.1.71.0
+
 //List of ';' separated packages to exclude
 CATKIN_BLACKLIST_PACKAGES:STRING=
 
@@ -403,11 +411,26 @@ actionlib_DIR:PATH=/opt/ros/noetic/share/actionlib/cmake
 //The directory containing a CMake configuration file for actionlib_msgs.
 actionlib_msgs_DIR:PATH=/opt/ros/noetic/share/actionlib_msgs/cmake
 
+//The directory containing a CMake configuration file for bond.
+bond_DIR:PATH=/opt/ros/noetic/share/bond/cmake
+
+//The directory containing a CMake configuration file for bondcpp.
+bondcpp_DIR:PATH=/opt/ros/noetic/share/bondcpp/cmake
+
+//The directory containing a CMake configuration file for boost_headers.
+boost_headers_DIR:PATH=/usr/lib/x86_64-linux-gnu/cmake/boost_headers-1.71.0
+
+//The directory containing a CMake configuration file for boost_system.
+boost_system_DIR:PATH=/usr/lib/x86_64-linux-gnu/cmake/boost_system-1.71.0
+
 //The directory containing a CMake configuration file for catkin.
 catkin_DIR:PATH=/opt/ros/noetic/share/catkin/cmake
 
 //The directory containing a CMake configuration file for class_loader.
 class_loader_DIR:PATH=/opt/ros/noetic/share/class_loader/cmake
+
+//The directory containing a CMake configuration file for cmake_modules.
+cmake_modules_DIR:PATH=/opt/ros/noetic/share/cmake_modules/cmake
 
 //The directory containing a CMake configuration file for controller_interface.
 controller_interface_DIR:PATH=/opt/ros/noetic/share/controller_interface/cmake
@@ -509,6 +532,12 @@ gtest_main_LIB_DEPENDS:STATIC=general;gtest;
 //The directory containing a CMake configuration file for hardware_interface.
 hardware_interface_DIR:PATH=/opt/ros/noetic/share/hardware_interface/cmake
 
+//The directory containing a CMake configuration file for image_transport.
+image_transport_DIR:PATH=/opt/ros/noetic/share/image_transport/cmake
+
+//The directory containing a CMake configuration file for interactive_markers.
+interactive_markers_DIR:PATH=/opt/ros/noetic/share/interactive_markers/cmake
+
 //The directory containing a CMake configuration file for joint_state_controller.
 joint_state_controller_DIR:PATH=/opt/ros/noetic/share/joint_state_controller/cmake
 
@@ -542,6 +571,9 @@ moveit_ros_move_group_DIR:PATH=/opt/ros/noetic/share/moveit_ros_move_group/cmake
 //The directory containing a CMake configuration file for moveit_ros_occupancy_map_monitor.
 moveit_ros_occupancy_map_monitor_DIR:PATH=/opt/ros/noetic/share/moveit_ros_occupancy_map_monitor/cmake
 
+//The directory containing a CMake configuration file for moveit_ros_perception.
+moveit_ros_perception_DIR:PATH=/opt/ros/noetic/share/moveit_ros_perception/cmake
+
 //The directory containing a CMake configuration file for moveit_ros_planning.
 moveit_ros_planning_DIR:PATH=/opt/ros/noetic/share/moveit_ros_planning/cmake
 
@@ -550,6 +582,9 @@ moveit_ros_planning_interface_DIR:PATH=/opt/ros/noetic/share/moveit_ros_planning
 
 //The directory containing a CMake configuration file for moveit_ros_warehouse.
 moveit_ros_warehouse_DIR:PATH=/opt/ros/noetic/share/moveit_ros_warehouse/cmake
+
+//The directory containing a CMake configuration file for nodelet.
+nodelet_DIR:PATH=/opt/ros/noetic/share/nodelet/cmake
 
 //The directory containing a CMake configuration file for object_recognition_msgs.
 object_recognition_msgs_DIR:PATH=/opt/ros/noetic/share/object_recognition_msgs/cmake
@@ -571,6 +606,12 @@ robot_arm_control_BINARY_DIR:STATIC=/home/kimjaen/vuasrl_ws/build/robot_arm_cont
 
 //Value Computed by CMake
 robot_arm_control_SOURCE_DIR:STATIC=/home/kimjaen/vuasrl_ws/src/robot_arm_control
+
+//Value Computed by CMake
+robot_arm_test_BINARY_DIR:STATIC=/home/kimjaen/vuasrl_ws/build/robot_arm_test
+
+//Value Computed by CMake
+robot_arm_test_SOURCE_DIR:STATIC=/home/kimjaen/vuasrl_ws/src/robot_arm_test
 
 //The directory containing a CMake configuration file for robot_state_publisher.
 robot_state_publisher_DIR:PATH=/opt/ros/noetic/share/robot_state_publisher/cmake
@@ -619,6 +660,9 @@ smart_tugcar_moveit_BINARY_DIR:STATIC=/home/kimjaen/vuasrl_ws/build/smart_tugcar
 
 //Value Computed by CMake
 smart_tugcar_moveit_SOURCE_DIR:STATIC=/home/kimjaen/vuasrl_ws/src/smart_tugcar_moveit
+
+//The directory containing a CMake configuration file for smclib.
+smclib_DIR:PATH=/opt/ros/noetic/share/smclib/cmake
 
 //The directory containing a CMake configuration file for srdfdom.
 srdfdom_DIR:PATH=/opt/ros/noetic/share/srdfdom/cmake
@@ -719,6 +763,12 @@ visualization_msgs_DIR:PATH=/opt/ros/noetic/share/visualization_msgs/cmake
 //The directory containing a CMake configuration file for warehouse_ros.
 warehouse_ros_DIR:PATH=/opt/ros/noetic/share/warehouse_ros/cmake
 
+//Value Computed by CMake
+world_gazebo_BINARY_DIR:STATIC=/home/kimjaen/vuasrl_ws/build/world_gazebo
+
+//Value Computed by CMake
+world_gazebo_SOURCE_DIR:STATIC=/home/kimjaen/vuasrl_ws/src/world_gazebo
+
 //The directory containing a CMake configuration file for xacro.
 xacro_DIR:PATH=/opt/ros/noetic/share/xacro/cmake
 
@@ -730,6 +780,8 @@ xmlrpcpp_DIR:PATH=/opt/ros/noetic/share/xmlrpcpp/cmake
 # INTERNAL cache entries
 ########################
 
+//ADVANCED property for variable: Boost_DIR
+Boost_DIR-ADVANCED:INTERNAL=1
 //catkin environment
 CATKIN_ENV:INTERNAL=/home/kimjaen/vuasrl_ws/build/catkin_generated/env_cached.sh
 CATKIN_TEST_RESULTS_DIR:INTERNAL=/home/kimjaen/vuasrl_ws/build/test_results
@@ -916,6 +968,8 @@ CMAKE_STRIP-ADVANCED:INTERNAL=1
 CMAKE_UNAME:INTERNAL=/usr/bin/uname
 //ADVANCED property for variable: CMAKE_VERBOSE_MAKEFILE
 CMAKE_VERBOSE_MAKEFILE-ADVANCED:INTERNAL=1
+//Details about finding Boost
+FIND_PACKAGE_MESSAGE_DETAILS_Boost:INTERNAL=[/usr/lib/x86_64-linux-gnu/cmake/Boost-1.71.0/BoostConfig.cmake][cfound components: system ][v1.71.0()]
 //Details about finding OpenCV
 FIND_PACKAGE_MESSAGE_DETAILS_OpenCV:INTERNAL=[/usr][v4.2.0()]
 //Details about finding PY_em
@@ -960,6 +1014,10 @@ PYTHON_EXECUTABLE-ADVANCED:INTERNAL=1
 PYTHON_INSTALL_DIR:INTERNAL=lib/python3/dist-packages
 //CMAKE_INSTALL_PREFIX during last run
 _GNUInstallDirs_LAST_CMAKE_INSTALL_PREFIX:INTERNAL=/home/kimjaen/vuasrl_ws/install
+//ADVANCED property for variable: boost_headers_DIR
+boost_headers_DIR-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: boost_system_DIR
+boost_system_DIR-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: gmock_build_tests
 gmock_build_tests-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: gtest_build_samples

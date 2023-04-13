@@ -139,7 +139,7 @@ if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   include("/home/kimjaen/vuasrl_ws/build/tugcar_motionplan/cmake_install.cmake")
   include("/home/kimjaen/vuasrl_ws/build/tugcar_teleop/cmake_install.cmake")
   include("/home/kimjaen/vuasrl_ws/build/tugcar_description/cmake_install.cmake")
-  include("/home/kimjaen/vuasrl_ws/build/robot_arm_control/cmake_install.cmake")
+  include("/home/kimjaen/vuasrl_ws/build/robot_arm_test/cmake_install.cmake")
   include("/home/kimjaen/vuasrl_ws/build/tugcar_simulations/cmake_install.cmake")
 
 endif()

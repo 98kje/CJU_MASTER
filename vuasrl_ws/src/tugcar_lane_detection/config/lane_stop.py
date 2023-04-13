@@ -99,7 +99,7 @@ class LaneFollower:
             error = cx - self.img_bgr.shape[1]/2
             twist = Twist()
 
-            if self.min_distance < 0.0: # Change this value according to the desired stopping distance
+            if self.min_distance < 0.5: # Change this value according to the desired stopping distance
                 twist.linear.x = 0.0
             else:
                 twist.linear.x = 0.2

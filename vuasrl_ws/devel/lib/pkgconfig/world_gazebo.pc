@@ -1,0 +1,8 @@
+prefix=/home/kimjaen/vuasrl_ws/devel
+
+Name: world_gazebo
+Description: Description of world_gazebo
+Version: 0.0.0
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: 

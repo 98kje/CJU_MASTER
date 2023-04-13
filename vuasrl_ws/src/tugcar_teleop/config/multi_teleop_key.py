@@ -61,14 +61,14 @@ class Teleop:
         return input
 
     def checkLinearLimitVelocity(self, vel):
-        if tugcar_model == "tugcar":
+        if tugcar_model == "smart_tugcar":
             max_lin_vel = TUGCAR_MAX_LIN_VEL
 
         vel = self.constrain(vel, -max_lin_vel, max_lin_vel)
         return vel
 
     def checkAngularLimitVelocity(self, vel):
-        if tugcar_model in ["tugcar"]:
+        if tugcar_model in ["smart_tugcar"]:
             max_ang_vel = TUGCAR_MAX_ANG_VEL
 
         vel = self.constrain(vel, -max_ang_vel, max_ang_vel)
@@ -151,11 +151,11 @@ if __name__=="__main__":
         settings = termios.tcgetattr(sys.stdin)
 
     rospy.init_node('tugcar_teleop')
-    tugcar_model = rospy.get_param("model", "tugcar")
-    topic_type = rospy.get_param("topic_type", "tugcar")
+    tugcar_model = rospy.get_param("model", "smart_tugcar")
+    topic_type = rospy.get_param("topic_type", "smart_tugcar")
 
-    if topic_type == 'tugcar':
-        topic_name = '/cmd_vel'
+    if topic_type == 'smart_tugcar':
+        topic_name = 'smart_tugcar/cmd_vel'
 
     pub = rospy.Publisher(topic_name, Twist, queue_size=10)
 

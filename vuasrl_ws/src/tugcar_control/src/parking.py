@@ -31,8 +31,8 @@ def callback(data):
 rospy.init_node("parking", disable_signals=True)
 rospy.loginfo("==== parking node Started ====\n")
 
-pub = rospy.Publisher("/cmd_vel", Twist, queue_size=1)
-sub = rospy.Subscriber("/scan", LaserScan, callback)
+pub = rospy.Publisher("/smart_tugcar/cmd_vel", Twist, queue_size=1)
+sub = rospy.Subscriber("/smart_tugcar/scan", LaserScan, callback)
 
 rospy.spin()
 
