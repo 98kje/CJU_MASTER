@@ -68,18 +68,6 @@ install/strip/fast: preinstall/fast
 	/usr/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
 .PHONY : install/strip/fast
 
-# Special rule for the target install/local
-install/local: preinstall
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing only the local directory..."
-	/usr/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
-.PHONY : install/local
-
-# Special rule for the target install/local
-install/local/fast: preinstall/fast
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing only the local directory..."
-	/usr/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
-.PHONY : install/local/fast
-
 # Special rule for the target install
 install: preinstall
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Install the project..."
@@ -124,6 +112,18 @@ test/fast: test
 
 .PHONY : test/fast
 
+# Special rule for the target install/local
+install/local: preinstall
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing only the local directory..."
+	/usr/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
+.PHONY : install/local
+
+# Special rule for the target install/local
+install/local/fast: preinstall/fast
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing only the local directory..."
+	/usr/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
+.PHONY : install/local/fast
+
 # Special rule for the target rebuild_cache
 rebuild_cache:
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake to regenerate build system..."
@@ -166,6 +166,36 @@ preinstall/fast:
 depend:
 	cd /home/kimjaen/vuasrl_ws/build && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
 .PHONY : depend
+
+# Convenience name for target.
+robot_arm_test/CMakeFiles/remove_collision_objct.dir/rule:
+	cd /home/kimjaen/vuasrl_ws/build && $(MAKE) -f CMakeFiles/Makefile2 robot_arm_test/CMakeFiles/remove_collision_objct.dir/rule
+.PHONY : robot_arm_test/CMakeFiles/remove_collision_objct.dir/rule
+
+# Convenience name for target.
+remove_collision_objct: robot_arm_test/CMakeFiles/remove_collision_objct.dir/rule
+
+.PHONY : remove_collision_objct
+
+# fast build rule for target.
+remove_collision_objct/fast:
+	cd /home/kimjaen/vuasrl_ws/build && $(MAKE) -f robot_arm_test/CMakeFiles/remove_collision_objct.dir/build.make robot_arm_test/CMakeFiles/remove_collision_objct.dir/build
+.PHONY : remove_collision_objct/fast
+
+# Convenience name for target.
+robot_arm_test/CMakeFiles/add_collision_object.dir/rule:
+	cd /home/kimjaen/vuasrl_ws/build && $(MAKE) -f CMakeFiles/Makefile2 robot_arm_test/CMakeFiles/add_collision_object.dir/rule
+.PHONY : robot_arm_test/CMakeFiles/add_collision_object.dir/rule
+
+# Convenience name for target.
+add_collision_object: robot_arm_test/CMakeFiles/add_collision_object.dir/rule
+
+.PHONY : add_collision_object
+
+# fast build rule for target.
+add_collision_object/fast:
+	cd /home/kimjaen/vuasrl_ws/build && $(MAKE) -f robot_arm_test/CMakeFiles/add_collision_object.dir/build.make robot_arm_test/CMakeFiles/add_collision_object.dir/build
+.PHONY : add_collision_object/fast
 
 # Convenience name for target.
 robot_arm_test/CMakeFiles/test_custom_node.dir/rule:
@@ -571,6 +601,21 @@ visualization_msgs_generate_messages_py: robot_arm_test/CMakeFiles/visualization
 visualization_msgs_generate_messages_py/fast:
 	cd /home/kimjaen/vuasrl_ws/build && $(MAKE) -f robot_arm_test/CMakeFiles/visualization_msgs_generate_messages_py.dir/build.make robot_arm_test/CMakeFiles/visualization_msgs_generate_messages_py.dir/build
 .PHONY : visualization_msgs_generate_messages_py/fast
+
+# Convenience name for target.
+robot_arm_test/CMakeFiles/attach_detach_object.dir/rule:
+	cd /home/kimjaen/vuasrl_ws/build && $(MAKE) -f CMakeFiles/Makefile2 robot_arm_test/CMakeFiles/attach_detach_object.dir/rule
+.PHONY : robot_arm_test/CMakeFiles/attach_detach_object.dir/rule
+
+# Convenience name for target.
+attach_detach_object: robot_arm_test/CMakeFiles/attach_detach_object.dir/rule
+
+.PHONY : attach_detach_object
+
+# fast build rule for target.
+attach_detach_object/fast:
+	cd /home/kimjaen/vuasrl_ws/build && $(MAKE) -f robot_arm_test/CMakeFiles/attach_detach_object.dir/build.make robot_arm_test/CMakeFiles/attach_detach_object.dir/build
+.PHONY : attach_detach_object/fast
 
 # Convenience name for target.
 robot_arm_test/CMakeFiles/moveit_msgs_generate_messages_nodejs.dir/rule:
@@ -1067,6 +1112,87 @@ std_srvs_generate_messages_py/fast:
 	cd /home/kimjaen/vuasrl_ws/build && $(MAKE) -f robot_arm_test/CMakeFiles/std_srvs_generate_messages_py.dir/build.make robot_arm_test/CMakeFiles/std_srvs_generate_messages_py.dir/build
 .PHONY : std_srvs_generate_messages_py/fast
 
+src/add_collision_object.o: src/add_collision_object.cpp.o
+
+.PHONY : src/add_collision_object.o
+
+# target to build an object file
+src/add_collision_object.cpp.o:
+	cd /home/kimjaen/vuasrl_ws/build && $(MAKE) -f robot_arm_test/CMakeFiles/add_collision_object.dir/build.make robot_arm_test/CMakeFiles/add_collision_object.dir/src/add_collision_object.cpp.o
+.PHONY : src/add_collision_object.cpp.o
+
+src/add_collision_object.i: src/add_collision_object.cpp.i
+
+.PHONY : src/add_collision_object.i
+
+# target to preprocess a source file
+src/add_collision_object.cpp.i:
+	cd /home/kimjaen/vuasrl_ws/build && $(MAKE) -f robot_arm_test/CMakeFiles/add_collision_object.dir/build.make robot_arm_test/CMakeFiles/add_collision_object.dir/src/add_collision_object.cpp.i
+.PHONY : src/add_collision_object.cpp.i
+
+src/add_collision_object.s: src/add_collision_object.cpp.s
+
+.PHONY : src/add_collision_object.s
+
+# target to generate assembly for a file
+src/add_collision_object.cpp.s:
+	cd /home/kimjaen/vuasrl_ws/build && $(MAKE) -f robot_arm_test/CMakeFiles/add_collision_object.dir/build.make robot_arm_test/CMakeFiles/add_collision_object.dir/src/add_collision_object.cpp.s
+.PHONY : src/add_collision_object.cpp.s
+
+src/attach_detach_object.o: src/attach_detach_object.cpp.o
+
+.PHONY : src/attach_detach_object.o
+
+# target to build an object file
+src/attach_detach_object.cpp.o:
+	cd /home/kimjaen/vuasrl_ws/build && $(MAKE) -f robot_arm_test/CMakeFiles/attach_detach_object.dir/build.make robot_arm_test/CMakeFiles/attach_detach_object.dir/src/attach_detach_object.cpp.o
+.PHONY : src/attach_detach_object.cpp.o
+
+src/attach_detach_object.i: src/attach_detach_object.cpp.i
+
+.PHONY : src/attach_detach_object.i
+
+# target to preprocess a source file
+src/attach_detach_object.cpp.i:
+	cd /home/kimjaen/vuasrl_ws/build && $(MAKE) -f robot_arm_test/CMakeFiles/attach_detach_object.dir/build.make robot_arm_test/CMakeFiles/attach_detach_object.dir/src/attach_detach_object.cpp.i
+.PHONY : src/attach_detach_object.cpp.i
+
+src/attach_detach_object.s: src/attach_detach_object.cpp.s
+
+.PHONY : src/attach_detach_object.s
+
+# target to generate assembly for a file
+src/attach_detach_object.cpp.s:
+	cd /home/kimjaen/vuasrl_ws/build && $(MAKE) -f robot_arm_test/CMakeFiles/attach_detach_object.dir/build.make robot_arm_test/CMakeFiles/attach_detach_object.dir/src/attach_detach_object.cpp.s
+.PHONY : src/attach_detach_object.cpp.s
+
+src/remove_collision_objct.o: src/remove_collision_objct.cpp.o
+
+.PHONY : src/remove_collision_objct.o
+
+# target to build an object file
+src/remove_collision_objct.cpp.o:
+	cd /home/kimjaen/vuasrl_ws/build && $(MAKE) -f robot_arm_test/CMakeFiles/remove_collision_objct.dir/build.make robot_arm_test/CMakeFiles/remove_collision_objct.dir/src/remove_collision_objct.cpp.o
+.PHONY : src/remove_collision_objct.cpp.o
+
+src/remove_collision_objct.i: src/remove_collision_objct.cpp.i
+
+.PHONY : src/remove_collision_objct.i
+
+# target to preprocess a source file
+src/remove_collision_objct.cpp.i:
+	cd /home/kimjaen/vuasrl_ws/build && $(MAKE) -f robot_arm_test/CMakeFiles/remove_collision_objct.dir/build.make robot_arm_test/CMakeFiles/remove_collision_objct.dir/src/remove_collision_objct.cpp.i
+.PHONY : src/remove_collision_objct.cpp.i
+
+src/remove_collision_objct.s: src/remove_collision_objct.cpp.s
+
+.PHONY : src/remove_collision_objct.s
+
+# target to generate assembly for a file
+src/remove_collision_objct.cpp.s:
+	cd /home/kimjaen/vuasrl_ws/build && $(MAKE) -f robot_arm_test/CMakeFiles/remove_collision_objct.dir/build.make robot_arm_test/CMakeFiles/remove_collision_objct.dir/src/remove_collision_objct.cpp.s
+.PHONY : src/remove_collision_objct.cpp.s
+
 src/test_custom.o: src/test_custom.cpp.o
 
 .PHONY : src/test_custom.o
@@ -1128,11 +1254,13 @@ help:
 	@echo "... clean"
 	@echo "... depend"
 	@echo "... install/strip"
-	@echo "... install/local"
 	@echo "... install"
 	@echo "... list_install_components"
 	@echo "... edit_cache"
 	@echo "... test"
+	@echo "... install/local"
+	@echo "... remove_collision_objct"
+	@echo "... add_collision_object"
 	@echo "... test_custom_node"
 	@echo "... octomap_msgs_generate_messages_lisp"
 	@echo "... object_recognition_msgs_generate_messages_nodejs"
@@ -1161,6 +1289,7 @@ help:
 	@echo "... moveit_msgs_generate_messages_lisp"
 	@echo "... dynamic_reconfigure_generate_messages_py"
 	@echo "... visualization_msgs_generate_messages_py"
+	@echo "... attach_detach_object"
 	@echo "... moveit_msgs_generate_messages_nodejs"
 	@echo "... dynamic_reconfigure_generate_messages_lisp"
 	@echo "... std_srvs_generate_messages_lisp"
@@ -1194,6 +1323,15 @@ help:
 	@echo "... std_srvs_generate_messages_nodejs"
 	@echo "... moveit_ros_planning_gencfg"
 	@echo "... std_srvs_generate_messages_py"
+	@echo "... src/add_collision_object.o"
+	@echo "... src/add_collision_object.i"
+	@echo "... src/add_collision_object.s"
+	@echo "... src/attach_detach_object.o"
+	@echo "... src/attach_detach_object.i"
+	@echo "... src/attach_detach_object.s"
+	@echo "... src/remove_collision_objct.o"
+	@echo "... src/remove_collision_objct.i"
+	@echo "... src/remove_collision_objct.s"
 	@echo "... src/test_custom.o"
 	@echo "... src/test_custom.i"
 	@echo "... src/test_custom.s"

@@ -1091,6 +1091,32 @@ actionlib_msgs_generate_messages_lisp/fast:
 .PHONY : actionlib_msgs_generate_messages_lisp/fast
 
 #=============================================================================
+# Target rules for targets named remove_collision_objct
+
+# Build rule for target.
+remove_collision_objct: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 remove_collision_objct
+.PHONY : remove_collision_objct
+
+# fast build rule for target.
+remove_collision_objct/fast:
+	$(MAKE) -f robot_arm_test/CMakeFiles/remove_collision_objct.dir/build.make robot_arm_test/CMakeFiles/remove_collision_objct.dir/build
+.PHONY : remove_collision_objct/fast
+
+#=============================================================================
+# Target rules for targets named add_collision_object
+
+# Build rule for target.
+add_collision_object: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 add_collision_object
+.PHONY : add_collision_object
+
+# fast build rule for target.
+add_collision_object/fast:
+	$(MAKE) -f robot_arm_test/CMakeFiles/add_collision_object.dir/build.make robot_arm_test/CMakeFiles/add_collision_object.dir/build
+.PHONY : add_collision_object/fast
+
+#=============================================================================
 # Target rules for targets named test_custom_node
 
 # Build rule for target.
@@ -1440,6 +1466,19 @@ visualization_msgs_generate_messages_py: cmake_check_build_system
 visualization_msgs_generate_messages_py/fast:
 	$(MAKE) -f robot_arm_test/CMakeFiles/visualization_msgs_generate_messages_py.dir/build.make robot_arm_test/CMakeFiles/visualization_msgs_generate_messages_py.dir/build
 .PHONY : visualization_msgs_generate_messages_py/fast
+
+#=============================================================================
+# Target rules for targets named attach_detach_object
+
+# Build rule for target.
+attach_detach_object: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 attach_detach_object
+.PHONY : attach_detach_object
+
+# fast build rule for target.
+attach_detach_object/fast:
+	$(MAKE) -f robot_arm_test/CMakeFiles/attach_detach_object.dir/build.make robot_arm_test/CMakeFiles/attach_detach_object.dir/build
+.PHONY : attach_detach_object/fast
 
 #=============================================================================
 # Target rules for targets named moveit_msgs_generate_messages_nodejs
@@ -2045,6 +2084,8 @@ help:
 	@echo "... actionlib_generate_messages_py"
 	@echo "... actionlib_msgs_generate_messages_cpp"
 	@echo "... actionlib_msgs_generate_messages_lisp"
+	@echo "... remove_collision_objct"
+	@echo "... add_collision_object"
 	@echo "... test_custom_node"
 	@echo "... octomap_msgs_generate_messages_lisp"
 	@echo "... object_recognition_msgs_generate_messages_nodejs"
@@ -2072,6 +2113,7 @@ help:
 	@echo "... moveit_msgs_generate_messages_lisp"
 	@echo "... dynamic_reconfigure_generate_messages_py"
 	@echo "... visualization_msgs_generate_messages_py"
+	@echo "... attach_detach_object"
 	@echo "... moveit_msgs_generate_messages_nodejs"
 	@echo "... dynamic_reconfigure_generate_messages_lisp"
 	@echo "... std_srvs_generate_messages_lisp"

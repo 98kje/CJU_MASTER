@@ -26,7 +26,7 @@ int main(int argc, char **argv)
     // pose message
     moveit_msgs::CollisionObject cylinder;
 
-    cylinder.id = "seven_dof_arm_cylinder";
+    cylinder.id = "robot_arm_cylinder";
 
     shape_msgs::SolidPrimitive primitive;
     primitive.type = primitive.CYLINDER;

@@ -4,14 +4,16 @@
 int main(int argc, char **argv)
 {
   ros::init(argc, argv, "move_group_interface_demo", ros::init_options::AnonymousName);
-  // start a ROS spinning thread
+  // ROS 스레드 스핀(spin) 시작
   ros::AsyncSpinner spinner(1);
   spinner.start();
-  // this connecs to a running instance of the move_group node
+  // 실행 중인 move_group 노드의 인스턴스와 연결
 	moveit::planning_interface::MoveGroupInterface group("arm");
-  // specify that our target will be a random one
+  //계획시간에 딜레이를 10초 준다.
+  group.setPlanningTime(10.0);
+  // 임의의 타깃을 명시
   group.setRandomTarget();
-  // plan the motion and then move the group to the sampled target 
+  // 모션 플래닝 후 샘플링된 타깃으로 그룹을 이동. 
   group.move();
   ros::waitForShutdown();
 }

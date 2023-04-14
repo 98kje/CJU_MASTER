@@ -3,6 +3,6 @@ prefix=/home/kimjaen/vuasrl_ws/devel
 Name: robot_arm_test
 Description: Description of robot_arm_test
 Version: 0.0.0
-Cflags: 
-Libs: -L${prefix}/lib 
-Requires: 
+Cflags: -I/home/kimjaen/vuasrl_ws/src/robot_arm_test/include
+Libs: -L${prefix}/lib -lrobot_arm_test
+Requires: interactive_markers moveit_core moveit_ros_perception moveit_ros_planning_interface pluginlib roscpp std_msgs

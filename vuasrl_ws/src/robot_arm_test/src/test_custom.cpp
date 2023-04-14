@@ -100,7 +100,7 @@ int main(int argc, char **argv)
   target_pose1.position.y = 4.50972e-07;
   target_pose1.position.z = 0.573659;
   group.setPoseTarget(target_pose1);
-
+  group.setPlanningTime(120.0);
 
   // Now, we call the planner to compute the plan
   // and visualize it.
