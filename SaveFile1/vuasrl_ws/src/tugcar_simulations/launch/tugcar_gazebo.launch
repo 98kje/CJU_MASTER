@@ -1,0 +1,31 @@
+<launch>
+
+  <arg name="world_name"   default="vuasrl_world.world"/>
+  <arg name="world_file" default="$(find tugcar_description)/worlds/$(arg world_name)"/>
+
+  <rosparam file="$(find tugcar_simulations)/config/gazebo_controller.yaml" command="load"/>
+
+<!-- Launch Gazebo World -->
+  <include file="$(find gazebo_ros)/launch/empty_world.launch">
+    <arg name="use_sim_time" value="true"/>
+    <arg name="debug" value="false"/>
+    <arg name="gui" value="true" />
+    <arg name="world_name" value="$(arg world_file)"/>
+  </include>
+
+<!-- Robot model -->
+  <param name="robot_description" command="$(find xacro)/xacro $(find tugcar_description)/urdf/robot_arm/robotis_tugcar.urdf.xacro"/>
+
+    
+  <!-- push robot_description to factory and spawn robot in gazebo -->
+  <node name="spawn_gazebo_model" pkg="gazebo_ros" type="spawn_model" respawn="false" output="screen"
+    args="-urdf -param robot_description -model robotis_tugcar -x 0.0 -y 0.0 -Y 0.0 -J joint1 0.0 -J joint2 0.0 -J joint3 0.0 -J joint4 0.0 -J gripper 0.0 -J gripper_sub 0.0"/>
+
+  <!-- controller utils -->
+  <include file="$(find tugcar_simulations)/launch/controller_utils.launch"/>
+
+  <!-- run controllers -->
+  <include file="$(find tugcar_simulations)/launch/tugcar_controller.launch"/>
+  
+</launch>
+

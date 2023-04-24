@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+
+<launch>
+
+   <!-- arg setting -->
+   <arg name="model" default="$(find tugcar_description)/urdf/robot_arm/robotis_tugcar.urdf.xacro"/>
+   <arg name="use_gui" default="false"/>
+   <arg name="open_rviz" default="true"/>
+   
+   <!-- select model -->
+   <param name="robot_description" command="$(find xacro)/xacro $(arg model)"/>
+   
+   <!-- start rviz -->
+  <group if="$(arg open_rviz)">
+    <node name="rviz" pkg="rviz" type="rviz"/>
+  </group>
+   
+  <!-- start joint state publisher -->
+  <node pkg="joint_state_publisher" type="joint_state_publisher" name="joint_state_publisher">
+    <param name="/use_gui" value="$(arg use_gui)"/>
+    <rosparam param="source_list">["/joint_states"]</rosparam>
+  </node>
+  
+  <!-- start robot state publisher -->
+  <node pkg="robot_state_publisher" type="robot_state_publisher" name="robot_state_publisher"/>
+</launch>

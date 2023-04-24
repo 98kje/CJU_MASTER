@@ -1,0 +1,8 @@
+prefix=/home/kimjaen/vuasrl_ws/devel
+
+Name: cpp_topic_tutorial
+Description: Description of cpp_topic_tutorial
+Version: 0.0.0
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: 

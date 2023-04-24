@@ -1,0 +1,8 @@
+prefix=/home/kimjaen/vuasrl_ws/devel
+
+Name: turtlebot3_manipulation_bringup
+Description: Description of turtlebot3_manipulation_bringup
+Version: 2.0.2
+Cflags: -I/home/kimjaen/vuasrl_ws/src/turtlebot3_manipulation/turtlebot3_manipulation_bringup/include
+Libs: -L${prefix}/lib 
+Requires: roscpp actionlib control_msgs std_msgs trajectory_msgs moveit_msgs

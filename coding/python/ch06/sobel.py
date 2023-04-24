@@ -3,7 +3,7 @@ import numpy as np
 import cv2
 
 
-src = cv2.imread('lenna.bmp', cv2.IMREAD_GRAYSCALE)
+src = cv2.imread('/home/kimjaen/CJU_MASTER/coding/python/ch04/lenna.bmp', cv2.IMREAD_GRAYSCALE)
 
 if src is None:
     print('Image load failed!')
