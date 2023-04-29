@@ -17,8 +17,6 @@
   
   <param name="robot_description" command="$(find xacro)/xacro '$(find tugcar_description)/urdf/robot_arm/robotis_tugcar.urdf.xacro'"/>
   
-     <!-- Provide a static transformation between the 'world' and 'odom' frames -->
-  <node pkg="tf2_ros" type="static_transform_publisher" name="odom_to_world_broadcaster" args="0 0 0 0 0 0 world odom" />
 
   <node name="urdf_spawner" pkg="gazebo_ros" type="spawn_model" respawn="false" output="screen"
     args="-urdf -model smart_tugcar -param robot_description -x 0.0 -y 0.0 -z 1.0"/> 
