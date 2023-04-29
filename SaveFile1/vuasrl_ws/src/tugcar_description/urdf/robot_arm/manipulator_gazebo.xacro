@@ -61,7 +61,7 @@
   </gazebo>
 
   <!-- Define RGB-D sensor -->  
-  <xacro:xtion_pro_live name="arm_camera" parent="base">
+  <xacro:xtion_pro_live name="mani_camera" parent="base">
     <origin xyz="-0.06 0.0 0.06" rpy="${0.0 * deg_to_rad} ${360.0 * deg_to_rad} ${0.0 * deg_to_rad}"/>
     <origin xyz="0 0 0" rpy="${-90 * deg_to_rad} ${0 * deg_to_rad} ${-90 * deg_to_rad}" />
   </xacro:xtion_pro_live>

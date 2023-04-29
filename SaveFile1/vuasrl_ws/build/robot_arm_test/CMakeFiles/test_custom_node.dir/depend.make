@@ -43,6 +43,7 @@ robot_arm_test/CMakeFiles/test_custom_node.dir/src/test_custom.cpp.o: /opt/ros/n
 robot_arm_test/CMakeFiles/test_custom_node.dir/src/test_custom.cpp.o: /opt/ros/noetic/include/moveit/macros/declare_ptr.h
 robot_arm_test/CMakeFiles/test_custom_node.dir/src/test_custom.cpp.o: /opt/ros/noetic/include/moveit/move_group_interface/move_group_interface.h
 robot_arm_test/CMakeFiles/test_custom_node.dir/src/test_custom.cpp.o: /opt/ros/noetic/include/moveit/moveit_kinematics_base_export.h
+robot_arm_test/CMakeFiles/test_custom_node.dir/src/test_custom.cpp.o: /opt/ros/noetic/include/moveit/planning_scene_interface/planning_scene_interface.h
 robot_arm_test/CMakeFiles/test_custom_node.dir/src/test_custom.cpp.o: /opt/ros/noetic/include/moveit/robot_model/fixed_joint_model.h
 robot_arm_test/CMakeFiles/test_custom_node.dir/src/test_custom.cpp.o: /opt/ros/noetic/include/moveit/robot_model/floating_joint_model.h
 robot_arm_test/CMakeFiles/test_custom_node.dir/src/test_custom.cpp.o: /opt/ros/noetic/include/moveit/robot_model/joint_model.h
@@ -65,6 +66,8 @@ robot_arm_test/CMakeFiles/test_custom_node.dir/src/test_custom.cpp.o: /opt/ros/n
 robot_arm_test/CMakeFiles/test_custom_node.dir/src/test_custom.cpp.o: /opt/ros/noetic/include/moveit_msgs/CartesianTrajectoryPoint.h
 robot_arm_test/CMakeFiles/test_custom_node.dir/src/test_custom.cpp.o: /opt/ros/noetic/include/moveit_msgs/CollisionObject.h
 robot_arm_test/CMakeFiles/test_custom_node.dir/src/test_custom.cpp.o: /opt/ros/noetic/include/moveit_msgs/Constraints.h
+robot_arm_test/CMakeFiles/test_custom_node.dir/src/test_custom.cpp.o: /opt/ros/noetic/include/moveit_msgs/DisplayRobotState.h
+robot_arm_test/CMakeFiles/test_custom_node.dir/src/test_custom.cpp.o: /opt/ros/noetic/include/moveit_msgs/DisplayTrajectory.h
 robot_arm_test/CMakeFiles/test_custom_node.dir/src/test_custom.cpp.o: /opt/ros/noetic/include/moveit_msgs/GenericTrajectory.h
 robot_arm_test/CMakeFiles/test_custom_node.dir/src/test_custom.cpp.o: /opt/ros/noetic/include/moveit_msgs/Grasp.h
 robot_arm_test/CMakeFiles/test_custom_node.dir/src/test_custom.cpp.o: /opt/ros/noetic/include/moveit_msgs/GripperTranslation.h

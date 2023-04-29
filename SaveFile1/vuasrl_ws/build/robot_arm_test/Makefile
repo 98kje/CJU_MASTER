@@ -68,6 +68,16 @@ install/strip/fast: preinstall/fast
 	/usr/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
 .PHONY : install/strip/fast
 
+# Special rule for the target list_install_components
+list_install_components:
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Available install components are: \"Unspecified\""
+.PHONY : list_install_components
+
+# Special rule for the target list_install_components
+list_install_components/fast: list_install_components
+
+.PHONY : list_install_components/fast
+
 # Special rule for the target install
 install: preinstall
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Install the project..."
@@ -80,15 +90,16 @@ install/fast: preinstall/fast
 	/usr/bin/cmake -P cmake_install.cmake
 .PHONY : install/fast
 
-# Special rule for the target list_install_components
-list_install_components:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Available install components are: \"Unspecified\""
-.PHONY : list_install_components
+# Special rule for the target test
+test:
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running tests..."
+	/usr/bin/ctest --force-new-ctest-process $(ARGS)
+.PHONY : test
 
-# Special rule for the target list_install_components
-list_install_components/fast: list_install_components
+# Special rule for the target test
+test/fast: test
 
-.PHONY : list_install_components/fast
+.PHONY : test/fast
 
 # Special rule for the target edit_cache
 edit_cache:
@@ -101,16 +112,16 @@ edit_cache/fast: edit_cache
 
 .PHONY : edit_cache/fast
 
-# Special rule for the target test
-test:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running tests..."
-	/usr/bin/ctest --force-new-ctest-process $(ARGS)
-.PHONY : test
+# Special rule for the target rebuild_cache
+rebuild_cache:
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake to regenerate build system..."
+	/usr/bin/cmake -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
+.PHONY : rebuild_cache
 
-# Special rule for the target test
-test/fast: test
+# Special rule for the target rebuild_cache
+rebuild_cache/fast: rebuild_cache
 
-.PHONY : test/fast
+.PHONY : rebuild_cache/fast
 
 # Special rule for the target install/local
 install/local: preinstall
@@ -123,17 +134,6 @@ install/local/fast: preinstall/fast
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing only the local directory..."
 	/usr/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
 .PHONY : install/local/fast
-
-# Special rule for the target rebuild_cache
-rebuild_cache:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake to regenerate build system..."
-	/usr/bin/cmake -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
-.PHONY : rebuild_cache
-
-# Special rule for the target rebuild_cache
-rebuild_cache/fast: rebuild_cache
-
-.PHONY : rebuild_cache/fast
 
 # The main all target
 all: cmake_check_build_system
@@ -168,124 +168,64 @@ depend:
 .PHONY : depend
 
 # Convenience name for target.
-robot_arm_test/CMakeFiles/robot_arm_test_node.dir/rule:
-	cd /home/kimjaen/vuasrl_ws/build && $(MAKE) -f CMakeFiles/Makefile2 robot_arm_test/CMakeFiles/robot_arm_test_node.dir/rule
-.PHONY : robot_arm_test/CMakeFiles/robot_arm_test_node.dir/rule
+robot_arm_test/CMakeFiles/graph_msgs_generate_messages_nodejs.dir/rule:
+	cd /home/kimjaen/vuasrl_ws/build && $(MAKE) -f CMakeFiles/Makefile2 robot_arm_test/CMakeFiles/graph_msgs_generate_messages_nodejs.dir/rule
+.PHONY : robot_arm_test/CMakeFiles/graph_msgs_generate_messages_nodejs.dir/rule
 
 # Convenience name for target.
-robot_arm_test_node: robot_arm_test/CMakeFiles/robot_arm_test_node.dir/rule
+graph_msgs_generate_messages_nodejs: robot_arm_test/CMakeFiles/graph_msgs_generate_messages_nodejs.dir/rule
 
-.PHONY : robot_arm_test_node
+.PHONY : graph_msgs_generate_messages_nodejs
 
 # fast build rule for target.
-robot_arm_test_node/fast:
-	cd /home/kimjaen/vuasrl_ws/build && $(MAKE) -f robot_arm_test/CMakeFiles/robot_arm_test_node.dir/build.make robot_arm_test/CMakeFiles/robot_arm_test_node.dir/build
-.PHONY : robot_arm_test_node/fast
+graph_msgs_generate_messages_nodejs/fast:
+	cd /home/kimjaen/vuasrl_ws/build && $(MAKE) -f robot_arm_test/CMakeFiles/graph_msgs_generate_messages_nodejs.dir/build.make robot_arm_test/CMakeFiles/graph_msgs_generate_messages_nodejs.dir/build
+.PHONY : graph_msgs_generate_messages_nodejs/fast
 
 # Convenience name for target.
-robot_arm_test/CMakeFiles/move_group_interface_tutorial.dir/rule:
-	cd /home/kimjaen/vuasrl_ws/build && $(MAKE) -f CMakeFiles/Makefile2 robot_arm_test/CMakeFiles/move_group_interface_tutorial.dir/rule
-.PHONY : robot_arm_test/CMakeFiles/move_group_interface_tutorial.dir/rule
+robot_arm_test/CMakeFiles/nodelet_generate_messages_eus.dir/rule:
+	cd /home/kimjaen/vuasrl_ws/build && $(MAKE) -f CMakeFiles/Makefile2 robot_arm_test/CMakeFiles/nodelet_generate_messages_eus.dir/rule
+.PHONY : robot_arm_test/CMakeFiles/nodelet_generate_messages_eus.dir/rule
 
 # Convenience name for target.
-move_group_interface_tutorial: robot_arm_test/CMakeFiles/move_group_interface_tutorial.dir/rule
+nodelet_generate_messages_eus: robot_arm_test/CMakeFiles/nodelet_generate_messages_eus.dir/rule
 
-.PHONY : move_group_interface_tutorial
+.PHONY : nodelet_generate_messages_eus
 
 # fast build rule for target.
-move_group_interface_tutorial/fast:
-	cd /home/kimjaen/vuasrl_ws/build && $(MAKE) -f robot_arm_test/CMakeFiles/move_group_interface_tutorial.dir/build.make robot_arm_test/CMakeFiles/move_group_interface_tutorial.dir/build
-.PHONY : move_group_interface_tutorial/fast
+nodelet_generate_messages_eus/fast:
+	cd /home/kimjaen/vuasrl_ws/build && $(MAKE) -f robot_arm_test/CMakeFiles/nodelet_generate_messages_eus.dir/build.make robot_arm_test/CMakeFiles/nodelet_generate_messages_eus.dir/build
+.PHONY : nodelet_generate_messages_eus/fast
 
 # Convenience name for target.
-robot_arm_test/CMakeFiles/pick_place_action.dir/rule:
-	cd /home/kimjaen/vuasrl_ws/build && $(MAKE) -f CMakeFiles/Makefile2 robot_arm_test/CMakeFiles/pick_place_action.dir/rule
-.PHONY : robot_arm_test/CMakeFiles/pick_place_action.dir/rule
+robot_arm_test/CMakeFiles/graph_msgs_generate_messages_eus.dir/rule:
+	cd /home/kimjaen/vuasrl_ws/build && $(MAKE) -f CMakeFiles/Makefile2 robot_arm_test/CMakeFiles/graph_msgs_generate_messages_eus.dir/rule
+.PHONY : robot_arm_test/CMakeFiles/graph_msgs_generate_messages_eus.dir/rule
 
 # Convenience name for target.
-pick_place_action: robot_arm_test/CMakeFiles/pick_place_action.dir/rule
+graph_msgs_generate_messages_eus: robot_arm_test/CMakeFiles/graph_msgs_generate_messages_eus.dir/rule
 
-.PHONY : pick_place_action
+.PHONY : graph_msgs_generate_messages_eus
 
 # fast build rule for target.
-pick_place_action/fast:
-	cd /home/kimjaen/vuasrl_ws/build && $(MAKE) -f robot_arm_test/CMakeFiles/pick_place_action.dir/build.make robot_arm_test/CMakeFiles/pick_place_action.dir/build
-.PHONY : pick_place_action/fast
+graph_msgs_generate_messages_eus/fast:
+	cd /home/kimjaen/vuasrl_ws/build && $(MAKE) -f robot_arm_test/CMakeFiles/graph_msgs_generate_messages_eus.dir/build.make robot_arm_test/CMakeFiles/graph_msgs_generate_messages_eus.dir/build
+.PHONY : graph_msgs_generate_messages_eus/fast
 
 # Convenience name for target.
-robot_arm_test/CMakeFiles/remove_collision_objct.dir/rule:
-	cd /home/kimjaen/vuasrl_ws/build && $(MAKE) -f CMakeFiles/Makefile2 robot_arm_test/CMakeFiles/remove_collision_objct.dir/rule
-.PHONY : robot_arm_test/CMakeFiles/remove_collision_objct.dir/rule
+robot_arm_test/CMakeFiles/octomap_msgs_generate_messages_nodejs.dir/rule:
+	cd /home/kimjaen/vuasrl_ws/build && $(MAKE) -f CMakeFiles/Makefile2 robot_arm_test/CMakeFiles/octomap_msgs_generate_messages_nodejs.dir/rule
+.PHONY : robot_arm_test/CMakeFiles/octomap_msgs_generate_messages_nodejs.dir/rule
 
 # Convenience name for target.
-remove_collision_objct: robot_arm_test/CMakeFiles/remove_collision_objct.dir/rule
+octomap_msgs_generate_messages_nodejs: robot_arm_test/CMakeFiles/octomap_msgs_generate_messages_nodejs.dir/rule
 
-.PHONY : remove_collision_objct
+.PHONY : octomap_msgs_generate_messages_nodejs
 
 # fast build rule for target.
-remove_collision_objct/fast:
-	cd /home/kimjaen/vuasrl_ws/build && $(MAKE) -f robot_arm_test/CMakeFiles/remove_collision_objct.dir/build.make robot_arm_test/CMakeFiles/remove_collision_objct.dir/build
-.PHONY : remove_collision_objct/fast
-
-# Convenience name for target.
-robot_arm_test/CMakeFiles/test_custom_node.dir/rule:
-	cd /home/kimjaen/vuasrl_ws/build && $(MAKE) -f CMakeFiles/Makefile2 robot_arm_test/CMakeFiles/test_custom_node.dir/rule
-.PHONY : robot_arm_test/CMakeFiles/test_custom_node.dir/rule
-
-# Convenience name for target.
-test_custom_node: robot_arm_test/CMakeFiles/test_custom_node.dir/rule
-
-.PHONY : test_custom_node
-
-# fast build rule for target.
-test_custom_node/fast:
-	cd /home/kimjaen/vuasrl_ws/build && $(MAKE) -f robot_arm_test/CMakeFiles/test_custom_node.dir/build.make robot_arm_test/CMakeFiles/test_custom_node.dir/build
-.PHONY : test_custom_node/fast
-
-# Convenience name for target.
-robot_arm_test/CMakeFiles/test_random_node.dir/rule:
-	cd /home/kimjaen/vuasrl_ws/build && $(MAKE) -f CMakeFiles/Makefile2 robot_arm_test/CMakeFiles/test_random_node.dir/rule
-.PHONY : robot_arm_test/CMakeFiles/test_random_node.dir/rule
-
-# Convenience name for target.
-test_random_node: robot_arm_test/CMakeFiles/test_random_node.dir/rule
-
-.PHONY : test_random_node
-
-# fast build rule for target.
-test_random_node/fast:
-	cd /home/kimjaen/vuasrl_ws/build && $(MAKE) -f robot_arm_test/CMakeFiles/test_random_node.dir/build.make robot_arm_test/CMakeFiles/test_random_node.dir/build
-.PHONY : test_random_node/fast
-
-# Convenience name for target.
-robot_arm_test/CMakeFiles/std_srvs_generate_messages_lisp.dir/rule:
-	cd /home/kimjaen/vuasrl_ws/build && $(MAKE) -f CMakeFiles/Makefile2 robot_arm_test/CMakeFiles/std_srvs_generate_messages_lisp.dir/rule
-.PHONY : robot_arm_test/CMakeFiles/std_srvs_generate_messages_lisp.dir/rule
-
-# Convenience name for target.
-std_srvs_generate_messages_lisp: robot_arm_test/CMakeFiles/std_srvs_generate_messages_lisp.dir/rule
-
-.PHONY : std_srvs_generate_messages_lisp
-
-# fast build rule for target.
-std_srvs_generate_messages_lisp/fast:
-	cd /home/kimjaen/vuasrl_ws/build && $(MAKE) -f robot_arm_test/CMakeFiles/std_srvs_generate_messages_lisp.dir/build.make robot_arm_test/CMakeFiles/std_srvs_generate_messages_lisp.dir/build
-.PHONY : std_srvs_generate_messages_lisp/fast
-
-# Convenience name for target.
-robot_arm_test/CMakeFiles/std_srvs_generate_messages_eus.dir/rule:
-	cd /home/kimjaen/vuasrl_ws/build && $(MAKE) -f CMakeFiles/Makefile2 robot_arm_test/CMakeFiles/std_srvs_generate_messages_eus.dir/rule
-.PHONY : robot_arm_test/CMakeFiles/std_srvs_generate_messages_eus.dir/rule
-
-# Convenience name for target.
-std_srvs_generate_messages_eus: robot_arm_test/CMakeFiles/std_srvs_generate_messages_eus.dir/rule
-
-.PHONY : std_srvs_generate_messages_eus
-
-# fast build rule for target.
-std_srvs_generate_messages_eus/fast:
-	cd /home/kimjaen/vuasrl_ws/build && $(MAKE) -f robot_arm_test/CMakeFiles/std_srvs_generate_messages_eus.dir/build.make robot_arm_test/CMakeFiles/std_srvs_generate_messages_eus.dir/build
-.PHONY : std_srvs_generate_messages_eus/fast
+octomap_msgs_generate_messages_nodejs/fast:
+	cd /home/kimjaen/vuasrl_ws/build && $(MAKE) -f robot_arm_test/CMakeFiles/octomap_msgs_generate_messages_nodejs.dir/build.make robot_arm_test/CMakeFiles/octomap_msgs_generate_messages_nodejs.dir/build
+.PHONY : octomap_msgs_generate_messages_nodejs/fast
 
 # Convenience name for target.
 robot_arm_test/CMakeFiles/octomap_msgs_generate_messages_lisp.dir/rule:
@@ -301,21 +241,6 @@ octomap_msgs_generate_messages_lisp: robot_arm_test/CMakeFiles/octomap_msgs_gene
 octomap_msgs_generate_messages_lisp/fast:
 	cd /home/kimjaen/vuasrl_ws/build && $(MAKE) -f robot_arm_test/CMakeFiles/octomap_msgs_generate_messages_lisp.dir/build.make robot_arm_test/CMakeFiles/octomap_msgs_generate_messages_lisp.dir/build
 .PHONY : octomap_msgs_generate_messages_lisp/fast
-
-# Convenience name for target.
-robot_arm_test/CMakeFiles/std_srvs_generate_messages_py.dir/rule:
-	cd /home/kimjaen/vuasrl_ws/build && $(MAKE) -f CMakeFiles/Makefile2 robot_arm_test/CMakeFiles/std_srvs_generate_messages_py.dir/rule
-.PHONY : robot_arm_test/CMakeFiles/std_srvs_generate_messages_py.dir/rule
-
-# Convenience name for target.
-std_srvs_generate_messages_py: robot_arm_test/CMakeFiles/std_srvs_generate_messages_py.dir/rule
-
-.PHONY : std_srvs_generate_messages_py
-
-# fast build rule for target.
-std_srvs_generate_messages_py/fast:
-	cd /home/kimjaen/vuasrl_ws/build && $(MAKE) -f robot_arm_test/CMakeFiles/std_srvs_generate_messages_py.dir/build.make robot_arm_test/CMakeFiles/std_srvs_generate_messages_py.dir/build
-.PHONY : std_srvs_generate_messages_py/fast
 
 # Convenience name for target.
 robot_arm_test/CMakeFiles/moveit_ros_planning_gencfg.dir/rule:
@@ -348,6 +273,21 @@ object_recognition_msgs_generate_messages_nodejs/fast:
 .PHONY : object_recognition_msgs_generate_messages_nodejs/fast
 
 # Convenience name for target.
+robot_arm_test/CMakeFiles/test_random_node.dir/rule:
+	cd /home/kimjaen/vuasrl_ws/build && $(MAKE) -f CMakeFiles/Makefile2 robot_arm_test/CMakeFiles/test_random_node.dir/rule
+.PHONY : robot_arm_test/CMakeFiles/test_random_node.dir/rule
+
+# Convenience name for target.
+test_random_node: robot_arm_test/CMakeFiles/test_random_node.dir/rule
+
+.PHONY : test_random_node
+
+# fast build rule for target.
+test_random_node/fast:
+	cd /home/kimjaen/vuasrl_ws/build && $(MAKE) -f robot_arm_test/CMakeFiles/test_random_node.dir/build.make robot_arm_test/CMakeFiles/test_random_node.dir/build
+.PHONY : test_random_node/fast
+
+# Convenience name for target.
 robot_arm_test/CMakeFiles/object_recognition_msgs_generate_messages_eus.dir/rule:
 	cd /home/kimjaen/vuasrl_ws/build && $(MAKE) -f CMakeFiles/Makefile2 robot_arm_test/CMakeFiles/object_recognition_msgs_generate_messages_eus.dir/rule
 .PHONY : robot_arm_test/CMakeFiles/object_recognition_msgs_generate_messages_eus.dir/rule
@@ -363,124 +303,49 @@ object_recognition_msgs_generate_messages_eus/fast:
 .PHONY : object_recognition_msgs_generate_messages_eus/fast
 
 # Convenience name for target.
-robot_arm_test/CMakeFiles/trajectory_msgs_generate_messages_py.dir/rule:
-	cd /home/kimjaen/vuasrl_ws/build && $(MAKE) -f CMakeFiles/Makefile2 robot_arm_test/CMakeFiles/trajectory_msgs_generate_messages_py.dir/rule
-.PHONY : robot_arm_test/CMakeFiles/trajectory_msgs_generate_messages_py.dir/rule
+robot_arm_test/CMakeFiles/pick_place_action.dir/rule:
+	cd /home/kimjaen/vuasrl_ws/build && $(MAKE) -f CMakeFiles/Makefile2 robot_arm_test/CMakeFiles/pick_place_action.dir/rule
+.PHONY : robot_arm_test/CMakeFiles/pick_place_action.dir/rule
 
 # Convenience name for target.
-trajectory_msgs_generate_messages_py: robot_arm_test/CMakeFiles/trajectory_msgs_generate_messages_py.dir/rule
+pick_place_action: robot_arm_test/CMakeFiles/pick_place_action.dir/rule
 
-.PHONY : trajectory_msgs_generate_messages_py
+.PHONY : pick_place_action
 
 # fast build rule for target.
-trajectory_msgs_generate_messages_py/fast:
-	cd /home/kimjaen/vuasrl_ws/build && $(MAKE) -f robot_arm_test/CMakeFiles/trajectory_msgs_generate_messages_py.dir/build.make robot_arm_test/CMakeFiles/trajectory_msgs_generate_messages_py.dir/build
-.PHONY : trajectory_msgs_generate_messages_py/fast
+pick_place_action/fast:
+	cd /home/kimjaen/vuasrl_ws/build && $(MAKE) -f robot_arm_test/CMakeFiles/pick_place_action.dir/build.make robot_arm_test/CMakeFiles/pick_place_action.dir/build
+.PHONY : pick_place_action/fast
 
 # Convenience name for target.
-robot_arm_test/CMakeFiles/visualization_msgs_generate_messages_nodejs.dir/rule:
-	cd /home/kimjaen/vuasrl_ws/build && $(MAKE) -f CMakeFiles/Makefile2 robot_arm_test/CMakeFiles/visualization_msgs_generate_messages_nodejs.dir/rule
-.PHONY : robot_arm_test/CMakeFiles/visualization_msgs_generate_messages_nodejs.dir/rule
+robot_arm_test/CMakeFiles/move_group_interface_tutorial.dir/rule:
+	cd /home/kimjaen/vuasrl_ws/build && $(MAKE) -f CMakeFiles/Makefile2 robot_arm_test/CMakeFiles/move_group_interface_tutorial.dir/rule
+.PHONY : robot_arm_test/CMakeFiles/move_group_interface_tutorial.dir/rule
 
 # Convenience name for target.
-visualization_msgs_generate_messages_nodejs: robot_arm_test/CMakeFiles/visualization_msgs_generate_messages_nodejs.dir/rule
+move_group_interface_tutorial: robot_arm_test/CMakeFiles/move_group_interface_tutorial.dir/rule
 
-.PHONY : visualization_msgs_generate_messages_nodejs
+.PHONY : move_group_interface_tutorial
 
 # fast build rule for target.
-visualization_msgs_generate_messages_nodejs/fast:
-	cd /home/kimjaen/vuasrl_ws/build && $(MAKE) -f robot_arm_test/CMakeFiles/visualization_msgs_generate_messages_nodejs.dir/build.make robot_arm_test/CMakeFiles/visualization_msgs_generate_messages_nodejs.dir/build
-.PHONY : visualization_msgs_generate_messages_nodejs/fast
+move_group_interface_tutorial/fast:
+	cd /home/kimjaen/vuasrl_ws/build && $(MAKE) -f robot_arm_test/CMakeFiles/move_group_interface_tutorial.dir/build.make robot_arm_test/CMakeFiles/move_group_interface_tutorial.dir/build
+.PHONY : move_group_interface_tutorial/fast
 
 # Convenience name for target.
-robot_arm_test/CMakeFiles/octomap_msgs_generate_messages_nodejs.dir/rule:
-	cd /home/kimjaen/vuasrl_ws/build && $(MAKE) -f CMakeFiles/Makefile2 robot_arm_test/CMakeFiles/octomap_msgs_generate_messages_nodejs.dir/rule
-.PHONY : robot_arm_test/CMakeFiles/octomap_msgs_generate_messages_nodejs.dir/rule
+robot_arm_test/CMakeFiles/robot_arm_test_node.dir/rule:
+	cd /home/kimjaen/vuasrl_ws/build && $(MAKE) -f CMakeFiles/Makefile2 robot_arm_test/CMakeFiles/robot_arm_test_node.dir/rule
+.PHONY : robot_arm_test/CMakeFiles/robot_arm_test_node.dir/rule
 
 # Convenience name for target.
-octomap_msgs_generate_messages_nodejs: robot_arm_test/CMakeFiles/octomap_msgs_generate_messages_nodejs.dir/rule
+robot_arm_test_node: robot_arm_test/CMakeFiles/robot_arm_test_node.dir/rule
 
-.PHONY : octomap_msgs_generate_messages_nodejs
+.PHONY : robot_arm_test_node
 
 # fast build rule for target.
-octomap_msgs_generate_messages_nodejs/fast:
-	cd /home/kimjaen/vuasrl_ws/build && $(MAKE) -f robot_arm_test/CMakeFiles/octomap_msgs_generate_messages_nodejs.dir/build.make robot_arm_test/CMakeFiles/octomap_msgs_generate_messages_nodejs.dir/build
-.PHONY : octomap_msgs_generate_messages_nodejs/fast
-
-# Convenience name for target.
-robot_arm_test/CMakeFiles/graph_msgs_generate_messages_eus.dir/rule:
-	cd /home/kimjaen/vuasrl_ws/build && $(MAKE) -f CMakeFiles/Makefile2 robot_arm_test/CMakeFiles/graph_msgs_generate_messages_eus.dir/rule
-.PHONY : robot_arm_test/CMakeFiles/graph_msgs_generate_messages_eus.dir/rule
-
-# Convenience name for target.
-graph_msgs_generate_messages_eus: robot_arm_test/CMakeFiles/graph_msgs_generate_messages_eus.dir/rule
-
-.PHONY : graph_msgs_generate_messages_eus
-
-# fast build rule for target.
-graph_msgs_generate_messages_eus/fast:
-	cd /home/kimjaen/vuasrl_ws/build && $(MAKE) -f robot_arm_test/CMakeFiles/graph_msgs_generate_messages_eus.dir/build.make robot_arm_test/CMakeFiles/graph_msgs_generate_messages_eus.dir/build
-.PHONY : graph_msgs_generate_messages_eus/fast
-
-# Convenience name for target.
-robot_arm_test/CMakeFiles/trajectory_msgs_generate_messages_nodejs.dir/rule:
-	cd /home/kimjaen/vuasrl_ws/build && $(MAKE) -f CMakeFiles/Makefile2 robot_arm_test/CMakeFiles/trajectory_msgs_generate_messages_nodejs.dir/rule
-.PHONY : robot_arm_test/CMakeFiles/trajectory_msgs_generate_messages_nodejs.dir/rule
-
-# Convenience name for target.
-trajectory_msgs_generate_messages_nodejs: robot_arm_test/CMakeFiles/trajectory_msgs_generate_messages_nodejs.dir/rule
-
-.PHONY : trajectory_msgs_generate_messages_nodejs
-
-# fast build rule for target.
-trajectory_msgs_generate_messages_nodejs/fast:
-	cd /home/kimjaen/vuasrl_ws/build && $(MAKE) -f robot_arm_test/CMakeFiles/trajectory_msgs_generate_messages_nodejs.dir/build.make robot_arm_test/CMakeFiles/trajectory_msgs_generate_messages_nodejs.dir/build
-.PHONY : trajectory_msgs_generate_messages_nodejs/fast
-
-# Convenience name for target.
-robot_arm_test/CMakeFiles/trajectory_msgs_generate_messages_eus.dir/rule:
-	cd /home/kimjaen/vuasrl_ws/build && $(MAKE) -f CMakeFiles/Makefile2 robot_arm_test/CMakeFiles/trajectory_msgs_generate_messages_eus.dir/rule
-.PHONY : robot_arm_test/CMakeFiles/trajectory_msgs_generate_messages_eus.dir/rule
-
-# Convenience name for target.
-trajectory_msgs_generate_messages_eus: robot_arm_test/CMakeFiles/trajectory_msgs_generate_messages_eus.dir/rule
-
-.PHONY : trajectory_msgs_generate_messages_eus
-
-# fast build rule for target.
-trajectory_msgs_generate_messages_eus/fast:
-	cd /home/kimjaen/vuasrl_ws/build && $(MAKE) -f robot_arm_test/CMakeFiles/trajectory_msgs_generate_messages_eus.dir/build.make robot_arm_test/CMakeFiles/trajectory_msgs_generate_messages_eus.dir/build
-.PHONY : trajectory_msgs_generate_messages_eus/fast
-
-# Convenience name for target.
-robot_arm_test/CMakeFiles/graph_msgs_generate_messages_nodejs.dir/rule:
-	cd /home/kimjaen/vuasrl_ws/build && $(MAKE) -f CMakeFiles/Makefile2 robot_arm_test/CMakeFiles/graph_msgs_generate_messages_nodejs.dir/rule
-.PHONY : robot_arm_test/CMakeFiles/graph_msgs_generate_messages_nodejs.dir/rule
-
-# Convenience name for target.
-graph_msgs_generate_messages_nodejs: robot_arm_test/CMakeFiles/graph_msgs_generate_messages_nodejs.dir/rule
-
-.PHONY : graph_msgs_generate_messages_nodejs
-
-# fast build rule for target.
-graph_msgs_generate_messages_nodejs/fast:
-	cd /home/kimjaen/vuasrl_ws/build && $(MAKE) -f robot_arm_test/CMakeFiles/graph_msgs_generate_messages_nodejs.dir/build.make robot_arm_test/CMakeFiles/graph_msgs_generate_messages_nodejs.dir/build
-.PHONY : graph_msgs_generate_messages_nodejs/fast
-
-# Convenience name for target.
-robot_arm_test/CMakeFiles/nodelet_generate_messages_eus.dir/rule:
-	cd /home/kimjaen/vuasrl_ws/build && $(MAKE) -f CMakeFiles/Makefile2 robot_arm_test/CMakeFiles/nodelet_generate_messages_eus.dir/rule
-.PHONY : robot_arm_test/CMakeFiles/nodelet_generate_messages_eus.dir/rule
-
-# Convenience name for target.
-nodelet_generate_messages_eus: robot_arm_test/CMakeFiles/nodelet_generate_messages_eus.dir/rule
-
-.PHONY : nodelet_generate_messages_eus
-
-# fast build rule for target.
-nodelet_generate_messages_eus/fast:
-	cd /home/kimjaen/vuasrl_ws/build && $(MAKE) -f robot_arm_test/CMakeFiles/nodelet_generate_messages_eus.dir/build.make robot_arm_test/CMakeFiles/nodelet_generate_messages_eus.dir/build
-.PHONY : nodelet_generate_messages_eus/fast
+robot_arm_test_node/fast:
+	cd /home/kimjaen/vuasrl_ws/build && $(MAKE) -f robot_arm_test/CMakeFiles/robot_arm_test_node.dir/build.make robot_arm_test/CMakeFiles/robot_arm_test_node.dir/build
+.PHONY : robot_arm_test_node/fast
 
 # Convenience name for target.
 robot_arm_test/CMakeFiles/octomap_msgs_generate_messages_cpp.dir/rule:
@@ -496,36 +361,6 @@ octomap_msgs_generate_messages_cpp: robot_arm_test/CMakeFiles/octomap_msgs_gener
 octomap_msgs_generate_messages_cpp/fast:
 	cd /home/kimjaen/vuasrl_ws/build && $(MAKE) -f robot_arm_test/CMakeFiles/octomap_msgs_generate_messages_cpp.dir/build.make robot_arm_test/CMakeFiles/octomap_msgs_generate_messages_cpp.dir/build
 .PHONY : octomap_msgs_generate_messages_cpp/fast
-
-# Convenience name for target.
-robot_arm_test/CMakeFiles/dynamic_reconfigure_generate_messages_eus.dir/rule:
-	cd /home/kimjaen/vuasrl_ws/build && $(MAKE) -f CMakeFiles/Makefile2 robot_arm_test/CMakeFiles/dynamic_reconfigure_generate_messages_eus.dir/rule
-.PHONY : robot_arm_test/CMakeFiles/dynamic_reconfigure_generate_messages_eus.dir/rule
-
-# Convenience name for target.
-dynamic_reconfigure_generate_messages_eus: robot_arm_test/CMakeFiles/dynamic_reconfigure_generate_messages_eus.dir/rule
-
-.PHONY : dynamic_reconfigure_generate_messages_eus
-
-# fast build rule for target.
-dynamic_reconfigure_generate_messages_eus/fast:
-	cd /home/kimjaen/vuasrl_ws/build && $(MAKE) -f robot_arm_test/CMakeFiles/dynamic_reconfigure_generate_messages_eus.dir/build.make robot_arm_test/CMakeFiles/dynamic_reconfigure_generate_messages_eus.dir/build
-.PHONY : dynamic_reconfigure_generate_messages_eus/fast
-
-# Convenience name for target.
-robot_arm_test/CMakeFiles/dynamic_reconfigure_gencfg.dir/rule:
-	cd /home/kimjaen/vuasrl_ws/build && $(MAKE) -f CMakeFiles/Makefile2 robot_arm_test/CMakeFiles/dynamic_reconfigure_gencfg.dir/rule
-.PHONY : robot_arm_test/CMakeFiles/dynamic_reconfigure_gencfg.dir/rule
-
-# Convenience name for target.
-dynamic_reconfigure_gencfg: robot_arm_test/CMakeFiles/dynamic_reconfigure_gencfg.dir/rule
-
-.PHONY : dynamic_reconfigure_gencfg
-
-# fast build rule for target.
-dynamic_reconfigure_gencfg/fast:
-	cd /home/kimjaen/vuasrl_ws/build && $(MAKE) -f robot_arm_test/CMakeFiles/dynamic_reconfigure_gencfg.dir/build.make robot_arm_test/CMakeFiles/dynamic_reconfigure_gencfg.dir/build
-.PHONY : dynamic_reconfigure_gencfg/fast
 
 # Convenience name for target.
 robot_arm_test/CMakeFiles/nodelet_generate_messages_cpp.dir/rule:
@@ -603,6 +438,36 @@ graph_msgs_generate_messages_py/fast:
 .PHONY : graph_msgs_generate_messages_py/fast
 
 # Convenience name for target.
+robot_arm_test/CMakeFiles/graph_msgs_generate_messages_cpp.dir/rule:
+	cd /home/kimjaen/vuasrl_ws/build && $(MAKE) -f CMakeFiles/Makefile2 robot_arm_test/CMakeFiles/graph_msgs_generate_messages_cpp.dir/rule
+.PHONY : robot_arm_test/CMakeFiles/graph_msgs_generate_messages_cpp.dir/rule
+
+# Convenience name for target.
+graph_msgs_generate_messages_cpp: robot_arm_test/CMakeFiles/graph_msgs_generate_messages_cpp.dir/rule
+
+.PHONY : graph_msgs_generate_messages_cpp
+
+# fast build rule for target.
+graph_msgs_generate_messages_cpp/fast:
+	cd /home/kimjaen/vuasrl_ws/build && $(MAKE) -f robot_arm_test/CMakeFiles/graph_msgs_generate_messages_cpp.dir/build.make robot_arm_test/CMakeFiles/graph_msgs_generate_messages_cpp.dir/build
+.PHONY : graph_msgs_generate_messages_cpp/fast
+
+# Convenience name for target.
+robot_arm_test/CMakeFiles/add_collision_object.dir/rule:
+	cd /home/kimjaen/vuasrl_ws/build && $(MAKE) -f CMakeFiles/Makefile2 robot_arm_test/CMakeFiles/add_collision_object.dir/rule
+.PHONY : robot_arm_test/CMakeFiles/add_collision_object.dir/rule
+
+# Convenience name for target.
+add_collision_object: robot_arm_test/CMakeFiles/add_collision_object.dir/rule
+
+.PHONY : add_collision_object
+
+# fast build rule for target.
+add_collision_object/fast:
+	cd /home/kimjaen/vuasrl_ws/build && $(MAKE) -f robot_arm_test/CMakeFiles/add_collision_object.dir/build.make robot_arm_test/CMakeFiles/add_collision_object.dir/build
+.PHONY : add_collision_object/fast
+
+# Convenience name for target.
 robot_arm_test/CMakeFiles/visualization_msgs_generate_messages_lisp.dir/rule:
 	cd /home/kimjaen/vuasrl_ws/build && $(MAKE) -f CMakeFiles/Makefile2 robot_arm_test/CMakeFiles/visualization_msgs_generate_messages_lisp.dir/rule
 .PHONY : robot_arm_test/CMakeFiles/visualization_msgs_generate_messages_lisp.dir/rule
@@ -663,19 +528,19 @@ object_recognition_msgs_generate_messages_lisp/fast:
 .PHONY : object_recognition_msgs_generate_messages_lisp/fast
 
 # Convenience name for target.
-robot_arm_test/CMakeFiles/shape_msgs_generate_messages_eus.dir/rule:
-	cd /home/kimjaen/vuasrl_ws/build && $(MAKE) -f CMakeFiles/Makefile2 robot_arm_test/CMakeFiles/shape_msgs_generate_messages_eus.dir/rule
-.PHONY : robot_arm_test/CMakeFiles/shape_msgs_generate_messages_eus.dir/rule
+robot_arm_test/CMakeFiles/visualization_msgs_generate_messages_nodejs.dir/rule:
+	cd /home/kimjaen/vuasrl_ws/build && $(MAKE) -f CMakeFiles/Makefile2 robot_arm_test/CMakeFiles/visualization_msgs_generate_messages_nodejs.dir/rule
+.PHONY : robot_arm_test/CMakeFiles/visualization_msgs_generate_messages_nodejs.dir/rule
 
 # Convenience name for target.
-shape_msgs_generate_messages_eus: robot_arm_test/CMakeFiles/shape_msgs_generate_messages_eus.dir/rule
+visualization_msgs_generate_messages_nodejs: robot_arm_test/CMakeFiles/visualization_msgs_generate_messages_nodejs.dir/rule
 
-.PHONY : shape_msgs_generate_messages_eus
+.PHONY : visualization_msgs_generate_messages_nodejs
 
 # fast build rule for target.
-shape_msgs_generate_messages_eus/fast:
-	cd /home/kimjaen/vuasrl_ws/build && $(MAKE) -f robot_arm_test/CMakeFiles/shape_msgs_generate_messages_eus.dir/build.make robot_arm_test/CMakeFiles/shape_msgs_generate_messages_eus.dir/build
-.PHONY : shape_msgs_generate_messages_eus/fast
+visualization_msgs_generate_messages_nodejs/fast:
+	cd /home/kimjaen/vuasrl_ws/build && $(MAKE) -f robot_arm_test/CMakeFiles/visualization_msgs_generate_messages_nodejs.dir/build.make robot_arm_test/CMakeFiles/visualization_msgs_generate_messages_nodejs.dir/build
+.PHONY : visualization_msgs_generate_messages_nodejs/fast
 
 # Convenience name for target.
 robot_arm_test/CMakeFiles/moveit_msgs_generate_messages_lisp.dir/rule:
@@ -693,259 +558,19 @@ moveit_msgs_generate_messages_lisp/fast:
 .PHONY : moveit_msgs_generate_messages_lisp/fast
 
 # Convenience name for target.
-robot_arm_test/CMakeFiles/dynamic_reconfigure_generate_messages_py.dir/rule:
-	cd /home/kimjaen/vuasrl_ws/build && $(MAKE) -f CMakeFiles/Makefile2 robot_arm_test/CMakeFiles/dynamic_reconfigure_generate_messages_py.dir/rule
-.PHONY : robot_arm_test/CMakeFiles/dynamic_reconfigure_generate_messages_py.dir/rule
+robot_arm_test/CMakeFiles/graph_msgs_generate_messages_lisp.dir/rule:
+	cd /home/kimjaen/vuasrl_ws/build && $(MAKE) -f CMakeFiles/Makefile2 robot_arm_test/CMakeFiles/graph_msgs_generate_messages_lisp.dir/rule
+.PHONY : robot_arm_test/CMakeFiles/graph_msgs_generate_messages_lisp.dir/rule
 
 # Convenience name for target.
-dynamic_reconfigure_generate_messages_py: robot_arm_test/CMakeFiles/dynamic_reconfigure_generate_messages_py.dir/rule
+graph_msgs_generate_messages_lisp: robot_arm_test/CMakeFiles/graph_msgs_generate_messages_lisp.dir/rule
 
-.PHONY : dynamic_reconfigure_generate_messages_py
+.PHONY : graph_msgs_generate_messages_lisp
 
 # fast build rule for target.
-dynamic_reconfigure_generate_messages_py/fast:
-	cd /home/kimjaen/vuasrl_ws/build && $(MAKE) -f robot_arm_test/CMakeFiles/dynamic_reconfigure_generate_messages_py.dir/build.make robot_arm_test/CMakeFiles/dynamic_reconfigure_generate_messages_py.dir/build
-.PHONY : dynamic_reconfigure_generate_messages_py/fast
-
-# Convenience name for target.
-robot_arm_test/CMakeFiles/iksolution.dir/rule:
-	cd /home/kimjaen/vuasrl_ws/build && $(MAKE) -f CMakeFiles/Makefile2 robot_arm_test/CMakeFiles/iksolution.dir/rule
-.PHONY : robot_arm_test/CMakeFiles/iksolution.dir/rule
-
-# Convenience name for target.
-iksolution: robot_arm_test/CMakeFiles/iksolution.dir/rule
-
-.PHONY : iksolution
-
-# fast build rule for target.
-iksolution/fast:
-	cd /home/kimjaen/vuasrl_ws/build && $(MAKE) -f robot_arm_test/CMakeFiles/iksolution.dir/build.make robot_arm_test/CMakeFiles/iksolution.dir/build
-.PHONY : iksolution/fast
-
-# Convenience name for target.
-robot_arm_test/CMakeFiles/visualization_msgs_generate_messages_py.dir/rule:
-	cd /home/kimjaen/vuasrl_ws/build && $(MAKE) -f CMakeFiles/Makefile2 robot_arm_test/CMakeFiles/visualization_msgs_generate_messages_py.dir/rule
-.PHONY : robot_arm_test/CMakeFiles/visualization_msgs_generate_messages_py.dir/rule
-
-# Convenience name for target.
-visualization_msgs_generate_messages_py: robot_arm_test/CMakeFiles/visualization_msgs_generate_messages_py.dir/rule
-
-.PHONY : visualization_msgs_generate_messages_py
-
-# fast build rule for target.
-visualization_msgs_generate_messages_py/fast:
-	cd /home/kimjaen/vuasrl_ws/build && $(MAKE) -f robot_arm_test/CMakeFiles/visualization_msgs_generate_messages_py.dir/build.make robot_arm_test/CMakeFiles/visualization_msgs_generate_messages_py.dir/build
-.PHONY : visualization_msgs_generate_messages_py/fast
-
-# Convenience name for target.
-robot_arm_test/CMakeFiles/dynamic_reconfigure_generate_messages_lisp.dir/rule:
-	cd /home/kimjaen/vuasrl_ws/build && $(MAKE) -f CMakeFiles/Makefile2 robot_arm_test/CMakeFiles/dynamic_reconfigure_generate_messages_lisp.dir/rule
-.PHONY : robot_arm_test/CMakeFiles/dynamic_reconfigure_generate_messages_lisp.dir/rule
-
-# Convenience name for target.
-dynamic_reconfigure_generate_messages_lisp: robot_arm_test/CMakeFiles/dynamic_reconfigure_generate_messages_lisp.dir/rule
-
-.PHONY : dynamic_reconfigure_generate_messages_lisp
-
-# fast build rule for target.
-dynamic_reconfigure_generate_messages_lisp/fast:
-	cd /home/kimjaen/vuasrl_ws/build && $(MAKE) -f robot_arm_test/CMakeFiles/dynamic_reconfigure_generate_messages_lisp.dir/build.make robot_arm_test/CMakeFiles/dynamic_reconfigure_generate_messages_lisp.dir/build
-.PHONY : dynamic_reconfigure_generate_messages_lisp/fast
-
-# Convenience name for target.
-robot_arm_test/CMakeFiles/object_recognition_msgs_generate_messages_py.dir/rule:
-	cd /home/kimjaen/vuasrl_ws/build && $(MAKE) -f CMakeFiles/Makefile2 robot_arm_test/CMakeFiles/object_recognition_msgs_generate_messages_py.dir/rule
-.PHONY : robot_arm_test/CMakeFiles/object_recognition_msgs_generate_messages_py.dir/rule
-
-# Convenience name for target.
-object_recognition_msgs_generate_messages_py: robot_arm_test/CMakeFiles/object_recognition_msgs_generate_messages_py.dir/rule
-
-.PHONY : object_recognition_msgs_generate_messages_py
-
-# fast build rule for target.
-object_recognition_msgs_generate_messages_py/fast:
-	cd /home/kimjaen/vuasrl_ws/build && $(MAKE) -f robot_arm_test/CMakeFiles/object_recognition_msgs_generate_messages_py.dir/build.make robot_arm_test/CMakeFiles/object_recognition_msgs_generate_messages_py.dir/build
-.PHONY : object_recognition_msgs_generate_messages_py/fast
-
-# Convenience name for target.
-robot_arm_test/CMakeFiles/bond_generate_messages_eus.dir/rule:
-	cd /home/kimjaen/vuasrl_ws/build && $(MAKE) -f CMakeFiles/Makefile2 robot_arm_test/CMakeFiles/bond_generate_messages_eus.dir/rule
-.PHONY : robot_arm_test/CMakeFiles/bond_generate_messages_eus.dir/rule
-
-# Convenience name for target.
-bond_generate_messages_eus: robot_arm_test/CMakeFiles/bond_generate_messages_eus.dir/rule
-
-.PHONY : bond_generate_messages_eus
-
-# fast build rule for target.
-bond_generate_messages_eus/fast:
-	cd /home/kimjaen/vuasrl_ws/build && $(MAKE) -f robot_arm_test/CMakeFiles/bond_generate_messages_eus.dir/build.make robot_arm_test/CMakeFiles/bond_generate_messages_eus.dir/build
-.PHONY : bond_generate_messages_eus/fast
-
-# Convenience name for target.
-robot_arm_test/CMakeFiles/trajectory_msgs_generate_messages_cpp.dir/rule:
-	cd /home/kimjaen/vuasrl_ws/build && $(MAKE) -f CMakeFiles/Makefile2 robot_arm_test/CMakeFiles/trajectory_msgs_generate_messages_cpp.dir/rule
-.PHONY : robot_arm_test/CMakeFiles/trajectory_msgs_generate_messages_cpp.dir/rule
-
-# Convenience name for target.
-trajectory_msgs_generate_messages_cpp: robot_arm_test/CMakeFiles/trajectory_msgs_generate_messages_cpp.dir/rule
-
-.PHONY : trajectory_msgs_generate_messages_cpp
-
-# fast build rule for target.
-trajectory_msgs_generate_messages_cpp/fast:
-	cd /home/kimjaen/vuasrl_ws/build && $(MAKE) -f robot_arm_test/CMakeFiles/trajectory_msgs_generate_messages_cpp.dir/build.make robot_arm_test/CMakeFiles/trajectory_msgs_generate_messages_cpp.dir/build
-.PHONY : trajectory_msgs_generate_messages_cpp/fast
-
-# Convenience name for target.
-robot_arm_test/CMakeFiles/shape_msgs_generate_messages_nodejs.dir/rule:
-	cd /home/kimjaen/vuasrl_ws/build && $(MAKE) -f CMakeFiles/Makefile2 robot_arm_test/CMakeFiles/shape_msgs_generate_messages_nodejs.dir/rule
-.PHONY : robot_arm_test/CMakeFiles/shape_msgs_generate_messages_nodejs.dir/rule
-
-# Convenience name for target.
-shape_msgs_generate_messages_nodejs: robot_arm_test/CMakeFiles/shape_msgs_generate_messages_nodejs.dir/rule
-
-.PHONY : shape_msgs_generate_messages_nodejs
-
-# fast build rule for target.
-shape_msgs_generate_messages_nodejs/fast:
-	cd /home/kimjaen/vuasrl_ws/build && $(MAKE) -f robot_arm_test/CMakeFiles/shape_msgs_generate_messages_nodejs.dir/build.make robot_arm_test/CMakeFiles/shape_msgs_generate_messages_nodejs.dir/build
-.PHONY : shape_msgs_generate_messages_nodejs/fast
-
-# Convenience name for target.
-robot_arm_test/CMakeFiles/tf_generate_messages_py.dir/rule:
-	cd /home/kimjaen/vuasrl_ws/build && $(MAKE) -f CMakeFiles/Makefile2 robot_arm_test/CMakeFiles/tf_generate_messages_py.dir/rule
-.PHONY : robot_arm_test/CMakeFiles/tf_generate_messages_py.dir/rule
-
-# Convenience name for target.
-tf_generate_messages_py: robot_arm_test/CMakeFiles/tf_generate_messages_py.dir/rule
-
-.PHONY : tf_generate_messages_py
-
-# fast build rule for target.
-tf_generate_messages_py/fast:
-	cd /home/kimjaen/vuasrl_ws/build && $(MAKE) -f robot_arm_test/CMakeFiles/tf_generate_messages_py.dir/build.make robot_arm_test/CMakeFiles/tf_generate_messages_py.dir/build
-.PHONY : tf_generate_messages_py/fast
-
-# Convenience name for target.
-robot_arm_test/CMakeFiles/pick_place.dir/rule:
-	cd /home/kimjaen/vuasrl_ws/build && $(MAKE) -f CMakeFiles/Makefile2 robot_arm_test/CMakeFiles/pick_place.dir/rule
-.PHONY : robot_arm_test/CMakeFiles/pick_place.dir/rule
-
-# Convenience name for target.
-pick_place: robot_arm_test/CMakeFiles/pick_place.dir/rule
-
-.PHONY : pick_place
-
-# fast build rule for target.
-pick_place/fast:
-	cd /home/kimjaen/vuasrl_ws/build && $(MAKE) -f robot_arm_test/CMakeFiles/pick_place.dir/build.make robot_arm_test/CMakeFiles/pick_place.dir/build
-.PHONY : pick_place/fast
-
-# Convenience name for target.
-robot_arm_test/CMakeFiles/shape_msgs_generate_messages_py.dir/rule:
-	cd /home/kimjaen/vuasrl_ws/build && $(MAKE) -f CMakeFiles/Makefile2 robot_arm_test/CMakeFiles/shape_msgs_generate_messages_py.dir/rule
-.PHONY : robot_arm_test/CMakeFiles/shape_msgs_generate_messages_py.dir/rule
-
-# Convenience name for target.
-shape_msgs_generate_messages_py: robot_arm_test/CMakeFiles/shape_msgs_generate_messages_py.dir/rule
-
-.PHONY : shape_msgs_generate_messages_py
-
-# fast build rule for target.
-shape_msgs_generate_messages_py/fast:
-	cd /home/kimjaen/vuasrl_ws/build && $(MAKE) -f robot_arm_test/CMakeFiles/shape_msgs_generate_messages_py.dir/build.make robot_arm_test/CMakeFiles/shape_msgs_generate_messages_py.dir/build
-.PHONY : shape_msgs_generate_messages_py/fast
-
-# Convenience name for target.
-robot_arm_test/CMakeFiles/shape_msgs_generate_messages_lisp.dir/rule:
-	cd /home/kimjaen/vuasrl_ws/build && $(MAKE) -f CMakeFiles/Makefile2 robot_arm_test/CMakeFiles/shape_msgs_generate_messages_lisp.dir/rule
-.PHONY : robot_arm_test/CMakeFiles/shape_msgs_generate_messages_lisp.dir/rule
-
-# Convenience name for target.
-shape_msgs_generate_messages_lisp: robot_arm_test/CMakeFiles/shape_msgs_generate_messages_lisp.dir/rule
-
-.PHONY : shape_msgs_generate_messages_lisp
-
-# fast build rule for target.
-shape_msgs_generate_messages_lisp/fast:
-	cd /home/kimjaen/vuasrl_ws/build && $(MAKE) -f robot_arm_test/CMakeFiles/shape_msgs_generate_messages_lisp.dir/build.make robot_arm_test/CMakeFiles/shape_msgs_generate_messages_lisp.dir/build
-.PHONY : shape_msgs_generate_messages_lisp/fast
-
-# Convenience name for target.
-robot_arm_test/CMakeFiles/trajectory_msgs_generate_messages_lisp.dir/rule:
-	cd /home/kimjaen/vuasrl_ws/build && $(MAKE) -f CMakeFiles/Makefile2 robot_arm_test/CMakeFiles/trajectory_msgs_generate_messages_lisp.dir/rule
-.PHONY : robot_arm_test/CMakeFiles/trajectory_msgs_generate_messages_lisp.dir/rule
-
-# Convenience name for target.
-trajectory_msgs_generate_messages_lisp: robot_arm_test/CMakeFiles/trajectory_msgs_generate_messages_lisp.dir/rule
-
-.PHONY : trajectory_msgs_generate_messages_lisp
-
-# fast build rule for target.
-trajectory_msgs_generate_messages_lisp/fast:
-	cd /home/kimjaen/vuasrl_ws/build && $(MAKE) -f robot_arm_test/CMakeFiles/trajectory_msgs_generate_messages_lisp.dir/build.make robot_arm_test/CMakeFiles/trajectory_msgs_generate_messages_lisp.dir/build
-.PHONY : trajectory_msgs_generate_messages_lisp/fast
-
-# Convenience name for target.
-robot_arm_test/CMakeFiles/moveit_msgs_generate_messages_cpp.dir/rule:
-	cd /home/kimjaen/vuasrl_ws/build && $(MAKE) -f CMakeFiles/Makefile2 robot_arm_test/CMakeFiles/moveit_msgs_generate_messages_cpp.dir/rule
-.PHONY : robot_arm_test/CMakeFiles/moveit_msgs_generate_messages_cpp.dir/rule
-
-# Convenience name for target.
-moveit_msgs_generate_messages_cpp: robot_arm_test/CMakeFiles/moveit_msgs_generate_messages_cpp.dir/rule
-
-.PHONY : moveit_msgs_generate_messages_cpp
-
-# fast build rule for target.
-moveit_msgs_generate_messages_cpp/fast:
-	cd /home/kimjaen/vuasrl_ws/build && $(MAKE) -f robot_arm_test/CMakeFiles/moveit_msgs_generate_messages_cpp.dir/build.make robot_arm_test/CMakeFiles/moveit_msgs_generate_messages_cpp.dir/build
-.PHONY : moveit_msgs_generate_messages_cpp/fast
-
-# Convenience name for target.
-robot_arm_test/CMakeFiles/moveit_msgs_generate_messages_eus.dir/rule:
-	cd /home/kimjaen/vuasrl_ws/build && $(MAKE) -f CMakeFiles/Makefile2 robot_arm_test/CMakeFiles/moveit_msgs_generate_messages_eus.dir/rule
-.PHONY : robot_arm_test/CMakeFiles/moveit_msgs_generate_messages_eus.dir/rule
-
-# Convenience name for target.
-moveit_msgs_generate_messages_eus: robot_arm_test/CMakeFiles/moveit_msgs_generate_messages_eus.dir/rule
-
-.PHONY : moveit_msgs_generate_messages_eus
-
-# fast build rule for target.
-moveit_msgs_generate_messages_eus/fast:
-	cd /home/kimjaen/vuasrl_ws/build && $(MAKE) -f robot_arm_test/CMakeFiles/moveit_msgs_generate_messages_eus.dir/build.make robot_arm_test/CMakeFiles/moveit_msgs_generate_messages_eus.dir/build
-.PHONY : moveit_msgs_generate_messages_eus/fast
-
-# Convenience name for target.
-robot_arm_test/CMakeFiles/add_collision_object.dir/rule:
-	cd /home/kimjaen/vuasrl_ws/build && $(MAKE) -f CMakeFiles/Makefile2 robot_arm_test/CMakeFiles/add_collision_object.dir/rule
-.PHONY : robot_arm_test/CMakeFiles/add_collision_object.dir/rule
-
-# Convenience name for target.
-add_collision_object: robot_arm_test/CMakeFiles/add_collision_object.dir/rule
-
-.PHONY : add_collision_object
-
-# fast build rule for target.
-add_collision_object/fast:
-	cd /home/kimjaen/vuasrl_ws/build && $(MAKE) -f robot_arm_test/CMakeFiles/add_collision_object.dir/build.make robot_arm_test/CMakeFiles/add_collision_object.dir/build
-.PHONY : add_collision_object/fast
-
-# Convenience name for target.
-robot_arm_test/CMakeFiles/graph_msgs_generate_messages_cpp.dir/rule:
-	cd /home/kimjaen/vuasrl_ws/build && $(MAKE) -f CMakeFiles/Makefile2 robot_arm_test/CMakeFiles/graph_msgs_generate_messages_cpp.dir/rule
-.PHONY : robot_arm_test/CMakeFiles/graph_msgs_generate_messages_cpp.dir/rule
-
-# Convenience name for target.
-graph_msgs_generate_messages_cpp: robot_arm_test/CMakeFiles/graph_msgs_generate_messages_cpp.dir/rule
-
-.PHONY : graph_msgs_generate_messages_cpp
-
-# fast build rule for target.
-graph_msgs_generate_messages_cpp/fast:
-	cd /home/kimjaen/vuasrl_ws/build && $(MAKE) -f robot_arm_test/CMakeFiles/graph_msgs_generate_messages_cpp.dir/build.make robot_arm_test/CMakeFiles/graph_msgs_generate_messages_cpp.dir/build
-.PHONY : graph_msgs_generate_messages_cpp/fast
+graph_msgs_generate_messages_lisp/fast:
+	cd /home/kimjaen/vuasrl_ws/build && $(MAKE) -f robot_arm_test/CMakeFiles/graph_msgs_generate_messages_lisp.dir/build.make robot_arm_test/CMakeFiles/graph_msgs_generate_messages_lisp.dir/build
+.PHONY : graph_msgs_generate_messages_lisp/fast
 
 # Convenience name for target.
 robot_arm_test/CMakeFiles/attach_detach_object.dir/rule:
@@ -978,49 +603,49 @@ moveit_msgs_generate_messages_nodejs/fast:
 .PHONY : moveit_msgs_generate_messages_nodejs/fast
 
 # Convenience name for target.
-robot_arm_test/CMakeFiles/graph_msgs_generate_messages_lisp.dir/rule:
-	cd /home/kimjaen/vuasrl_ws/build && $(MAKE) -f CMakeFiles/Makefile2 robot_arm_test/CMakeFiles/graph_msgs_generate_messages_lisp.dir/rule
-.PHONY : robot_arm_test/CMakeFiles/graph_msgs_generate_messages_lisp.dir/rule
+robot_arm_test/CMakeFiles/test_custom_node.dir/rule:
+	cd /home/kimjaen/vuasrl_ws/build && $(MAKE) -f CMakeFiles/Makefile2 robot_arm_test/CMakeFiles/test_custom_node.dir/rule
+.PHONY : robot_arm_test/CMakeFiles/test_custom_node.dir/rule
 
 # Convenience name for target.
-graph_msgs_generate_messages_lisp: robot_arm_test/CMakeFiles/graph_msgs_generate_messages_lisp.dir/rule
+test_custom_node: robot_arm_test/CMakeFiles/test_custom_node.dir/rule
 
-.PHONY : graph_msgs_generate_messages_lisp
+.PHONY : test_custom_node
 
 # fast build rule for target.
-graph_msgs_generate_messages_lisp/fast:
-	cd /home/kimjaen/vuasrl_ws/build && $(MAKE) -f robot_arm_test/CMakeFiles/graph_msgs_generate_messages_lisp.dir/build.make robot_arm_test/CMakeFiles/graph_msgs_generate_messages_lisp.dir/build
-.PHONY : graph_msgs_generate_messages_lisp/fast
+test_custom_node/fast:
+	cd /home/kimjaen/vuasrl_ws/build && $(MAKE) -f robot_arm_test/CMakeFiles/test_custom_node.dir/build.make robot_arm_test/CMakeFiles/test_custom_node.dir/build
+.PHONY : test_custom_node/fast
 
 # Convenience name for target.
-robot_arm_test/CMakeFiles/dynamic_reconfigure_generate_messages_cpp.dir/rule:
-	cd /home/kimjaen/vuasrl_ws/build && $(MAKE) -f CMakeFiles/Makefile2 robot_arm_test/CMakeFiles/dynamic_reconfigure_generate_messages_cpp.dir/rule
-.PHONY : robot_arm_test/CMakeFiles/dynamic_reconfigure_generate_messages_cpp.dir/rule
+robot_arm_test/CMakeFiles/shape_msgs_generate_messages_lisp.dir/rule:
+	cd /home/kimjaen/vuasrl_ws/build && $(MAKE) -f CMakeFiles/Makefile2 robot_arm_test/CMakeFiles/shape_msgs_generate_messages_lisp.dir/rule
+.PHONY : robot_arm_test/CMakeFiles/shape_msgs_generate_messages_lisp.dir/rule
 
 # Convenience name for target.
-dynamic_reconfigure_generate_messages_cpp: robot_arm_test/CMakeFiles/dynamic_reconfigure_generate_messages_cpp.dir/rule
+shape_msgs_generate_messages_lisp: robot_arm_test/CMakeFiles/shape_msgs_generate_messages_lisp.dir/rule
 
-.PHONY : dynamic_reconfigure_generate_messages_cpp
+.PHONY : shape_msgs_generate_messages_lisp
 
 # fast build rule for target.
-dynamic_reconfigure_generate_messages_cpp/fast:
-	cd /home/kimjaen/vuasrl_ws/build && $(MAKE) -f robot_arm_test/CMakeFiles/dynamic_reconfigure_generate_messages_cpp.dir/build.make robot_arm_test/CMakeFiles/dynamic_reconfigure_generate_messages_cpp.dir/build
-.PHONY : dynamic_reconfigure_generate_messages_cpp/fast
+shape_msgs_generate_messages_lisp/fast:
+	cd /home/kimjaen/vuasrl_ws/build && $(MAKE) -f robot_arm_test/CMakeFiles/shape_msgs_generate_messages_lisp.dir/build.make robot_arm_test/CMakeFiles/shape_msgs_generate_messages_lisp.dir/build
+.PHONY : shape_msgs_generate_messages_lisp/fast
 
 # Convenience name for target.
-robot_arm_test/CMakeFiles/tf_generate_messages_lisp.dir/rule:
-	cd /home/kimjaen/vuasrl_ws/build && $(MAKE) -f CMakeFiles/Makefile2 robot_arm_test/CMakeFiles/tf_generate_messages_lisp.dir/rule
-.PHONY : robot_arm_test/CMakeFiles/tf_generate_messages_lisp.dir/rule
+robot_arm_test/CMakeFiles/object_recognition_msgs_generate_messages_py.dir/rule:
+	cd /home/kimjaen/vuasrl_ws/build && $(MAKE) -f CMakeFiles/Makefile2 robot_arm_test/CMakeFiles/object_recognition_msgs_generate_messages_py.dir/rule
+.PHONY : robot_arm_test/CMakeFiles/object_recognition_msgs_generate_messages_py.dir/rule
 
 # Convenience name for target.
-tf_generate_messages_lisp: robot_arm_test/CMakeFiles/tf_generate_messages_lisp.dir/rule
+object_recognition_msgs_generate_messages_py: robot_arm_test/CMakeFiles/object_recognition_msgs_generate_messages_py.dir/rule
 
-.PHONY : tf_generate_messages_lisp
+.PHONY : object_recognition_msgs_generate_messages_py
 
 # fast build rule for target.
-tf_generate_messages_lisp/fast:
-	cd /home/kimjaen/vuasrl_ws/build && $(MAKE) -f robot_arm_test/CMakeFiles/tf_generate_messages_lisp.dir/build.make robot_arm_test/CMakeFiles/tf_generate_messages_lisp.dir/build
-.PHONY : tf_generate_messages_lisp/fast
+object_recognition_msgs_generate_messages_py/fast:
+	cd /home/kimjaen/vuasrl_ws/build && $(MAKE) -f robot_arm_test/CMakeFiles/object_recognition_msgs_generate_messages_py.dir/build.make robot_arm_test/CMakeFiles/object_recognition_msgs_generate_messages_py.dir/build
+.PHONY : object_recognition_msgs_generate_messages_py/fast
 
 # Convenience name for target.
 robot_arm_test/CMakeFiles/bond_generate_messages_cpp.dir/rule:
@@ -1038,19 +663,64 @@ bond_generate_messages_cpp/fast:
 .PHONY : bond_generate_messages_cpp/fast
 
 # Convenience name for target.
-robot_arm_test/CMakeFiles/dynamic_reconfigure_generate_messages_nodejs.dir/rule:
-	cd /home/kimjaen/vuasrl_ws/build && $(MAKE) -f CMakeFiles/Makefile2 robot_arm_test/CMakeFiles/dynamic_reconfigure_generate_messages_nodejs.dir/rule
-.PHONY : robot_arm_test/CMakeFiles/dynamic_reconfigure_generate_messages_nodejs.dir/rule
+robot_arm_test/CMakeFiles/bond_generate_messages_eus.dir/rule:
+	cd /home/kimjaen/vuasrl_ws/build && $(MAKE) -f CMakeFiles/Makefile2 robot_arm_test/CMakeFiles/bond_generate_messages_eus.dir/rule
+.PHONY : robot_arm_test/CMakeFiles/bond_generate_messages_eus.dir/rule
 
 # Convenience name for target.
-dynamic_reconfigure_generate_messages_nodejs: robot_arm_test/CMakeFiles/dynamic_reconfigure_generate_messages_nodejs.dir/rule
+bond_generate_messages_eus: robot_arm_test/CMakeFiles/bond_generate_messages_eus.dir/rule
 
-.PHONY : dynamic_reconfigure_generate_messages_nodejs
+.PHONY : bond_generate_messages_eus
 
 # fast build rule for target.
-dynamic_reconfigure_generate_messages_nodejs/fast:
-	cd /home/kimjaen/vuasrl_ws/build && $(MAKE) -f robot_arm_test/CMakeFiles/dynamic_reconfigure_generate_messages_nodejs.dir/build.make robot_arm_test/CMakeFiles/dynamic_reconfigure_generate_messages_nodejs.dir/build
-.PHONY : dynamic_reconfigure_generate_messages_nodejs/fast
+bond_generate_messages_eus/fast:
+	cd /home/kimjaen/vuasrl_ws/build && $(MAKE) -f robot_arm_test/CMakeFiles/bond_generate_messages_eus.dir/build.make robot_arm_test/CMakeFiles/bond_generate_messages_eus.dir/build
+.PHONY : bond_generate_messages_eus/fast
+
+# Convenience name for target.
+robot_arm_test/CMakeFiles/shape_msgs_generate_messages_nodejs.dir/rule:
+	cd /home/kimjaen/vuasrl_ws/build && $(MAKE) -f CMakeFiles/Makefile2 robot_arm_test/CMakeFiles/shape_msgs_generate_messages_nodejs.dir/rule
+.PHONY : robot_arm_test/CMakeFiles/shape_msgs_generate_messages_nodejs.dir/rule
+
+# Convenience name for target.
+shape_msgs_generate_messages_nodejs: robot_arm_test/CMakeFiles/shape_msgs_generate_messages_nodejs.dir/rule
+
+.PHONY : shape_msgs_generate_messages_nodejs
+
+# fast build rule for target.
+shape_msgs_generate_messages_nodejs/fast:
+	cd /home/kimjaen/vuasrl_ws/build && $(MAKE) -f robot_arm_test/CMakeFiles/shape_msgs_generate_messages_nodejs.dir/build.make robot_arm_test/CMakeFiles/shape_msgs_generate_messages_nodejs.dir/build
+.PHONY : shape_msgs_generate_messages_nodejs/fast
+
+# Convenience name for target.
+robot_arm_test/CMakeFiles/moveit_msgs_generate_messages_cpp.dir/rule:
+	cd /home/kimjaen/vuasrl_ws/build && $(MAKE) -f CMakeFiles/Makefile2 robot_arm_test/CMakeFiles/moveit_msgs_generate_messages_cpp.dir/rule
+.PHONY : robot_arm_test/CMakeFiles/moveit_msgs_generate_messages_cpp.dir/rule
+
+# Convenience name for target.
+moveit_msgs_generate_messages_cpp: robot_arm_test/CMakeFiles/moveit_msgs_generate_messages_cpp.dir/rule
+
+.PHONY : moveit_msgs_generate_messages_cpp
+
+# fast build rule for target.
+moveit_msgs_generate_messages_cpp/fast:
+	cd /home/kimjaen/vuasrl_ws/build && $(MAKE) -f robot_arm_test/CMakeFiles/moveit_msgs_generate_messages_cpp.dir/build.make robot_arm_test/CMakeFiles/moveit_msgs_generate_messages_cpp.dir/build
+.PHONY : moveit_msgs_generate_messages_cpp/fast
+
+# Convenience name for target.
+robot_arm_test/CMakeFiles/moveit_msgs_generate_messages_eus.dir/rule:
+	cd /home/kimjaen/vuasrl_ws/build && $(MAKE) -f CMakeFiles/Makefile2 robot_arm_test/CMakeFiles/moveit_msgs_generate_messages_eus.dir/rule
+.PHONY : robot_arm_test/CMakeFiles/moveit_msgs_generate_messages_eus.dir/rule
+
+# Convenience name for target.
+moveit_msgs_generate_messages_eus: robot_arm_test/CMakeFiles/moveit_msgs_generate_messages_eus.dir/rule
+
+.PHONY : moveit_msgs_generate_messages_eus
+
+# fast build rule for target.
+moveit_msgs_generate_messages_eus/fast:
+	cd /home/kimjaen/vuasrl_ws/build && $(MAKE) -f robot_arm_test/CMakeFiles/moveit_msgs_generate_messages_eus.dir/build.make robot_arm_test/CMakeFiles/moveit_msgs_generate_messages_eus.dir/build
+.PHONY : moveit_msgs_generate_messages_eus/fast
 
 # Convenience name for target.
 robot_arm_test/CMakeFiles/nodelet_generate_messages_lisp.dir/rule:
@@ -1113,51 +783,6 @@ bond_generate_messages_nodejs/fast:
 .PHONY : bond_generate_messages_nodejs/fast
 
 # Convenience name for target.
-robot_arm_test/CMakeFiles/check_collision.dir/rule:
-	cd /home/kimjaen/vuasrl_ws/build && $(MAKE) -f CMakeFiles/Makefile2 robot_arm_test/CMakeFiles/check_collision.dir/rule
-.PHONY : robot_arm_test/CMakeFiles/check_collision.dir/rule
-
-# Convenience name for target.
-check_collision: robot_arm_test/CMakeFiles/check_collision.dir/rule
-
-.PHONY : check_collision
-
-# fast build rule for target.
-check_collision/fast:
-	cd /home/kimjaen/vuasrl_ws/build && $(MAKE) -f robot_arm_test/CMakeFiles/check_collision.dir/build.make robot_arm_test/CMakeFiles/check_collision.dir/build
-.PHONY : check_collision/fast
-
-# Convenience name for target.
-robot_arm_test/CMakeFiles/std_srvs_generate_messages_nodejs.dir/rule:
-	cd /home/kimjaen/vuasrl_ws/build && $(MAKE) -f CMakeFiles/Makefile2 robot_arm_test/CMakeFiles/std_srvs_generate_messages_nodejs.dir/rule
-.PHONY : robot_arm_test/CMakeFiles/std_srvs_generate_messages_nodejs.dir/rule
-
-# Convenience name for target.
-std_srvs_generate_messages_nodejs: robot_arm_test/CMakeFiles/std_srvs_generate_messages_nodejs.dir/rule
-
-.PHONY : std_srvs_generate_messages_nodejs
-
-# fast build rule for target.
-std_srvs_generate_messages_nodejs/fast:
-	cd /home/kimjaen/vuasrl_ws/build && $(MAKE) -f robot_arm_test/CMakeFiles/std_srvs_generate_messages_nodejs.dir/build.make robot_arm_test/CMakeFiles/std_srvs_generate_messages_nodejs.dir/build
-.PHONY : std_srvs_generate_messages_nodejs/fast
-
-# Convenience name for target.
-robot_arm_test/CMakeFiles/nodelet_generate_messages_py.dir/rule:
-	cd /home/kimjaen/vuasrl_ws/build && $(MAKE) -f CMakeFiles/Makefile2 robot_arm_test/CMakeFiles/nodelet_generate_messages_py.dir/rule
-.PHONY : robot_arm_test/CMakeFiles/nodelet_generate_messages_py.dir/rule
-
-# Convenience name for target.
-nodelet_generate_messages_py: robot_arm_test/CMakeFiles/nodelet_generate_messages_py.dir/rule
-
-.PHONY : nodelet_generate_messages_py
-
-# fast build rule for target.
-nodelet_generate_messages_py/fast:
-	cd /home/kimjaen/vuasrl_ws/build && $(MAKE) -f robot_arm_test/CMakeFiles/nodelet_generate_messages_py.dir/build.make robot_arm_test/CMakeFiles/nodelet_generate_messages_py.dir/build
-.PHONY : nodelet_generate_messages_py/fast
-
-# Convenience name for target.
 robot_arm_test/CMakeFiles/bond_generate_messages_lisp.dir/rule:
 	cd /home/kimjaen/vuasrl_ws/build && $(MAKE) -f CMakeFiles/Makefile2 robot_arm_test/CMakeFiles/bond_generate_messages_lisp.dir/rule
 .PHONY : robot_arm_test/CMakeFiles/bond_generate_messages_lisp.dir/rule
@@ -1188,66 +813,6 @@ bond_generate_messages_py/fast:
 .PHONY : bond_generate_messages_py/fast
 
 # Convenience name for target.
-robot_arm_test/CMakeFiles/tf_generate_messages_cpp.dir/rule:
-	cd /home/kimjaen/vuasrl_ws/build && $(MAKE) -f CMakeFiles/Makefile2 robot_arm_test/CMakeFiles/tf_generate_messages_cpp.dir/rule
-.PHONY : robot_arm_test/CMakeFiles/tf_generate_messages_cpp.dir/rule
-
-# Convenience name for target.
-tf_generate_messages_cpp: robot_arm_test/CMakeFiles/tf_generate_messages_cpp.dir/rule
-
-.PHONY : tf_generate_messages_cpp
-
-# fast build rule for target.
-tf_generate_messages_cpp/fast:
-	cd /home/kimjaen/vuasrl_ws/build && $(MAKE) -f robot_arm_test/CMakeFiles/tf_generate_messages_cpp.dir/build.make robot_arm_test/CMakeFiles/tf_generate_messages_cpp.dir/build
-.PHONY : tf_generate_messages_cpp/fast
-
-# Convenience name for target.
-robot_arm_test/CMakeFiles/tf_generate_messages_eus.dir/rule:
-	cd /home/kimjaen/vuasrl_ws/build && $(MAKE) -f CMakeFiles/Makefile2 robot_arm_test/CMakeFiles/tf_generate_messages_eus.dir/rule
-.PHONY : robot_arm_test/CMakeFiles/tf_generate_messages_eus.dir/rule
-
-# Convenience name for target.
-tf_generate_messages_eus: robot_arm_test/CMakeFiles/tf_generate_messages_eus.dir/rule
-
-.PHONY : tf_generate_messages_eus
-
-# fast build rule for target.
-tf_generate_messages_eus/fast:
-	cd /home/kimjaen/vuasrl_ws/build && $(MAKE) -f robot_arm_test/CMakeFiles/tf_generate_messages_eus.dir/build.make robot_arm_test/CMakeFiles/tf_generate_messages_eus.dir/build
-.PHONY : tf_generate_messages_eus/fast
-
-# Convenience name for target.
-robot_arm_test/CMakeFiles/std_srvs_generate_messages_cpp.dir/rule:
-	cd /home/kimjaen/vuasrl_ws/build && $(MAKE) -f CMakeFiles/Makefile2 robot_arm_test/CMakeFiles/std_srvs_generate_messages_cpp.dir/rule
-.PHONY : robot_arm_test/CMakeFiles/std_srvs_generate_messages_cpp.dir/rule
-
-# Convenience name for target.
-std_srvs_generate_messages_cpp: robot_arm_test/CMakeFiles/std_srvs_generate_messages_cpp.dir/rule
-
-.PHONY : std_srvs_generate_messages_cpp
-
-# fast build rule for target.
-std_srvs_generate_messages_cpp/fast:
-	cd /home/kimjaen/vuasrl_ws/build && $(MAKE) -f robot_arm_test/CMakeFiles/std_srvs_generate_messages_cpp.dir/build.make robot_arm_test/CMakeFiles/std_srvs_generate_messages_cpp.dir/build
-.PHONY : std_srvs_generate_messages_cpp/fast
-
-# Convenience name for target.
-robot_arm_test/CMakeFiles/tf_generate_messages_nodejs.dir/rule:
-	cd /home/kimjaen/vuasrl_ws/build && $(MAKE) -f CMakeFiles/Makefile2 robot_arm_test/CMakeFiles/tf_generate_messages_nodejs.dir/rule
-.PHONY : robot_arm_test/CMakeFiles/tf_generate_messages_nodejs.dir/rule
-
-# Convenience name for target.
-tf_generate_messages_nodejs: robot_arm_test/CMakeFiles/tf_generate_messages_nodejs.dir/rule
-
-.PHONY : tf_generate_messages_nodejs
-
-# fast build rule for target.
-tf_generate_messages_nodejs/fast:
-	cd /home/kimjaen/vuasrl_ws/build && $(MAKE) -f robot_arm_test/CMakeFiles/tf_generate_messages_nodejs.dir/build.make robot_arm_test/CMakeFiles/tf_generate_messages_nodejs.dir/build
-.PHONY : tf_generate_messages_nodejs/fast
-
-# Convenience name for target.
 robot_arm_test/CMakeFiles/shape_msgs_generate_messages_cpp.dir/rule:
 	cd /home/kimjaen/vuasrl_ws/build && $(MAKE) -f CMakeFiles/Makefile2 robot_arm_test/CMakeFiles/shape_msgs_generate_messages_cpp.dir/rule
 .PHONY : robot_arm_test/CMakeFiles/shape_msgs_generate_messages_cpp.dir/rule
@@ -1276,6 +841,126 @@ moveit_ros_manipulation_gencfg: robot_arm_test/CMakeFiles/moveit_ros_manipulatio
 moveit_ros_manipulation_gencfg/fast:
 	cd /home/kimjaen/vuasrl_ws/build && $(MAKE) -f robot_arm_test/CMakeFiles/moveit_ros_manipulation_gencfg.dir/build.make robot_arm_test/CMakeFiles/moveit_ros_manipulation_gencfg.dir/build
 .PHONY : moveit_ros_manipulation_gencfg/fast
+
+# Convenience name for target.
+robot_arm_test/CMakeFiles/shape_msgs_generate_messages_py.dir/rule:
+	cd /home/kimjaen/vuasrl_ws/build && $(MAKE) -f CMakeFiles/Makefile2 robot_arm_test/CMakeFiles/shape_msgs_generate_messages_py.dir/rule
+.PHONY : robot_arm_test/CMakeFiles/shape_msgs_generate_messages_py.dir/rule
+
+# Convenience name for target.
+shape_msgs_generate_messages_py: robot_arm_test/CMakeFiles/shape_msgs_generate_messages_py.dir/rule
+
+.PHONY : shape_msgs_generate_messages_py
+
+# fast build rule for target.
+shape_msgs_generate_messages_py/fast:
+	cd /home/kimjaen/vuasrl_ws/build && $(MAKE) -f robot_arm_test/CMakeFiles/shape_msgs_generate_messages_py.dir/build.make robot_arm_test/CMakeFiles/shape_msgs_generate_messages_py.dir/build
+.PHONY : shape_msgs_generate_messages_py/fast
+
+# Convenience name for target.
+robot_arm_test/CMakeFiles/pick_place.dir/rule:
+	cd /home/kimjaen/vuasrl_ws/build && $(MAKE) -f CMakeFiles/Makefile2 robot_arm_test/CMakeFiles/pick_place.dir/rule
+.PHONY : robot_arm_test/CMakeFiles/pick_place.dir/rule
+
+# Convenience name for target.
+pick_place: robot_arm_test/CMakeFiles/pick_place.dir/rule
+
+.PHONY : pick_place
+
+# fast build rule for target.
+pick_place/fast:
+	cd /home/kimjaen/vuasrl_ws/build && $(MAKE) -f robot_arm_test/CMakeFiles/pick_place.dir/build.make robot_arm_test/CMakeFiles/pick_place.dir/build
+.PHONY : pick_place/fast
+
+# Convenience name for target.
+robot_arm_test/CMakeFiles/nodelet_generate_messages_py.dir/rule:
+	cd /home/kimjaen/vuasrl_ws/build && $(MAKE) -f CMakeFiles/Makefile2 robot_arm_test/CMakeFiles/nodelet_generate_messages_py.dir/rule
+.PHONY : robot_arm_test/CMakeFiles/nodelet_generate_messages_py.dir/rule
+
+# Convenience name for target.
+nodelet_generate_messages_py: robot_arm_test/CMakeFiles/nodelet_generate_messages_py.dir/rule
+
+.PHONY : nodelet_generate_messages_py
+
+# fast build rule for target.
+nodelet_generate_messages_py/fast:
+	cd /home/kimjaen/vuasrl_ws/build && $(MAKE) -f robot_arm_test/CMakeFiles/nodelet_generate_messages_py.dir/build.make robot_arm_test/CMakeFiles/nodelet_generate_messages_py.dir/build
+.PHONY : nodelet_generate_messages_py/fast
+
+# Convenience name for target.
+robot_arm_test/CMakeFiles/check_collision.dir/rule:
+	cd /home/kimjaen/vuasrl_ws/build && $(MAKE) -f CMakeFiles/Makefile2 robot_arm_test/CMakeFiles/check_collision.dir/rule
+.PHONY : robot_arm_test/CMakeFiles/check_collision.dir/rule
+
+# Convenience name for target.
+check_collision: robot_arm_test/CMakeFiles/check_collision.dir/rule
+
+.PHONY : check_collision
+
+# fast build rule for target.
+check_collision/fast:
+	cd /home/kimjaen/vuasrl_ws/build && $(MAKE) -f robot_arm_test/CMakeFiles/check_collision.dir/build.make robot_arm_test/CMakeFiles/check_collision.dir/build
+.PHONY : check_collision/fast
+
+# Convenience name for target.
+robot_arm_test/CMakeFiles/visualization_msgs_generate_messages_py.dir/rule:
+	cd /home/kimjaen/vuasrl_ws/build && $(MAKE) -f CMakeFiles/Makefile2 robot_arm_test/CMakeFiles/visualization_msgs_generate_messages_py.dir/rule
+.PHONY : robot_arm_test/CMakeFiles/visualization_msgs_generate_messages_py.dir/rule
+
+# Convenience name for target.
+visualization_msgs_generate_messages_py: robot_arm_test/CMakeFiles/visualization_msgs_generate_messages_py.dir/rule
+
+.PHONY : visualization_msgs_generate_messages_py
+
+# fast build rule for target.
+visualization_msgs_generate_messages_py/fast:
+	cd /home/kimjaen/vuasrl_ws/build && $(MAKE) -f robot_arm_test/CMakeFiles/visualization_msgs_generate_messages_py.dir/build.make robot_arm_test/CMakeFiles/visualization_msgs_generate_messages_py.dir/build
+.PHONY : visualization_msgs_generate_messages_py/fast
+
+# Convenience name for target.
+robot_arm_test/CMakeFiles/iksolution.dir/rule:
+	cd /home/kimjaen/vuasrl_ws/build && $(MAKE) -f CMakeFiles/Makefile2 robot_arm_test/CMakeFiles/iksolution.dir/rule
+.PHONY : robot_arm_test/CMakeFiles/iksolution.dir/rule
+
+# Convenience name for target.
+iksolution: robot_arm_test/CMakeFiles/iksolution.dir/rule
+
+.PHONY : iksolution
+
+# fast build rule for target.
+iksolution/fast:
+	cd /home/kimjaen/vuasrl_ws/build && $(MAKE) -f robot_arm_test/CMakeFiles/iksolution.dir/build.make robot_arm_test/CMakeFiles/iksolution.dir/build
+.PHONY : iksolution/fast
+
+# Convenience name for target.
+robot_arm_test/CMakeFiles/shape_msgs_generate_messages_eus.dir/rule:
+	cd /home/kimjaen/vuasrl_ws/build && $(MAKE) -f CMakeFiles/Makefile2 robot_arm_test/CMakeFiles/shape_msgs_generate_messages_eus.dir/rule
+.PHONY : robot_arm_test/CMakeFiles/shape_msgs_generate_messages_eus.dir/rule
+
+# Convenience name for target.
+shape_msgs_generate_messages_eus: robot_arm_test/CMakeFiles/shape_msgs_generate_messages_eus.dir/rule
+
+.PHONY : shape_msgs_generate_messages_eus
+
+# fast build rule for target.
+shape_msgs_generate_messages_eus/fast:
+	cd /home/kimjaen/vuasrl_ws/build && $(MAKE) -f robot_arm_test/CMakeFiles/shape_msgs_generate_messages_eus.dir/build.make robot_arm_test/CMakeFiles/shape_msgs_generate_messages_eus.dir/build
+.PHONY : shape_msgs_generate_messages_eus/fast
+
+# Convenience name for target.
+robot_arm_test/CMakeFiles/remove_collision_objct.dir/rule:
+	cd /home/kimjaen/vuasrl_ws/build && $(MAKE) -f CMakeFiles/Makefile2 robot_arm_test/CMakeFiles/remove_collision_objct.dir/rule
+.PHONY : robot_arm_test/CMakeFiles/remove_collision_objct.dir/rule
+
+# Convenience name for target.
+remove_collision_objct: robot_arm_test/CMakeFiles/remove_collision_objct.dir/rule
+
+.PHONY : remove_collision_objct
+
+# fast build rule for target.
+remove_collision_objct/fast:
+	cd /home/kimjaen/vuasrl_ws/build && $(MAKE) -f robot_arm_test/CMakeFiles/remove_collision_objct.dir/build.make robot_arm_test/CMakeFiles/remove_collision_objct.dir/build
+.PHONY : remove_collision_objct/fast
 
 src/add_collision_object.o: src/add_collision_object.cpp.o
 
@@ -1391,8 +1076,8 @@ src/move_group_interface_tutorial.o: src/move_group_interface_tutorial.cpp.o
 
 # target to build an object file
 src/move_group_interface_tutorial.cpp.o:
-	cd /home/kimjaen/vuasrl_ws/build && $(MAKE) -f robot_arm_test/CMakeFiles/robot_arm_test_node.dir/build.make robot_arm_test/CMakeFiles/robot_arm_test_node.dir/src/move_group_interface_tutorial.cpp.o
 	cd /home/kimjaen/vuasrl_ws/build && $(MAKE) -f robot_arm_test/CMakeFiles/move_group_interface_tutorial.dir/build.make robot_arm_test/CMakeFiles/move_group_interface_tutorial.dir/src/move_group_interface_tutorial.cpp.o
+	cd /home/kimjaen/vuasrl_ws/build && $(MAKE) -f robot_arm_test/CMakeFiles/robot_arm_test_node.dir/build.make robot_arm_test/CMakeFiles/robot_arm_test_node.dir/src/move_group_interface_tutorial.cpp.o
 .PHONY : src/move_group_interface_tutorial.cpp.o
 
 src/move_group_interface_tutorial.i: src/move_group_interface_tutorial.cpp.i
@@ -1401,8 +1086,8 @@ src/move_group_interface_tutorial.i: src/move_group_interface_tutorial.cpp.i
 
 # target to preprocess a source file
 src/move_group_interface_tutorial.cpp.i:
-	cd /home/kimjaen/vuasrl_ws/build && $(MAKE) -f robot_arm_test/CMakeFiles/robot_arm_test_node.dir/build.make robot_arm_test/CMakeFiles/robot_arm_test_node.dir/src/move_group_interface_tutorial.cpp.i
 	cd /home/kimjaen/vuasrl_ws/build && $(MAKE) -f robot_arm_test/CMakeFiles/move_group_interface_tutorial.dir/build.make robot_arm_test/CMakeFiles/move_group_interface_tutorial.dir/src/move_group_interface_tutorial.cpp.i
+	cd /home/kimjaen/vuasrl_ws/build && $(MAKE) -f robot_arm_test/CMakeFiles/robot_arm_test_node.dir/build.make robot_arm_test/CMakeFiles/robot_arm_test_node.dir/src/move_group_interface_tutorial.cpp.i
 .PHONY : src/move_group_interface_tutorial.cpp.i
 
 src/move_group_interface_tutorial.s: src/move_group_interface_tutorial.cpp.s
@@ -1411,8 +1096,8 @@ src/move_group_interface_tutorial.s: src/move_group_interface_tutorial.cpp.s
 
 # target to generate assembly for a file
 src/move_group_interface_tutorial.cpp.s:
-	cd /home/kimjaen/vuasrl_ws/build && $(MAKE) -f robot_arm_test/CMakeFiles/robot_arm_test_node.dir/build.make robot_arm_test/CMakeFiles/robot_arm_test_node.dir/src/move_group_interface_tutorial.cpp.s
 	cd /home/kimjaen/vuasrl_ws/build && $(MAKE) -f robot_arm_test/CMakeFiles/move_group_interface_tutorial.dir/build.make robot_arm_test/CMakeFiles/move_group_interface_tutorial.dir/src/move_group_interface_tutorial.cpp.s
+	cd /home/kimjaen/vuasrl_ws/build && $(MAKE) -f robot_arm_test/CMakeFiles/robot_arm_test_node.dir/build.make robot_arm_test/CMakeFiles/robot_arm_test_node.dir/src/move_group_interface_tutorial.cpp.s
 .PHONY : src/move_group_interface_tutorial.cpp.s
 
 src/pick_place.o: src/pick_place.cpp.o
@@ -1557,86 +1242,65 @@ help:
 	@echo "... clean"
 	@echo "... depend"
 	@echo "... install/strip"
-	@echo "... install"
-	@echo "... list_install_components"
-	@echo "... edit_cache"
-	@echo "... test"
-	@echo "... robot_arm_test_node"
-	@echo "... move_group_interface_tutorial"
-	@echo "... pick_place_action"
-	@echo "... install/local"
-	@echo "... remove_collision_objct"
-	@echo "... test_custom_node"
-	@echo "... test_random_node"
-	@echo "... std_srvs_generate_messages_lisp"
-	@echo "... std_srvs_generate_messages_eus"
-	@echo "... octomap_msgs_generate_messages_lisp"
-	@echo "... std_srvs_generate_messages_py"
-	@echo "... moveit_ros_planning_gencfg"
-	@echo "... object_recognition_msgs_generate_messages_nodejs"
-	@echo "... object_recognition_msgs_generate_messages_eus"
-	@echo "... trajectory_msgs_generate_messages_py"
-	@echo "... visualization_msgs_generate_messages_nodejs"
-	@echo "... octomap_msgs_generate_messages_nodejs"
-	@echo "... graph_msgs_generate_messages_eus"
-	@echo "... trajectory_msgs_generate_messages_nodejs"
-	@echo "... trajectory_msgs_generate_messages_eus"
 	@echo "... graph_msgs_generate_messages_nodejs"
 	@echo "... nodelet_generate_messages_eus"
+	@echo "... graph_msgs_generate_messages_eus"
+	@echo "... octomap_msgs_generate_messages_nodejs"
+	@echo "... octomap_msgs_generate_messages_lisp"
+	@echo "... moveit_ros_planning_gencfg"
+	@echo "... object_recognition_msgs_generate_messages_nodejs"
+	@echo "... test_random_node"
+	@echo "... object_recognition_msgs_generate_messages_eus"
+	@echo "... pick_place_action"
+	@echo "... move_group_interface_tutorial"
+	@echo "... robot_arm_test_node"
 	@echo "... octomap_msgs_generate_messages_cpp"
-	@echo "... dynamic_reconfigure_generate_messages_eus"
-	@echo "... dynamic_reconfigure_gencfg"
 	@echo "... nodelet_generate_messages_cpp"
 	@echo "... visualization_msgs_generate_messages_cpp"
 	@echo "... octomap_msgs_generate_messages_eus"
 	@echo "... object_recognition_msgs_generate_messages_cpp"
 	@echo "... graph_msgs_generate_messages_py"
+	@echo "... graph_msgs_generate_messages_cpp"
+	@echo "... add_collision_object"
 	@echo "... visualization_msgs_generate_messages_lisp"
 	@echo "... visualization_msgs_generate_messages_eus"
 	@echo "... moveit_msgs_generate_messages_py"
 	@echo "... object_recognition_msgs_generate_messages_lisp"
-	@echo "... rebuild_cache"
-	@echo "... shape_msgs_generate_messages_eus"
+	@echo "... visualization_msgs_generate_messages_nodejs"
+	@echo "... list_install_components"
 	@echo "... moveit_msgs_generate_messages_lisp"
-	@echo "... dynamic_reconfigure_generate_messages_py"
-	@echo "... iksolution"
-	@echo "... visualization_msgs_generate_messages_py"
-	@echo "... dynamic_reconfigure_generate_messages_lisp"
-	@echo "... object_recognition_msgs_generate_messages_py"
-	@echo "... bond_generate_messages_eus"
-	@echo "... trajectory_msgs_generate_messages_cpp"
-	@echo "... shape_msgs_generate_messages_nodejs"
-	@echo "... tf_generate_messages_py"
-	@echo "... pick_place"
-	@echo "... shape_msgs_generate_messages_py"
-	@echo "... shape_msgs_generate_messages_lisp"
-	@echo "... trajectory_msgs_generate_messages_lisp"
-	@echo "... moveit_msgs_generate_messages_cpp"
-	@echo "... moveit_msgs_generate_messages_eus"
-	@echo "... add_collision_object"
-	@echo "... graph_msgs_generate_messages_cpp"
+	@echo "... install"
+	@echo "... graph_msgs_generate_messages_lisp"
 	@echo "... attach_detach_object"
 	@echo "... moveit_msgs_generate_messages_nodejs"
-	@echo "... graph_msgs_generate_messages_lisp"
-	@echo "... dynamic_reconfigure_generate_messages_cpp"
-	@echo "... tf_generate_messages_lisp"
+	@echo "... test_custom_node"
+	@echo "... shape_msgs_generate_messages_lisp"
+	@echo "... object_recognition_msgs_generate_messages_py"
 	@echo "... bond_generate_messages_cpp"
-	@echo "... dynamic_reconfigure_generate_messages_nodejs"
+	@echo "... bond_generate_messages_eus"
+	@echo "... shape_msgs_generate_messages_nodejs"
+	@echo "... moveit_msgs_generate_messages_cpp"
+	@echo "... moveit_msgs_generate_messages_eus"
 	@echo "... nodelet_generate_messages_lisp"
 	@echo "... nodelet_generate_messages_nodejs"
 	@echo "... octomap_msgs_generate_messages_py"
 	@echo "... bond_generate_messages_nodejs"
-	@echo "... check_collision"
-	@echo "... std_srvs_generate_messages_nodejs"
-	@echo "... nodelet_generate_messages_py"
 	@echo "... bond_generate_messages_lisp"
 	@echo "... bond_generate_messages_py"
-	@echo "... tf_generate_messages_cpp"
-	@echo "... tf_generate_messages_eus"
-	@echo "... std_srvs_generate_messages_cpp"
-	@echo "... tf_generate_messages_nodejs"
 	@echo "... shape_msgs_generate_messages_cpp"
 	@echo "... moveit_ros_manipulation_gencfg"
+	@echo "... shape_msgs_generate_messages_py"
+	@echo "... pick_place"
+	@echo "... nodelet_generate_messages_py"
+	@echo "... check_collision"
+	@echo "... visualization_msgs_generate_messages_py"
+	@echo "... iksolution"
+	@echo "... test"
+	@echo "... edit_cache"
+	@echo "... shape_msgs_generate_messages_eus"
+	@echo "... rebuild_cache"
+	@echo "... remove_collision_objct"
+	@echo "... install/local"
 	@echo "... src/add_collision_object.o"
 	@echo "... src/add_collision_object.i"
 	@echo "... src/add_collision_object.s"

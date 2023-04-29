@@ -13,9 +13,9 @@ class LaneFollower:
 
     def __init__(self):
 
-        self.image_sub = rospy.Subscriber("/smart_tugcar/camera/rgb/image_raw/compressed", CompressedImage, self.callback)
+        self.image_sub = rospy.Subscriber("/camera/rgb/image_raw/compressed", CompressedImage, self.callback)
         self.laser_sub = rospy.Subscriber("/smart_tugcar/tugcar/laser/scan", LaserScan, self.laser_callback)
-        self.cmd_vel_pub = rospy.Publisher('/smart_tugcar/cmd_vel', Twist, queue_size=10)
+        self.cmd_vel_pub = rospy.Publisher('/cmd_vel', Twist, queue_size=10)
         self.img_bgr = None
         self.min_distance = float("inf")
 

@@ -20,7 +20,7 @@
           </clip>
         </camera>
 
-        <plugin name="${name}_frame_controller" filename="libgazebo_ros_openni_kinect.so">
+        <plugin name="${name}_depth_controller" filename="libgazebo_ros_openni_kinect.so">
           <alwaysOn>true</alwaysOn>
           <updateRate>6.0</updateRate>
           <cameraName>${name}</cameraName>
@@ -45,7 +45,7 @@
 
       <!-- RGB -->
 
-      <sensor type="depth" name="${name}_frame_sensor">
+      <sensor type="rgb" name="${name}_frame_sensor">
         <always_on>true</always_on>
         <update_rate>6.0</update_rate>
 
@@ -64,7 +64,7 @@
 
 
 
-        <plugin name="${name}_frame_controller" filename="libgazebo_ros_openni_kinect.so">
+        <plugin name="${name}_rgb_controller" filename="libgazebo_ros_openni_kinect.so">
           <alwaysOn>true</alwaysOn>
           <updateRate>6.0</updateRate>
           <cameraName>${name}</cameraName>

@@ -44,6 +44,7 @@ robot_arm_test/CMakeFiles/test_custom_node.dir/src/test_custom.cpp.o
  /opt/ros/noetic/include/moveit/macros/declare_ptr.h
  /opt/ros/noetic/include/moveit/move_group_interface/move_group_interface.h
  /opt/ros/noetic/include/moveit/moveit_kinematics_base_export.h
+ /opt/ros/noetic/include/moveit/planning_scene_interface/planning_scene_interface.h
  /opt/ros/noetic/include/moveit/robot_model/fixed_joint_model.h
  /opt/ros/noetic/include/moveit/robot_model/floating_joint_model.h
  /opt/ros/noetic/include/moveit/robot_model/joint_model.h
@@ -66,6 +67,8 @@ robot_arm_test/CMakeFiles/test_custom_node.dir/src/test_custom.cpp.o
  /opt/ros/noetic/include/moveit_msgs/CartesianTrajectoryPoint.h
  /opt/ros/noetic/include/moveit_msgs/CollisionObject.h
  /opt/ros/noetic/include/moveit_msgs/Constraints.h
+ /opt/ros/noetic/include/moveit_msgs/DisplayRobotState.h
+ /opt/ros/noetic/include/moveit_msgs/DisplayTrajectory.h
  /opt/ros/noetic/include/moveit_msgs/GenericTrajectory.h
  /opt/ros/noetic/include/moveit_msgs/Grasp.h
  /opt/ros/noetic/include/moveit_msgs/GripperTranslation.h
