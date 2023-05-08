@@ -92,6 +92,16 @@ install/fast: preinstall/fast
 	/usr/bin/cmake -P cmake_install.cmake
 .PHONY : install/fast
 
+# Special rule for the target list_install_components
+list_install_components:
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Available install components are: \"Unspecified\""
+.PHONY : list_install_components
+
+# Special rule for the target list_install_components
+list_install_components/fast: list_install_components
+
+.PHONY : list_install_components/fast
+
 # Special rule for the target rebuild_cache
 rebuild_cache:
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake to regenerate build system..."
@@ -113,16 +123,6 @@ edit_cache:
 edit_cache/fast: edit_cache
 
 .PHONY : edit_cache/fast
-
-# Special rule for the target list_install_components
-list_install_components:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Available install components are: \"Unspecified\""
-.PHONY : list_install_components
-
-# Special rule for the target list_install_components
-list_install_components/fast: list_install_components
-
-.PHONY : list_install_components/fast
 
 # Special rule for the target test
 test:
@@ -183,51 +183,6 @@ tf2_msgs_generate_messages_py/fast:
 .PHONY : tf2_msgs_generate_messages_py/fast
 
 # Convenience name for target.
-tugcar_description/CMakeFiles/tf2_msgs_generate_messages_cpp.dir/rule:
-	cd /home/kimjaen/vuasrl_ws/build && $(MAKE) -f CMakeFiles/Makefile2 tugcar_description/CMakeFiles/tf2_msgs_generate_messages_cpp.dir/rule
-.PHONY : tugcar_description/CMakeFiles/tf2_msgs_generate_messages_cpp.dir/rule
-
-# Convenience name for target.
-tf2_msgs_generate_messages_cpp: tugcar_description/CMakeFiles/tf2_msgs_generate_messages_cpp.dir/rule
-
-.PHONY : tf2_msgs_generate_messages_cpp
-
-# fast build rule for target.
-tf2_msgs_generate_messages_cpp/fast:
-	cd /home/kimjaen/vuasrl_ws/build && $(MAKE) -f tugcar_description/CMakeFiles/tf2_msgs_generate_messages_cpp.dir/build.make tugcar_description/CMakeFiles/tf2_msgs_generate_messages_cpp.dir/build
-.PHONY : tf2_msgs_generate_messages_cpp/fast
-
-# Convenience name for target.
-tugcar_description/CMakeFiles/actionlib_msgs_generate_messages_py.dir/rule:
-	cd /home/kimjaen/vuasrl_ws/build && $(MAKE) -f CMakeFiles/Makefile2 tugcar_description/CMakeFiles/actionlib_msgs_generate_messages_py.dir/rule
-.PHONY : tugcar_description/CMakeFiles/actionlib_msgs_generate_messages_py.dir/rule
-
-# Convenience name for target.
-actionlib_msgs_generate_messages_py: tugcar_description/CMakeFiles/actionlib_msgs_generate_messages_py.dir/rule
-
-.PHONY : actionlib_msgs_generate_messages_py
-
-# fast build rule for target.
-actionlib_msgs_generate_messages_py/fast:
-	cd /home/kimjaen/vuasrl_ws/build && $(MAKE) -f tugcar_description/CMakeFiles/actionlib_msgs_generate_messages_py.dir/build.make tugcar_description/CMakeFiles/actionlib_msgs_generate_messages_py.dir/build
-.PHONY : actionlib_msgs_generate_messages_py/fast
-
-# Convenience name for target.
-tugcar_description/CMakeFiles/actionlib_msgs_generate_messages_nodejs.dir/rule:
-	cd /home/kimjaen/vuasrl_ws/build && $(MAKE) -f CMakeFiles/Makefile2 tugcar_description/CMakeFiles/actionlib_msgs_generate_messages_nodejs.dir/rule
-.PHONY : tugcar_description/CMakeFiles/actionlib_msgs_generate_messages_nodejs.dir/rule
-
-# Convenience name for target.
-actionlib_msgs_generate_messages_nodejs: tugcar_description/CMakeFiles/actionlib_msgs_generate_messages_nodejs.dir/rule
-
-.PHONY : actionlib_msgs_generate_messages_nodejs
-
-# fast build rule for target.
-actionlib_msgs_generate_messages_nodejs/fast:
-	cd /home/kimjaen/vuasrl_ws/build && $(MAKE) -f tugcar_description/CMakeFiles/actionlib_msgs_generate_messages_nodejs.dir/build.make tugcar_description/CMakeFiles/actionlib_msgs_generate_messages_nodejs.dir/build
-.PHONY : actionlib_msgs_generate_messages_nodejs/fast
-
-# Convenience name for target.
 tugcar_description/CMakeFiles/tf2_msgs_generate_messages_nodejs.dir/rule:
 	cd /home/kimjaen/vuasrl_ws/build && $(MAKE) -f CMakeFiles/Makefile2 tugcar_description/CMakeFiles/tf2_msgs_generate_messages_nodejs.dir/rule
 .PHONY : tugcar_description/CMakeFiles/tf2_msgs_generate_messages_nodejs.dir/rule
@@ -273,34 +228,19 @@ controller_manager_msgs_generate_messages_eus/fast:
 .PHONY : controller_manager_msgs_generate_messages_eus/fast
 
 # Convenience name for target.
-tugcar_description/CMakeFiles/tf2_msgs_generate_messages_eus.dir/rule:
-	cd /home/kimjaen/vuasrl_ws/build && $(MAKE) -f CMakeFiles/Makefile2 tugcar_description/CMakeFiles/tf2_msgs_generate_messages_eus.dir/rule
-.PHONY : tugcar_description/CMakeFiles/tf2_msgs_generate_messages_eus.dir/rule
+tugcar_description/CMakeFiles/tf2_msgs_generate_messages_lisp.dir/rule:
+	cd /home/kimjaen/vuasrl_ws/build && $(MAKE) -f CMakeFiles/Makefile2 tugcar_description/CMakeFiles/tf2_msgs_generate_messages_lisp.dir/rule
+.PHONY : tugcar_description/CMakeFiles/tf2_msgs_generate_messages_lisp.dir/rule
 
 # Convenience name for target.
-tf2_msgs_generate_messages_eus: tugcar_description/CMakeFiles/tf2_msgs_generate_messages_eus.dir/rule
+tf2_msgs_generate_messages_lisp: tugcar_description/CMakeFiles/tf2_msgs_generate_messages_lisp.dir/rule
 
-.PHONY : tf2_msgs_generate_messages_eus
+.PHONY : tf2_msgs_generate_messages_lisp
 
 # fast build rule for target.
-tf2_msgs_generate_messages_eus/fast:
-	cd /home/kimjaen/vuasrl_ws/build && $(MAKE) -f tugcar_description/CMakeFiles/tf2_msgs_generate_messages_eus.dir/build.make tugcar_description/CMakeFiles/tf2_msgs_generate_messages_eus.dir/build
-.PHONY : tf2_msgs_generate_messages_eus/fast
-
-# Convenience name for target.
-tugcar_description/CMakeFiles/actionlib_generate_messages_cpp.dir/rule:
-	cd /home/kimjaen/vuasrl_ws/build && $(MAKE) -f CMakeFiles/Makefile2 tugcar_description/CMakeFiles/actionlib_generate_messages_cpp.dir/rule
-.PHONY : tugcar_description/CMakeFiles/actionlib_generate_messages_cpp.dir/rule
-
-# Convenience name for target.
-actionlib_generate_messages_cpp: tugcar_description/CMakeFiles/actionlib_generate_messages_cpp.dir/rule
-
-.PHONY : actionlib_generate_messages_cpp
-
-# fast build rule for target.
-actionlib_generate_messages_cpp/fast:
-	cd /home/kimjaen/vuasrl_ws/build && $(MAKE) -f tugcar_description/CMakeFiles/actionlib_generate_messages_cpp.dir/build.make tugcar_description/CMakeFiles/actionlib_generate_messages_cpp.dir/build
-.PHONY : actionlib_generate_messages_cpp/fast
+tf2_msgs_generate_messages_lisp/fast:
+	cd /home/kimjaen/vuasrl_ws/build && $(MAKE) -f tugcar_description/CMakeFiles/tf2_msgs_generate_messages_lisp.dir/build.make tugcar_description/CMakeFiles/tf2_msgs_generate_messages_lisp.dir/build
+.PHONY : tf2_msgs_generate_messages_lisp/fast
 
 # Convenience name for target.
 tugcar_description/CMakeFiles/controller_manager_msgs_generate_messages_lisp.dir/rule:
@@ -318,6 +258,21 @@ controller_manager_msgs_generate_messages_lisp/fast:
 .PHONY : controller_manager_msgs_generate_messages_lisp/fast
 
 # Convenience name for target.
+tugcar_description/CMakeFiles/tf2_msgs_generate_messages_cpp.dir/rule:
+	cd /home/kimjaen/vuasrl_ws/build && $(MAKE) -f CMakeFiles/Makefile2 tugcar_description/CMakeFiles/tf2_msgs_generate_messages_cpp.dir/rule
+.PHONY : tugcar_description/CMakeFiles/tf2_msgs_generate_messages_cpp.dir/rule
+
+# Convenience name for target.
+tf2_msgs_generate_messages_cpp: tugcar_description/CMakeFiles/tf2_msgs_generate_messages_cpp.dir/rule
+
+.PHONY : tf2_msgs_generate_messages_cpp
+
+# fast build rule for target.
+tf2_msgs_generate_messages_cpp/fast:
+	cd /home/kimjaen/vuasrl_ws/build && $(MAKE) -f tugcar_description/CMakeFiles/tf2_msgs_generate_messages_cpp.dir/build.make tugcar_description/CMakeFiles/tf2_msgs_generate_messages_cpp.dir/build
+.PHONY : tf2_msgs_generate_messages_cpp/fast
+
+# Convenience name for target.
 tugcar_description/CMakeFiles/controller_manager_msgs_generate_messages_nodejs.dir/rule:
 	cd /home/kimjaen/vuasrl_ws/build && $(MAKE) -f CMakeFiles/Makefile2 tugcar_description/CMakeFiles/controller_manager_msgs_generate_messages_nodejs.dir/rule
 .PHONY : tugcar_description/CMakeFiles/controller_manager_msgs_generate_messages_nodejs.dir/rule
@@ -333,34 +288,34 @@ controller_manager_msgs_generate_messages_nodejs/fast:
 .PHONY : controller_manager_msgs_generate_messages_nodejs/fast
 
 # Convenience name for target.
-tugcar_description/CMakeFiles/tf2_msgs_generate_messages_lisp.dir/rule:
-	cd /home/kimjaen/vuasrl_ws/build && $(MAKE) -f CMakeFiles/Makefile2 tugcar_description/CMakeFiles/tf2_msgs_generate_messages_lisp.dir/rule
-.PHONY : tugcar_description/CMakeFiles/tf2_msgs_generate_messages_lisp.dir/rule
+tugcar_description/CMakeFiles/actionlib_generate_messages_cpp.dir/rule:
+	cd /home/kimjaen/vuasrl_ws/build && $(MAKE) -f CMakeFiles/Makefile2 tugcar_description/CMakeFiles/actionlib_generate_messages_cpp.dir/rule
+.PHONY : tugcar_description/CMakeFiles/actionlib_generate_messages_cpp.dir/rule
 
 # Convenience name for target.
-tf2_msgs_generate_messages_lisp: tugcar_description/CMakeFiles/tf2_msgs_generate_messages_lisp.dir/rule
+actionlib_generate_messages_cpp: tugcar_description/CMakeFiles/actionlib_generate_messages_cpp.dir/rule
 
-.PHONY : tf2_msgs_generate_messages_lisp
+.PHONY : actionlib_generate_messages_cpp
 
 # fast build rule for target.
-tf2_msgs_generate_messages_lisp/fast:
-	cd /home/kimjaen/vuasrl_ws/build && $(MAKE) -f tugcar_description/CMakeFiles/tf2_msgs_generate_messages_lisp.dir/build.make tugcar_description/CMakeFiles/tf2_msgs_generate_messages_lisp.dir/build
-.PHONY : tf2_msgs_generate_messages_lisp/fast
+actionlib_generate_messages_cpp/fast:
+	cd /home/kimjaen/vuasrl_ws/build && $(MAKE) -f tugcar_description/CMakeFiles/actionlib_generate_messages_cpp.dir/build.make tugcar_description/CMakeFiles/actionlib_generate_messages_cpp.dir/build
+.PHONY : actionlib_generate_messages_cpp/fast
 
 # Convenience name for target.
-tugcar_description/CMakeFiles/actionlib_msgs_generate_messages_eus.dir/rule:
-	cd /home/kimjaen/vuasrl_ws/build && $(MAKE) -f CMakeFiles/Makefile2 tugcar_description/CMakeFiles/actionlib_msgs_generate_messages_eus.dir/rule
-.PHONY : tugcar_description/CMakeFiles/actionlib_msgs_generate_messages_eus.dir/rule
+tugcar_description/CMakeFiles/tf2_msgs_generate_messages_eus.dir/rule:
+	cd /home/kimjaen/vuasrl_ws/build && $(MAKE) -f CMakeFiles/Makefile2 tugcar_description/CMakeFiles/tf2_msgs_generate_messages_eus.dir/rule
+.PHONY : tugcar_description/CMakeFiles/tf2_msgs_generate_messages_eus.dir/rule
 
 # Convenience name for target.
-actionlib_msgs_generate_messages_eus: tugcar_description/CMakeFiles/actionlib_msgs_generate_messages_eus.dir/rule
+tf2_msgs_generate_messages_eus: tugcar_description/CMakeFiles/tf2_msgs_generate_messages_eus.dir/rule
 
-.PHONY : actionlib_msgs_generate_messages_eus
+.PHONY : tf2_msgs_generate_messages_eus
 
 # fast build rule for target.
-actionlib_msgs_generate_messages_eus/fast:
-	cd /home/kimjaen/vuasrl_ws/build && $(MAKE) -f tugcar_description/CMakeFiles/actionlib_msgs_generate_messages_eus.dir/build.make tugcar_description/CMakeFiles/actionlib_msgs_generate_messages_eus.dir/build
-.PHONY : actionlib_msgs_generate_messages_eus/fast
+tf2_msgs_generate_messages_eus/fast:
+	cd /home/kimjaen/vuasrl_ws/build && $(MAKE) -f tugcar_description/CMakeFiles/tf2_msgs_generate_messages_eus.dir/build.make tugcar_description/CMakeFiles/tf2_msgs_generate_messages_eus.dir/build
+.PHONY : tf2_msgs_generate_messages_eus/fast
 
 # Convenience name for target.
 tugcar_description/CMakeFiles/controller_manager_msgs_generate_messages_py.dir/rule:
@@ -437,36 +392,6 @@ actionlib_generate_messages_py/fast:
 	cd /home/kimjaen/vuasrl_ws/build && $(MAKE) -f tugcar_description/CMakeFiles/actionlib_generate_messages_py.dir/build.make tugcar_description/CMakeFiles/actionlib_generate_messages_py.dir/build
 .PHONY : actionlib_generate_messages_py/fast
 
-# Convenience name for target.
-tugcar_description/CMakeFiles/actionlib_msgs_generate_messages_cpp.dir/rule:
-	cd /home/kimjaen/vuasrl_ws/build && $(MAKE) -f CMakeFiles/Makefile2 tugcar_description/CMakeFiles/actionlib_msgs_generate_messages_cpp.dir/rule
-.PHONY : tugcar_description/CMakeFiles/actionlib_msgs_generate_messages_cpp.dir/rule
-
-# Convenience name for target.
-actionlib_msgs_generate_messages_cpp: tugcar_description/CMakeFiles/actionlib_msgs_generate_messages_cpp.dir/rule
-
-.PHONY : actionlib_msgs_generate_messages_cpp
-
-# fast build rule for target.
-actionlib_msgs_generate_messages_cpp/fast:
-	cd /home/kimjaen/vuasrl_ws/build && $(MAKE) -f tugcar_description/CMakeFiles/actionlib_msgs_generate_messages_cpp.dir/build.make tugcar_description/CMakeFiles/actionlib_msgs_generate_messages_cpp.dir/build
-.PHONY : actionlib_msgs_generate_messages_cpp/fast
-
-# Convenience name for target.
-tugcar_description/CMakeFiles/actionlib_msgs_generate_messages_lisp.dir/rule:
-	cd /home/kimjaen/vuasrl_ws/build && $(MAKE) -f CMakeFiles/Makefile2 tugcar_description/CMakeFiles/actionlib_msgs_generate_messages_lisp.dir/rule
-.PHONY : tugcar_description/CMakeFiles/actionlib_msgs_generate_messages_lisp.dir/rule
-
-# Convenience name for target.
-actionlib_msgs_generate_messages_lisp: tugcar_description/CMakeFiles/actionlib_msgs_generate_messages_lisp.dir/rule
-
-.PHONY : actionlib_msgs_generate_messages_lisp
-
-# fast build rule for target.
-actionlib_msgs_generate_messages_lisp/fast:
-	cd /home/kimjaen/vuasrl_ws/build && $(MAKE) -f tugcar_description/CMakeFiles/actionlib_msgs_generate_messages_lisp.dir/build.make tugcar_description/CMakeFiles/actionlib_msgs_generate_messages_lisp.dir/build
-.PHONY : actionlib_msgs_generate_messages_lisp/fast
-
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -476,30 +401,25 @@ help:
 	@echo "... install/strip"
 	@echo "... install/local"
 	@echo "... install"
+	@echo "... list_install_components"
 	@echo "... rebuild_cache"
 	@echo "... edit_cache"
+	@echo "... test"
 	@echo "... tf2_msgs_generate_messages_py"
-	@echo "... tf2_msgs_generate_messages_cpp"
-	@echo "... actionlib_msgs_generate_messages_py"
-	@echo "... actionlib_msgs_generate_messages_nodejs"
 	@echo "... tf2_msgs_generate_messages_nodejs"
 	@echo "... controller_manager_msgs_generate_messages_cpp"
 	@echo "... controller_manager_msgs_generate_messages_eus"
-	@echo "... tf2_msgs_generate_messages_eus"
-	@echo "... actionlib_generate_messages_cpp"
-	@echo "... controller_manager_msgs_generate_messages_lisp"
-	@echo "... controller_manager_msgs_generate_messages_nodejs"
 	@echo "... tf2_msgs_generate_messages_lisp"
-	@echo "... actionlib_msgs_generate_messages_eus"
+	@echo "... controller_manager_msgs_generate_messages_lisp"
+	@echo "... tf2_msgs_generate_messages_cpp"
+	@echo "... controller_manager_msgs_generate_messages_nodejs"
+	@echo "... actionlib_generate_messages_cpp"
+	@echo "... tf2_msgs_generate_messages_eus"
 	@echo "... controller_manager_msgs_generate_messages_py"
 	@echo "... actionlib_generate_messages_eus"
 	@echo "... actionlib_generate_messages_lisp"
 	@echo "... actionlib_generate_messages_nodejs"
 	@echo "... actionlib_generate_messages_py"
-	@echo "... list_install_components"
-	@echo "... actionlib_msgs_generate_messages_cpp"
-	@echo "... test"
-	@echo "... actionlib_msgs_generate_messages_lisp"
 .PHONY : help
 
 

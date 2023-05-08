@@ -1,8 +1,0 @@
-prefix=/home/kimjaen/vuasrl_ws/devel
-
-Name: robot_arm_control
-Description: Description of robot_arm_control
-Version: 0.0.0
-Cflags: 
-Libs: -L${prefix}/lib 
-Requires: 

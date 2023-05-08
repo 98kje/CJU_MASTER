@@ -38,17 +38,17 @@ if(NOT DEFINED CMAKE_CROSSCOMPILING)
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/pkgconfig" TYPE FILE FILES "/home/kimjaen/vuasrl_ws/build/tugcar_lane_detection/catkin_generated/installspace/tugcar_lane_dection.pc")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/pkgconfig" TYPE FILE FILES "/home/kimjaen/vuasrl_ws/build/tugcar_lane_detection/catkin_generated/installspace/tugcar_lane_detection.pc")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/tugcar_lane_dection/cmake" TYPE FILE FILES
-    "/home/kimjaen/vuasrl_ws/build/tugcar_lane_detection/catkin_generated/installspace/tugcar_lane_dectionConfig.cmake"
-    "/home/kimjaen/vuasrl_ws/build/tugcar_lane_detection/catkin_generated/installspace/tugcar_lane_dectionConfig-version.cmake"
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/tugcar_lane_detection/cmake" TYPE FILE FILES
+    "/home/kimjaen/vuasrl_ws/build/tugcar_lane_detection/catkin_generated/installspace/tugcar_lane_detectionConfig.cmake"
+    "/home/kimjaen/vuasrl_ws/build/tugcar_lane_detection/catkin_generated/installspace/tugcar_lane_detectionConfig-version.cmake"
     )
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/tugcar_lane_dection" TYPE FILE FILES "/home/kimjaen/vuasrl_ws/src/tugcar_lane_detection/package.xml")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/tugcar_lane_detection" TYPE FILE FILES "/home/kimjaen/vuasrl_ws/src/tugcar_lane_detection/package.xml")
 endif()
 

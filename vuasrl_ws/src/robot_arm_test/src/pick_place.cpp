@@ -33,7 +33,7 @@ using namespace std;
 
 int main(int argc, char **argv) {
 
-	ros::init(argc, argv, "seven_dof_arm_planner");
+	ros::init(argc, argv, "smart_tugcar_planner");
 	ros::NodeHandle node_handle;
 	ros::AsyncSpinner spinner(1);
 

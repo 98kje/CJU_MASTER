@@ -91,9 +91,9 @@ endif()
 # flag project as catkin-based to distinguish if a find_package()-ed project is a catkin project
 set(robot_arm_test_FOUND_CATKIN_PROJECT TRUE)
 
-if(NOT "/home/kimjaen/vuasrl_ws/src/robot_arm_test/include " STREQUAL " ")
+if(NOT " " STREQUAL " ")
   set(robot_arm_test_INCLUDE_DIRS "")
-  set(_include_dirs "/home/kimjaen/vuasrl_ws/src/robot_arm_test/include")
+  set(_include_dirs "")
   if(NOT " " STREQUAL " ")
     set(_report "Check the issue tracker '' and consider creating a ticket if the problem has not been reported yet.")
   elseif(NOT " " STREQUAL " ")
@@ -116,7 +116,7 @@ if(NOT "/home/kimjaen/vuasrl_ws/src/robot_arm_test/include " STREQUAL " ")
   endforeach()
 endif()
 
-set(libraries "robot_arm_test")
+set(libraries "")
 foreach(library ${libraries})
   # keep build configuration keywords, target names and absolute libraries as-is
   if("${library}" MATCHES "^(debug|optimized|general)$")
@@ -185,7 +185,7 @@ foreach(t ${robot_arm_test_EXPORTED_TARGETS})
   endif()
 endforeach()
 
-set(depends "interactive_markers;moveit_core;moveit_ros_perception;moveit_ros_planning_interface;pluginlib;roscpp;std_msgs")
+set(depends "")
 foreach(depend ${depends})
   string(REPLACE " " ";" depend_list ${depend})
   # the package name of the dependency must be kept in a unique variable so that it is not overwritten in recursive calls

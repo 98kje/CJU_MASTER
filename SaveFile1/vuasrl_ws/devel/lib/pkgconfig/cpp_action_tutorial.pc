@@ -1,8 +1,0 @@
-prefix=/home/kimjaen/vuasrl_ws/devel
-
-Name: cpp_action_tutorial
-Description: Description of cpp_action_tutorial
-Version: 0.0.0
-Cflags: 
-Libs: -L${prefix}/lib 
-Requires: 

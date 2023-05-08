@@ -26,6 +26,9 @@ smart_tugcar:
           i: 0.1
           d: 1.0
           i_clamp: 0.2
+          
+gazebo_ros_control:
+      pid_gains:
         gripper_sub: 
           p: 300.0
           i: 0.1

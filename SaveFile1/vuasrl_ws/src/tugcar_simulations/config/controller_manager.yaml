@@ -1,4 +1,0 @@
-smart_tugcar:
-  controller_manager:
-    ns: /smart_tugcar
-    load_robot_description: true

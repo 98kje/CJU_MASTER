@@ -23,8 +23,8 @@ Control Your Tugcar!
 Moving around:
         w
    a    s    d
-w/s : linear movement (Burger : ~ 0.22, Waffle and Waffle Pi : ~ 0.26)
-a/d : angular movement (Burger : ~ 2.84, Waffle and Waffle Pi : ~ 1.82)
+w/s : linear movement 
+a/d : angular movement 
 stop when key released
 ESC to quit
 """
@@ -155,7 +155,7 @@ if __name__=="__main__":
     topic_type = rospy.get_param("topic_type", "smart_tugcar")
 
     if topic_type == 'smart_tugcar':
-        topic_name = 'smart_tugcar/cmd_vel'
+        topic_name = 'cmd_vel'
 
     pub = rospy.Publisher(topic_name, Twist, queue_size=10)
 
