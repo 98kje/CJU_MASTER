@@ -23,8 +23,8 @@ Control Your Tugcar!
 Moving around:
         w
    a    s    d
-w/s : linear movement (Burger : ~ 0.22, Waffle and Waffle Pi : ~ 0.26)
-a/d : angular movement (Burger : ~ 2.84, Waffle and Waffle Pi : ~ 1.82)
+w/s : linear movement 
+a/d : angular movement 
 stop when key released
 ESC to quit
 """
@@ -46,6 +46,11 @@ class Teleop:
             on_release=self.on_release
         ) as listener:
             listener.join()
+        
+        self.listener.start()
+    def stop(self):
+        self.listener.stop()
+        
 
     def vels(self, target_linear_vel, target_angular_vel):
         return "currently:\tlinear vel %s\t angular vel %s " % (target_linear_vel,target_angular_vel)
@@ -61,14 +66,14 @@ class Teleop:
         return input
 
     def checkLinearLimitVelocity(self, vel):
-        if tugcar_model == "tugcar":
+        if tugcar_model == "smart_tugcar":
             max_lin_vel = TUGCAR_MAX_LIN_VEL
 
         vel = self.constrain(vel, -max_lin_vel, max_lin_vel)
         return vel
 
     def checkAngularLimitVelocity(self, vel):
-        if tugcar_model in ["tugcar"]:
+        if tugcar_model in ["smart_tugcar"]:
             max_ang_vel = TUGCAR_MAX_ANG_VEL
 
         vel = self.constrain(vel, -max_ang_vel, max_ang_vel)
@@ -77,6 +82,9 @@ class Teleop:
     def move(self):
         global pub
         try:
+            if rospy.is_shutdown():
+            	return
+            	
             keys = ''.join(self.keys)
             if keys.find('w') == -1 and keys.find('s') == -1 :
                 self.target_linear_vel = 0.0
@@ -151,16 +159,16 @@ if __name__=="__main__":
         settings = termios.tcgetattr(sys.stdin)
 
     rospy.init_node('tugcar_teleop')
-    tugcar_model = rospy.get_param("model", "tugcar")
-    topic_type = rospy.get_param("topic_type", "tugcar")
+    tugcar_model = rospy.get_param("model", "smart_tugcar")
+    topic_type = rospy.get_param("topic_type", "smart_tugcar")
 
-    if topic_type == 'tugcar':
-        topic_name = '/cmd_vel'
+    if topic_type == 'smart_tugcar':
+        topic_name = 'smart_tugcar/cmd_vel'
 
     pub = rospy.Publisher(topic_name, Twist, queue_size=10)
 
-    Teleop()
-
+    teleop = Teleop()
+    rospy.on_shutdown(teleop.stop)
     twist = Twist()
     twist.linear.x = 0.0; twist.linear.y = 0.0; twist.linear.z = 0.0
     twist.angular.x = 0.0; twist.angular.y = 0.0; twist.angular.z = 0.0

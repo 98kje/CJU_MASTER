@@ -1,0 +1,8 @@
+{
+    "python.autoComplete.extraPaths": [
+        "/home/kimjaen/vuasrl_ws/devel/lib/python3/dist-packages",
+        "/home/kimjaen/catkin_ws/devel/lib/python3/dist-packages",
+        "/opt/ros/noetic/lib/python3/dist-packages"
+    ],
+    "git.ignoreLimitWarning": true
+}

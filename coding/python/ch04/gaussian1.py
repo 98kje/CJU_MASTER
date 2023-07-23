@@ -3,7 +3,7 @@ import numpy as np
 import cv2
 
 
-src = cv2.imread('rose.bmp', cv2.IMREAD_GRAYSCALE)
+src = cv2.imread('/home/kimjaen/CJU_MASTER/coding/python/ch04/noise.bmp', cv2.IMREAD_GRAYSCALE)
 
 dst = cv2.GaussianBlur(src, (0, 0), 3)
 dst2 = cv2.blur(src, (7, 7))

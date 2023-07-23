@@ -1,6 +1,9 @@
 <?xml version="1.0"?>
 <robot name="smart_tugcar" xmlns:xacro="http://ros.org/wiki/xacro">
 
+  <!-- Include xtion_pro Sensors -->
+  <xacro:include filename="$(find tugcar_description)/urdf/sensors/xtion_pro_live.urdf.xacro"/>
+  
   <!-- Gazebo Reference macro -->
   <xacro:macro name="RefLink" params="ref">
     <gazebo reference="${ref}">
@@ -13,6 +16,13 @@
       <material>Gazebo/DarkGrey</material>
     </gazebo>
   </xacro:macro>
+  
+   <material name="Cam_Color">
+        <color rgba="0.0 0.0 0.75 1.0"/>
+   </material>
+  
+  <xacro:property name="deg_to_rad" value="0.01745329251994329577"/>
+
 
   <!-- Link1 -->
   <RefLink ref="link1"/>
@@ -50,6 +60,12 @@
     </plugin>
   </gazebo>
 
+  <!-- Define RGB-D sensor -->  
+  <xacro:xtion_pro_live name="mani_camera" parent="base">
+    <origin xyz="-0.06 0.0 0.06" rpy="${0.0 * deg_to_rad} ${360.0 * deg_to_rad} ${0.0 * deg_to_rad}"/>
+    <origin xyz="0 0 0" rpy="${-90 * deg_to_rad} ${0 * deg_to_rad} ${-90 * deg_to_rad}" />
+  </xacro:xtion_pro_live>
+  
   <gazebo>
     <!-- loading plugin: mimic joints works in gazebo now -->
     <plugin name="gazebo_gripper_ros_control" filename="libroboticsgroup_gazebo_mimic_joint_plugin.so">

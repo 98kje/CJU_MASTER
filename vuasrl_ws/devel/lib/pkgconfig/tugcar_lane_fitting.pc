@@ -1,8 +1,0 @@
-prefix=/home/kimjaen/vuasrl_ws/devel
-
-Name: tugcar_lane_fitting
-Description: Description of tugcar_lane_fitting
-Version: 0.0.0
-Cflags: -I/home/kimjaen/vuasrl_ws/src/tugcar_lane_fitting/include
-Libs: -L${prefix}/lib -llane_fitting
-Requires: roscpp std_msgs cv_bridge sensor_msgs

@@ -5,7 +5,7 @@
   <arg name="headless" default="false"/>
   <arg name="debug" default="false"/> 
   
-  <arg name="world_name" default="airport_world.world"/>
+  <arg name="world_name" default="tug.world"/>
   <arg name="world_file" default="$(find tugcar_description)/models/$(arg world_name)"/>
   
   <include file="$(find gazebo_ros)/launch/empty_world.launch">

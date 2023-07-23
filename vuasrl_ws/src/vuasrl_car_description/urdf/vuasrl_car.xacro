@@ -1,0 +1,204 @@
+<?xml version="1.0" ?>
+<robot name="vuasrl_car" xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+<xacro:include filename="$(find vuasrl_car_description)/urdf/materials.xacro" />
+<xacro:include filename="$(find vuasrl_car_description)/urdf/vuasrl_car.trans" />
+<xacro:include filename="$(find vuasrl_car_description)/urdf/vuasrl_car.gazebo" />
+
+<link name="base_footprint"/>
+
+<link name="base_link">
+  <inertial>
+    <origin xyz="-0.0024815786222996896 8.508916291582655e-12 0.0794086767825376" rpy="0 0 0"/>
+    <mass value="4.692054269661653"/>
+    <inertia ixx="0.016864" iyy="0.034752" izz="0.046313" ixy="-0.0" iyz="0.0" ixz="0.000383"/>
+  </inertial>
+  <visual>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://vuasrl_car_description/meshes/base_link.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="light_black"/>
+  </visual>
+  <collision>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://vuasrl_car_description/meshes/base_link.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="rb_wheel">
+  <inertial>
+    <origin xyz="-1.0699774399824946e-14 -0.012500000000000011 0.0" rpy="0 0 0"/>
+    <mass value="0.30048849691250473"/>
+    <inertia ixx="0.000333" iyy="0.000635" izz="0.000333" ixy="0.0" iyz="0.0" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.1 0.11 -0.065" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://vuasrl_car_description/meshes/rb_wheel_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="brown"/>
+  </visual>
+  <collision>
+    <origin xyz="0.1 0.11 -0.065" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://vuasrl_car_description/meshes/rb_wheel_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="lb_wheel">
+  <inertial>
+    <origin xyz="-1.0685896612017132e-14 0.012500000000000011 -1.3877787807814457e-17" rpy="0 0 0"/>
+    <mass value="0.30048849691250473"/>
+    <inertia ixx="0.000333" iyy="0.000635" izz="0.000333" ixy="0.0" iyz="0.0" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.1 -0.11 -0.065" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://vuasrl_car_description/meshes/lb_wheel_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="brown"/>
+  </visual>
+  <collision>
+    <origin xyz="0.1 -0.11 -0.065" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://vuasrl_car_description/meshes/lb_wheel_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="rf_wheel">
+  <inertial>
+    <origin xyz="1.0685896612017132e-14 -0.012499999999999997 1.3877787807814457e-17" rpy="0 0 0"/>
+    <mass value="0.3004884969125047"/>
+    <inertia ixx="0.000333" iyy="0.000635" izz="0.000333" ixy="0.0" iyz="-0.0" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.1 0.11 -0.065" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://vuasrl_car_description/meshes/rf_wheel_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="brown"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.1 0.11 -0.065" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://vuasrl_car_description/meshes/rf_wheel_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="lf_wheel">
+  <inertial>
+    <origin xyz="1.0685896612017132e-14 0.012499999999999997 0.0" rpy="0 0 0"/>
+    <mass value="0.3004884969125047"/>
+    <inertia ixx="0.000333" iyy="0.000635" izz="0.000333" ixy="0.0" iyz="0.0" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.1 -0.11 -0.065" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://vuasrl_car_description/meshes/lf_wheel_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="brown"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.1 -0.11 -0.065" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://vuasrl_car_description/meshes/lf_wheel_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="ouster_link">
+  <inertial>
+    <origin xyz="-1.3877787807814457e-17 0.0 0.007571641576545857" rpy="0 0 0"/>
+    <mass value="0.22880119812327096"/>
+    <inertia ixx="4e-05" iyy="4e-05" izz="7.1e-05" ixy="0.0" iyz="-0.0" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.085 0.0 -0.15" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://vuasrl_car_description/models/sensors/ouster_ros/meshes/os1_64.dae" scale="0.8 0.8 0.7"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0.085 0.0 -0.10" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://vuasrl_car_description/models/sensors/ouster_ros/meshes/os1_64.dae" scale="0.8 0.8 0.7"/>
+    </geometry>
+  </collision>
+</link>
+
+  
+<link name="imu_link">
+  <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <mass value="0.1"/>
+      <inertia ixx="4e-05" iyy="4e-05" izz="7.1e-05" ixy="0.0" iyz="-0.0" ixz="-0.0"/>
+  </inertial>
+  <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <box size ="0.04 0.02 0.01"/>
+      </geometry>
+      <material name="white"/>
+  </visual>
+  <collision>
+      <geometry>
+        <box size = "0.04 0.02 0.01"/>
+      </geometry>
+  </collision>
+</link>
+
+<joint name="base_joint" type="fixed">
+  <parent link="base_footprint"/>
+  <child link="base_link" />
+  <origin xyz="0 0 0.010" rpy="0 0 0"/>
+</joint>
+
+<joint name="rb_base" type="continuous">
+  <origin xyz="-0.1 -0.11 0.065" rpy="0 0 0"/>
+  <parent link="base_link"/>
+  <child link="rb_wheel"/>
+  <axis xyz="0.0 1.0 0.0"/> 
+</joint>
+
+<joint name="lb_base" type="continuous">
+  <origin xyz="-0.1 0.11 0.065" rpy="0 0 0"/>
+  <parent link="base_link"/>
+  <child link="lb_wheel"/>
+  <axis xyz="0.0 1.0 0.0"/>
+</joint>
+
+<joint name="rf_base" type="continuous">
+  <origin xyz="0.1 -0.11 0.065" rpy="0 0 0"/>
+  <parent link="base_link"/>
+  <child link="rf_wheel"/>
+  <axis xyz="0.0 1.0 0.0"/>
+</joint>
+
+<joint name="lf_base" type="continuous">
+  <origin xyz="0.1 0.11 0.065" rpy="0 0 0"/>
+  <parent link="base_link"/>
+  <child link="lf_wheel"/>
+  <axis xyz="0.0 1.0 0.0"/>
+</joint>
+
+<joint name="lidar_base" type="fixed">
+  <origin xyz="-0.17 0.0 0.30" rpy="0 0 0"/>
+  <parent link="base_link"/>
+  <child link="ouster_link"/>   
+</joint>
+
+<joint name="imu_joint" type="fixed">
+  <parent link="base_link"/>
+  <child link="imu_link"/>
+  <origin xyz="-0.03 0 0.125" rpy="0 0 0"/>
+</joint>
+
+
+</robot>

@@ -121,10 +121,7 @@
         <visual name='visual_ground'>
           <cast_shadows>0</cast_shadows>
           <geometry>
-            <plane>
-              <normal>0 0 1</normal>
-              <size>10 100</size>
-            </plane>
+            <mesh>model://floor4.png</mesh>
           </geometry>
           <material>
             <script>

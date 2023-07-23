@@ -1,0 +1,20 @@
+<launch>
+  <param name="robot_description" command="$(find xacro)/xacro $(find vuasrl_car_description)/urdf/vuasrl_car.xacro"/>
+  <node name="spawn_urdf" pkg="gazebo_ros" type="spawn_model" args="-urdf -model vuasrl_car -param robot_description -x 0.0 -y 0.0 -z 1.0 "/>
+  
+  
+  <arg name="world_name" default="smart_tugcar.world"/>
+  <arg name="world_file" default="$(find vuasrl_car_description)/models/$(arg world_name)"/>
+  
+  
+  <include file="$(find vuasrl_car_description)/launch/empty_world.launch">
+    <arg name="paused" value="false"/>
+    <arg name="gui" value="true"/>
+    <arg name="debug" value="false"/>
+    <arg name="verbose" value="false"/>
+    <arg name="world_name" value="$(arg world_file)"/>
+    
+    <env name="GAZEBO_MODEL_PATH" value="$(optenv GAZEBO_MODEL_PATH):$(find
+vuasrl_car_description)/models:$(find vuasrl_car_description)/models/sensors"/>
+  </include>
+</launch>

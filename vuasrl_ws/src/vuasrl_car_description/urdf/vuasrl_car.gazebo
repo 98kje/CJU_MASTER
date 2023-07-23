@@ -1,0 +1,151 @@
+<?xml version="1.0" ?>
+<robot name="vuasrl_car" xmlns:xacro="http://www.ros.org/wiki/xacro" >
+
+<xacro:arg name="imu_visual"    default="false"/>
+
+  
+<xacro:property name="base_color" value="Gazebo/Grey" />
+<xacro:property name="wheel_color" value="Gazebo/DarkGrey" />
+<xacro:property name="lidar_color" value="Gazebo/White" />
+
+
+<gazebo>
+  <plugin name="control" filename="libgazebo_ros_control.so"/>
+</gazebo>
+
+<xacro:property name="deg_to_rad" value="0.01745329251994329577"/>
+
+<gazebo reference="base_link">
+  <material>${base_color}</material>
+  <mu1>0.2</mu1>
+  <mu2>0.2</mu2>
+  <selfCollide>true</selfCollide>
+  <gravity>true</gravity>
+</gazebo>
+
+<gazebo reference="rb_wheel">
+  <material>${wheel_color}</material>
+  <mu1>15000</mu1>
+  <mu2>15000</mu2>
+  <selfCollide>true</selfCollide>
+</gazebo>
+
+<gazebo reference="lb_wheel">
+  <material>${wheel_color}</material>
+  <mu1>15000</mu1>
+  <mu2>15000</mu2>
+  <selfCollide>true</selfCollide>
+</gazebo>
+
+<gazebo reference="rf_wheel">
+  <material>${wheel_color}</material>
+  <mu1>0.2</mu1>
+  <mu2>0.2</mu2>
+  <selfCollide>true</selfCollide>
+</gazebo>
+
+<gazebo reference="lf_wheel">
+  <material>${wheel_color}</material>
+  <mu1>0.2</mu1>
+  <mu2>0.2</mu2>
+  <selfCollide>true</selfCollide>
+</gazebo>
+  
+<gazebo>
+  <plugin name="differential_drive_controller" filename="libgazebo_ros_diff_drive.so">
+    <alwaysOn>true</alwaysOn>
+    <updateRate>10</updateRate>
+    <legacyMode>false</legacyMode>
+    <leftJoint>lb_base</leftJoint>
+    <rightJoint>rb_base</rightJoint>
+    <wheelSeparation>0.12</wheelSeparation>
+    <wheelDiameter>0.130</wheelDiameter>
+    <commandTopic>cmd_vel</commandTopic>
+    <odometryTopic>odom</odometryTopic>
+    <odometryFrame>odom</odometryFrame>
+    <robotBaseFrame>base_link</robotBaseFrame>
+    <publishTf>1</publishTf>
+    <publishOdom>true</publishOdom>
+    <publishWheelTF>false</publishWheelTF>
+    <publishWheelJointState>false</publishWheelJointState>
+    <rosDebugLevel>na</rosDebugLevel>
+    <wheelAcceleration>1.0</wheelAcceleration>
+    <wheelTorque>20</wheelTorque>
+    <odometrySource>world</odometrySource>
+  </plugin>
+</gazebo>
+
+  <!-- imu -->
+  <gazebo reference="imu_link">
+    <gravity>false</gravity>
+    <sensor name="imu_sensor" type="imu">
+      <always_on>true</always_on>
+      <update_rate>100</update_rate>
+      <visualize>true</visualize>
+      <topic>__default_topic__</topic>
+      <plugin filename="libgazebo_ros_imu_sensor.so" name="imu_plugin">
+        <topicName>imu</topicName>
+        <bodyName>imu_link</bodyName>
+        <updateRateHZ>10.0</updateRateHZ>
+        <gaussianNoise>0.0</gaussianNoise>
+        <xyzOffset>0 0 0</xyzOffset>
+        <rpyOffset>0 0 0</rpyOffset>
+        <frameName>imu_link</frameName>
+        <initialOrientationAsReference>false</initialOrientationAsReference>
+      </plugin>
+      <pose>0 0 0 0 0 0</pose>
+    </sensor>
+  </gazebo>
+  
+  <!-- ouster -->
+  <gazebo reference="ouster_link">
+    <sensor name='ouster_sensor' type='ray'>
+      <visualize>0</visualize>
+      <update_rate>10</update_rate>
+      <ray>
+        <scan>
+          <horizontal>
+            <samples>512</samples>
+            <resolution>1</resolution>
+            <min_angle>-3.14159</min_angle>
+            <max_angle>3.14159</max_angle>
+          </horizontal>
+          <vertical>
+            <samples>32</samples>
+            <resolution>1</resolution>
+            <min_angle>-0.349</min_angle>
+            <max_angle>0.349</max_angle>
+          </vertical>
+        </scan>
+        <range>
+          <min>0.05</min>
+          <max>120.0</max>
+          <resolution>0.01</resolution>
+        </range>
+        <noise>
+          <type>gaussian</type>
+          <mean>0</mean>
+          <stddev>0.01</stddev>
+        </noise>
+      </ray>
+      <plugin name='gazebo_ros_laser_controller' filename='libgazebo_ros_ouster_laser.so'>
+        <topicName>/os_cloud_node/points</topicName>
+        <bodyName>ouster_link</bodyName>
+        <frameName>ouster_link</frameName>
+        <min_range>0.05</min_range>
+        <max_range>120.0</max_range>
+        <gaussianNoise>0.01</gaussianNoise>
+      </plugin>
+    </sensor>
+  </gazebo>
+  
+<plugin name="camera_controller" filename="libgazebo_ros_camera.so">
+  <robotNamespace>cam</robotNamespace>
+  <imageTopicName>image_raw</imageTopicName>
+  <cameraInfoTopicName>camera_info</cameraInfoTopicName>
+  <frameName>camera::link</frameName>
+</plugin>
+
+
+
+</robot>

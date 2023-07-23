@@ -1,0 +1,28 @@
+<model name='yellow_lane'>
+  <static>1</static>
+  <link name='link'>
+    <pose>0 0 0 0 0 0</pose>
+    <collision name='collision'>
+      <geometry>
+        <cylinder>
+          <radius>10</radius>
+          <length>0.02</length>
+        </cylinder>
+      </geometry>
+    </collision>
+    <visual name='visual'>
+      <geometry>
+        <cylinder>
+          <radius>10</radius>
+          <length>0.02</length>
+        </cylinder>
+      </geometry>
+      <material>
+        <script>
+          <uri>file://media/materials/scripts/gazebo.material</uri>
+          <name>Gazebo/Yellow</name>
+        </script>
+      </material>
+    </visual>
+  </link>
+</model>

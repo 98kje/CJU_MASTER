@@ -1,0 +1,48 @@
+<?xml version="1.0" ?>
+<robot name="vuasrl_car" xmlns:xacro="http://www.ros.org/wiki/xacro" >
+
+<transmission name="rb_base_tran">
+  <type>transmission_interface/SimpleTransmission</type>
+  <joint name="rb_base">
+    <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+  </joint>
+  <actuator name="rb_base_actr">
+    <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+    <mechanicalReduction>1</mechanicalReduction>
+  </actuator>
+</transmission>
+
+<transmission name="lb_base_tran">
+  <type>transmission_interface/SimpleTransmission</type>
+  <joint name="lb_base">
+    <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+  </joint>
+  <actuator name="lb_base_actr">
+    <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+    <mechanicalReduction>1</mechanicalReduction>
+  </actuator>
+</transmission>
+
+<transmission name="rf_base_tran">
+  <type>transmission_interface/SimpleTransmission</type>
+  <joint name="rf_base">
+    <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+  </joint>
+  <actuator name="rf_base_actr">
+    <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+    <mechanicalReduction>1</mechanicalReduction>
+  </actuator>
+</transmission>
+
+<transmission name="lf_base_tran">
+  <type>transmission_interface/SimpleTransmission</type>
+  <joint name="lf_base">
+    <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+  </joint>
+  <actuator name="lf_base_actr">
+    <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+    <mechanicalReduction>1</mechanicalReduction>
+  </actuator>
+</transmission>
+
+</robot>

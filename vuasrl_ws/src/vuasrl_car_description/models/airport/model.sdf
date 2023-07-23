@@ -1,0 +1,33 @@
+<?xml version="1.0" ?>
+<sdf version='1.5'>
+  <model name='airport'>
+    <static>true</static>
+    <link name='airport'>
+      <pose frame=''>0 0 0 0 0 0</pose>
+      <collision name='airport_collision'>
+        <geometry>
+          <mesh>
+            <scale>0.05 0.05 0.05</scale>
+            <uri>model://airport/airport.dae</uri>
+          </mesh>
+        </geometry>
+      </collision>
+      <visual name='airport'>
+        <cast_shadows>false</cast_shadows>
+        <geometry>
+          <mesh>
+            <scale>0.05 0.05 0.05</scale>
+            <uri>model://airport/airport.dae</uri>
+          </mesh>
+        </geometry>
+        <material>
+          <script>
+            <name>air_port</name>
+            <uri>model://airport/airport.dae</uri>
+          </script>
+        </material>
+      </visual>
+    </link>
+  </model>
+
+</sdf>

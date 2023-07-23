@@ -1,0 +1,9 @@
+<launch>
+
+<rosparam file="$(find vuasrl_car_description)/launch/controller.yaml" command="load"/>
+<node name="controller_spawner" pkg="controller_manager" type="spawner" respawn="false" output="screen" ns="vuasrl_car" args="rb_base_position_controller lb_base_position_controller rf_base_position_controller lf_base_position_controller joint_state_controller "/>
+<node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" respawn="false" output="screen">
+  <remap from="/joint_states" to="/vuasrl_car/joint_states"/>
+</node>
+
+</launch>

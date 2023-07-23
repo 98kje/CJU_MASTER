@@ -1,0 +1,30 @@
+<launch>
+  <!-- Launch Gazebo -->
+  <include file="$(find tugcar_simulations)/launch/tugcar_obstacle_world.launch" />
+  <rosparam file="$(find tugcar_simulations)/config/controller_manager.yaml" command="load"/>
+  <rosparam file="$(find tugcar_simulations)/config/trajectory_control.yaml" command="load" ns="smart_tugcar" />
+  <rosparam file="$(find tugcar_simulations)/config/joint_state_controller.yaml" command="load" />
+  <rosparam file="$(find tugcar_simulations)/config/gazebo_controller.yaml" command="load"/>
+  
+  <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" respawn="false" output="screen" />
+
+  <node name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher">
+    <param name="wait_for_transform" value="0.7" />
+  </node>
+
+  <node name="tugcar_joint_state_spawner" pkg="controller_manager" type="spawner" respawn="false" output="screen" ns="/smart_tugcar" args="smart_tugcar_joint_controller smart_tugcar_gripper_controller"/>
+  
+  <include file="$(find tugcar_moveit)/launch/planning_context.launch">
+    <arg name="load_robot_description" value="false" />
+  </include>
+  
+  <include file="$(find tugcar_moveit)/launch/move_group.launch">
+    <arg name="publish_monitored_planning_scene" value="true" />
+  </include>
+  
+  <include file="$(find tugcar_moveit)/launch/moveit_rviz.launch">
+    <arg name="rviz_config" value="$(find tugcar_moveit)/launch/moveit.rviz" />
+  </include>
+
+</launch>
+

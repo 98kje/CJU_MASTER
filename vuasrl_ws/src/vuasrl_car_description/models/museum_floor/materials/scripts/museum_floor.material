@@ -1,0 +1,15 @@
+material museum_floor
+{
+	receive_shadows off
+	technique
+	{
+		pass
+		{
+			texture_unit
+			{
+				texture museum_floor.png
+				scale 0.2 0.2
+			}
+		}
+	}
+}

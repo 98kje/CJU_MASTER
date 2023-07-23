@@ -1,0 +1,2 @@
+fastlio_mapping filter=lfs diff=lfs merge=lfs -text
+laserMapping.cpp.o filter=lfs diff=lfs merge=lfs -text

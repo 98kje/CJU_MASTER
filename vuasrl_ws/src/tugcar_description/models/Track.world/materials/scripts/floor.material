@@ -10,7 +10,7 @@ material Floor/Image
 
       texture_unit
 			{
-			  texture ../textures/floor5.png
+			  texture ../textures/floor4.png
 			}
     }
   }

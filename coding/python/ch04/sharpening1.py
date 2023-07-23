@@ -2,7 +2,7 @@ import sys
 import numpy as np
 import cv2
 
-src = cv2.imread('rose.bmp', cv2.IMREAD_GRAYSCALE)
+src = cv2.imread('/home/kimjaen/CJU_MASTER/coding/python/ch04/noise.bmp', cv2.IMREAD_GRAYSCALE)
 
 if src is None:
     print('Image load failed!')

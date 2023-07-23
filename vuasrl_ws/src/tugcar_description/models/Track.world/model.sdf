@@ -29,8 +29,8 @@
             </geometry>
             <material>
               <script>
-	        <uri>model://Track.world/materials/scripts/floor.material</uri>
-                <uri>model://Track.world/materials/textures/floor5.png</uri>
+	        <uri>model://home/kimjaen/vuasrl_ws/src/tugcar_description/models/Track.world/materials/scripts/floor.material</uri>
+                <uri>model:///floor4.png</uri>
                 <name>Floor/Image</name>
       	      </script>
            </material>

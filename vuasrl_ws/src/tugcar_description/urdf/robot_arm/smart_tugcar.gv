@@ -16,6 +16,12 @@ node [shape=box];
 "caster_back_left_link" [label="caster_back_left_link"];
 "caster_back_right_link" [label="caster_back_right_link"];
 "imu_link" [label="imu_link"];
+"mani_camera_link" [label="mani_camera_link"];
+"mani_camera_depth_frame" [label="mani_camera_depth_frame"];
+"mani_camera_depth_optical_frame" [label="mani_camera_depth_optical_frame"];
+"mani_camera_optical_frame" [label="mani_camera_optical_frame"];
+"mani_camera_rgb_frame" [label="mani_camera_rgb_frame"];
+"mani_camera_rgb_optical_frame" [label="mani_camera_rgb_optical_frame"];
 "base_scan" [label="base_scan"];
 "wheel_left_link" [label="wheel_left_link"];
 "wheel_right_link" [label="wheel_right_link"];
@@ -50,6 +56,18 @@ node [shape=ellipse, color=blue, fontcolor=blue];
 "caster_back_right_joint" -> "caster_back_right_link"
 "base_link" -> "imu_joint" [label="xyz: 0 0 0.068 \nrpy: 0 -0 0"]
 "imu_joint" -> "imu_link"
+"base_link" -> "mani_camera_joint" [label="xyz: -0.06 0 0.06 \nrpy: 0 -2.44929e-16 0"]
+"mani_camera_joint" -> "mani_camera_link"
+"mani_camera_link" -> "mani_camera_depth_joint" [label="xyz: 0 0.049 0 \nrpy: 0 -0 0"]
+"mani_camera_depth_joint" -> "mani_camera_depth_frame"
+"mani_camera_depth_frame" -> "mani_camera_depth_optical_joint" [label="xyz: 0 0 0 \nrpy: -1.5708 -0 -1.5708"]
+"mani_camera_depth_optical_joint" -> "mani_camera_depth_optical_frame"
+"mani_camera_link" -> "mani_camera_optical_joint" [label="xyz: 0 0 0 \nrpy: -1.5708 -0 -1.5708"]
+"mani_camera_optical_joint" -> "mani_camera_optical_frame"
+"mani_camera_link" -> "mani_camera_rgb_joint" [label="xyz: 0 0.022 0 \nrpy: 0 -0 0"]
+"mani_camera_rgb_joint" -> "mani_camera_rgb_frame"
+"mani_camera_rgb_frame" -> "mani_camera_rgb_optical_joint" [label="xyz: 0 0 0 \nrpy: -1.5708 -0 -1.5708"]
+"mani_camera_rgb_optical_joint" -> "mani_camera_rgb_optical_frame"
 "base_link" -> "scan_joint" [label="xyz: -0.024 0 0.122 \nrpy: 0 -0 0"]
 "scan_joint" -> "base_scan"
 "base_link" -> "wheel_left_joint" [label="xyz: 0 0.144 0.023 \nrpy: -1.57 0 0"]
