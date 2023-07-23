@@ -1,0 +1,2 @@
+robot_arm_test:robot_manipulator:tugcar_bringup:tugcar_control:tugcar_description:tugcar_lane_detection:tugcar_motionplan:tugcar_moveit:tugcar_msgs:tugcar_navigation:tugcar_simulations:tugcar_teleop
+-DCATKIN_WHITELIST_PACKAGES= -DCATKIN_DEVEL_PREFIX=/home/kimjaen/vuasrl_ws/devel -DCMAKE_INSTALL_PREFIX=/home/kimjaen/vuasrl_ws/install -G Unix Makefiles

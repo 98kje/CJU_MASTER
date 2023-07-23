@@ -14,9 +14,15 @@ class LaneFollower:
 
     def __init__(self):
 
+<<<<<<< HEAD:vuasrl_ws/src/tugcar_lane_detection/scripts/lane_stop.py
         self.image_sub = rospy.Subscriber("smart_tugcar/camera/rgb/image_raw/compressed", CompressedImage, self.callback)
         self.laser_sub = rospy.Subscriber("smart_tugcar/tugcar/laser/scan", LaserScan, self.laser_callback)
         self.cmd_vel_pub = rospy.Publisher('smart_tugcar/cmd_vel', Twist, queue_size=10)
+=======
+        self.image_sub = rospy.Subscriber("/camera/rgb/image_raw/compressed", CompressedImage, self.callback)
+        self.laser_sub = rospy.Subscriber("/tugcar/laser/scan", LaserScan, self.laser_callback)
+        self.cmd_vel_pub = rospy.Publisher('/cmd_vel', Twist, queue_size=10)
+>>>>>>> origin/main:vuasrl_ws/src/tugcar_lane_detection/config/lane_stop.py
         self.img_bgr = None
         self.min_distance = float("inf")
         self.stop_time = None
@@ -101,12 +107,20 @@ class LaneFollower:
             error = cx - self.img_bgr.shape[1]/2
             twist = Twist()
 
+<<<<<<< HEAD:vuasrl_ws/src/tugcar_lane_detection/scripts/lane_stop.py
             if self.min_distance < 1.0: # Change this value according to the desired stopping distance
+=======
+            if self.min_distance < 0.6: # Change this value according to the desired stopping distance
+>>>>>>> origin/main:vuasrl_ws/src/tugcar_lane_detection/config/lane_stop.py
                 twist.linear.x = 0.0
                 if self.stop_time is None:
                     self.stop_time = time.time()
             else:
+<<<<<<< HEAD:vuasrl_ws/src/tugcar_lane_detection/scripts/lane_stop.py
                 twist.linear.x = 0.5
+=======
+                twist.linear.x = 0.2
+>>>>>>> origin/main:vuasrl_ws/src/tugcar_lane_detection/config/lane_stop.py
                 self.stop_time = None
 
             kp = 0.005
