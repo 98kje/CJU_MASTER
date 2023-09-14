@@ -1,0 +1,17 @@
+<?xml version="1.0" ?>
+<robot name="vuasrl_manipulation" xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+  <!-- Import vuasrl_arm URDF -->
+  <xacro:include filename="$(find vuasrl_manipulation)/urdf/vuasrl_manipulation.xacro" />
+
+  <!-- Import vuasrl_car URDF -->
+  <xacro:include filename="$(find vuasrl_car_description)/urdf/vuasrl_car.xacro" />
+  
+  <!-- base_fixed joint-->
+    <joint name="base_fixed" type="fixed">
+      <origin xyz="-0.05 0.0 0.12" rpy="0 0 0"/>
+      <parent link="base_link"/>
+      <child link="link1"/>
+    </joint>
+
+</robot>

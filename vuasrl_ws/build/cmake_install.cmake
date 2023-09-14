@@ -12,7 +12,7 @@ if(NOT DEFINED CMAKE_INSTALL_CONFIG_NAME)
     string(REGEX REPLACE "^[^A-Za-z0-9_]+" ""
            CMAKE_INSTALL_CONFIG_NAME "${BUILD_TYPE}")
   else()
-    set(CMAKE_INSTALL_CONFIG_NAME "")
+    set(CMAKE_INSTALL_CONFIG_NAME "Release")
   endif()
   message(STATUS "Install configuration: \"${CMAKE_INSTALL_CONFIG_NAME}\"")
 endif()
@@ -37,7 +37,12 @@ if(NOT DEFINED CMAKE_CROSSCOMPILING)
   set(CMAKE_CROSSCOMPILING "FALSE")
 endif()
 
-if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
+# Set default install directory permissions.
+if(NOT DEFINED CMAKE_OBJDUMP)
+  set(CMAKE_OBJDUMP "/usr/bin/objdump")
+endif()
+
+if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT)
   
       if (NOT EXISTS "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}")
         file(MAKE_DIRECTORY "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}")
@@ -47,7 +52,7 @@ if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_
       endif()
 endif()
 
-if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
+if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT)
   list(APPEND CMAKE_ABSOLUTE_DESTINATION_FILES
    "/home/kimjaen/vuasrl_ws/install/_setup_util.py")
   if(CMAKE_WARN_ON_ABSOLUTE_INSTALL_DESTINATION)
@@ -56,10 +61,10 @@ if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_
   if(CMAKE_ERROR_ON_ABSOLUTE_INSTALL_DESTINATION)
     message(FATAL_ERROR "ABSOLUTE path INSTALL DESTINATION forbidden (by caller): ${CMAKE_ABSOLUTE_DESTINATION_FILES}")
   endif()
-file(INSTALL DESTINATION "/home/kimjaen/vuasrl_ws/install" TYPE PROGRAM FILES "/home/kimjaen/vuasrl_ws/build/catkin_generated/installspace/_setup_util.py")
+  file(INSTALL DESTINATION "/home/kimjaen/vuasrl_ws/install" TYPE PROGRAM FILES "/home/kimjaen/vuasrl_ws/build/catkin_generated/installspace/_setup_util.py")
 endif()
 
-if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
+if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT)
   list(APPEND CMAKE_ABSOLUTE_DESTINATION_FILES
    "/home/kimjaen/vuasrl_ws/install/env.sh")
   if(CMAKE_WARN_ON_ABSOLUTE_INSTALL_DESTINATION)
@@ -68,10 +73,10 @@ if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_
   if(CMAKE_ERROR_ON_ABSOLUTE_INSTALL_DESTINATION)
     message(FATAL_ERROR "ABSOLUTE path INSTALL DESTINATION forbidden (by caller): ${CMAKE_ABSOLUTE_DESTINATION_FILES}")
   endif()
-file(INSTALL DESTINATION "/home/kimjaen/vuasrl_ws/install" TYPE PROGRAM FILES "/home/kimjaen/vuasrl_ws/build/catkin_generated/installspace/env.sh")
+  file(INSTALL DESTINATION "/home/kimjaen/vuasrl_ws/install" TYPE PROGRAM FILES "/home/kimjaen/vuasrl_ws/build/catkin_generated/installspace/env.sh")
 endif()
 
-if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
+if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT)
   list(APPEND CMAKE_ABSOLUTE_DESTINATION_FILES
    "/home/kimjaen/vuasrl_ws/install/setup.bash;/home/kimjaen/vuasrl_ws/install/local_setup.bash")
   if(CMAKE_WARN_ON_ABSOLUTE_INSTALL_DESTINATION)
@@ -80,13 +85,13 @@ if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_
   if(CMAKE_ERROR_ON_ABSOLUTE_INSTALL_DESTINATION)
     message(FATAL_ERROR "ABSOLUTE path INSTALL DESTINATION forbidden (by caller): ${CMAKE_ABSOLUTE_DESTINATION_FILES}")
   endif()
-file(INSTALL DESTINATION "/home/kimjaen/vuasrl_ws/install" TYPE FILE FILES
+  file(INSTALL DESTINATION "/home/kimjaen/vuasrl_ws/install" TYPE FILE FILES
     "/home/kimjaen/vuasrl_ws/build/catkin_generated/installspace/setup.bash"
     "/home/kimjaen/vuasrl_ws/build/catkin_generated/installspace/local_setup.bash"
     )
 endif()
 
-if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
+if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT)
   list(APPEND CMAKE_ABSOLUTE_DESTINATION_FILES
    "/home/kimjaen/vuasrl_ws/install/setup.sh;/home/kimjaen/vuasrl_ws/install/local_setup.sh")
   if(CMAKE_WARN_ON_ABSOLUTE_INSTALL_DESTINATION)
@@ -95,13 +100,13 @@ if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_
   if(CMAKE_ERROR_ON_ABSOLUTE_INSTALL_DESTINATION)
     message(FATAL_ERROR "ABSOLUTE path INSTALL DESTINATION forbidden (by caller): ${CMAKE_ABSOLUTE_DESTINATION_FILES}")
   endif()
-file(INSTALL DESTINATION "/home/kimjaen/vuasrl_ws/install" TYPE FILE FILES
+  file(INSTALL DESTINATION "/home/kimjaen/vuasrl_ws/install" TYPE FILE FILES
     "/home/kimjaen/vuasrl_ws/build/catkin_generated/installspace/setup.sh"
     "/home/kimjaen/vuasrl_ws/build/catkin_generated/installspace/local_setup.sh"
     )
 endif()
 
-if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
+if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT)
   list(APPEND CMAKE_ABSOLUTE_DESTINATION_FILES
    "/home/kimjaen/vuasrl_ws/install/setup.zsh;/home/kimjaen/vuasrl_ws/install/local_setup.zsh")
   if(CMAKE_WARN_ON_ABSOLUTE_INSTALL_DESTINATION)
@@ -110,13 +115,13 @@ if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_
   if(CMAKE_ERROR_ON_ABSOLUTE_INSTALL_DESTINATION)
     message(FATAL_ERROR "ABSOLUTE path INSTALL DESTINATION forbidden (by caller): ${CMAKE_ABSOLUTE_DESTINATION_FILES}")
   endif()
-file(INSTALL DESTINATION "/home/kimjaen/vuasrl_ws/install" TYPE FILE FILES
+  file(INSTALL DESTINATION "/home/kimjaen/vuasrl_ws/install" TYPE FILE FILES
     "/home/kimjaen/vuasrl_ws/build/catkin_generated/installspace/setup.zsh"
     "/home/kimjaen/vuasrl_ws/build/catkin_generated/installspace/local_setup.zsh"
     )
 endif()
 
-if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
+if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT)
   list(APPEND CMAKE_ABSOLUTE_DESTINATION_FILES
    "/home/kimjaen/vuasrl_ws/install/.rosinstall")
   if(CMAKE_WARN_ON_ABSOLUTE_INSTALL_DESTINATION)
@@ -125,24 +130,40 @@ if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_
   if(CMAKE_ERROR_ON_ABSOLUTE_INSTALL_DESTINATION)
     message(FATAL_ERROR "ABSOLUTE path INSTALL DESTINATION forbidden (by caller): ${CMAKE_ABSOLUTE_DESTINATION_FILES}")
   endif()
-file(INSTALL DESTINATION "/home/kimjaen/vuasrl_ws/install" TYPE FILE FILES "/home/kimjaen/vuasrl_ws/build/catkin_generated/installspace/.rosinstall")
+  file(INSTALL DESTINATION "/home/kimjaen/vuasrl_ws/install" TYPE FILE FILES "/home/kimjaen/vuasrl_ws/build/catkin_generated/installspace/.rosinstall")
 endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for each subdirectory.
   include("/home/kimjaen/vuasrl_ws/build/gtest/cmake_install.cmake")
+  include("/home/kimjaen/vuasrl_ws/build/fast_gicp/cmake_install.cmake")
   include("/home/kimjaen/vuasrl_ws/build/tugcar_moveit/cmake_install.cmake")
   include("/home/kimjaen/vuasrl_ws/build/tugcar_msgs/cmake_install.cmake")
-  include("/home/kimjaen/vuasrl_ws/build/tugcar_navigation/cmake_install.cmake")
-  include("/home/kimjaen/vuasrl_ws/build/robot_manipulator/cmake_install.cmake")
-  include("/home/kimjaen/vuasrl_ws/build/tugcar_bringup/cmake_install.cmake")
-  include("/home/kimjaen/vuasrl_ws/build/tugcar_control/cmake_install.cmake")
+  include("/home/kimjaen/vuasrl_ws/build/vuasrl_manipulation_moveit/cmake_install.cmake")
+  include("/home/kimjaen/vuasrl_ws/build/astar_ros/cmake_install.cmake")
+  include("/home/kimjaen/vuasrl_ws/build/goal_publisher/cmake_install.cmake")
+  include("/home/kimjaen/vuasrl_ws/build/occupancy_gridmap/cmake_install.cmake")
+  include("/home/kimjaen/vuasrl_ws/build/rrt-planning/cmake_install.cmake")
+  include("/home/kimjaen/vuasrl_ws/build/cost_map/cmake_install.cmake")
+  include("/home/kimjaen/vuasrl_ws/build/ouster_gazebo_plugins/cmake_install.cmake")
+  include("/home/kimjaen/vuasrl_ws/build/livox_ros_driver/livox_ros_driver/cmake_install.cmake")
+  include("/home/kimjaen/vuasrl_ws/build/FAST_LIO/cmake_install.cmake")
+  include("/home/kimjaen/vuasrl_ws/build/ndt_omp/cmake_install.cmake")
+  include("/home/kimjaen/vuasrl_ws/build/tf_graph/cmake_install.cmake")
   include("/home/kimjaen/vuasrl_ws/build/tugcar_lane_detection/cmake_install.cmake")
   include("/home/kimjaen/vuasrl_ws/build/tugcar_motionplan/cmake_install.cmake")
   include("/home/kimjaen/vuasrl_ws/build/tugcar_teleop/cmake_install.cmake")
+  include("/home/kimjaen/vuasrl_ws/build/hdl_graph_slam/cmake_install.cmake")
   include("/home/kimjaen/vuasrl_ws/build/tugcar_description/cmake_install.cmake")
-  include("/home/kimjaen/vuasrl_ws/build/robot_arm_test/cmake_install.cmake")
+  include("/home/kimjaen/vuasrl_ws/build/velodyne_gazebo_plugins/cmake_install.cmake")
+  include("/home/kimjaen/vuasrl_ws/build/visual_servoing/cmake_install.cmake")
+  include("/home/kimjaen/vuasrl_ws/build/vuasrl_control/cmake_install.cmake")
   include("/home/kimjaen/vuasrl_ws/build/tugcar_simulations/cmake_install.cmake")
+  include("/home/kimjaen/vuasrl_ws/build/vuasrl_arm_description/cmake_install.cmake")
+  include("/home/kimjaen/vuasrl_ws/build/vuasrl_car_description/cmake_install.cmake")
+  include("/home/kimjaen/vuasrl_ws/build/vuasrl_car_nav/cmake_install.cmake")
+  include("/home/kimjaen/vuasrl_ws/build/vuasrl_manipulation/cmake_install.cmake")
+  include("/home/kimjaen/vuasrl_ws/build/vuasrl_manipulation_simulations/cmake_install.cmake")
 
 endif()
 

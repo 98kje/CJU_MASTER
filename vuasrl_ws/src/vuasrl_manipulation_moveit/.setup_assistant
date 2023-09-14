@@ -1,0 +1,11 @@
+moveit_setup_assistant_config:
+  URDF:
+    package: vuasrl_manipulation
+    relative_path: urdf/vuasrl_manipulation.urdf.xacro
+    xacro_args: ""
+  SRDF:
+    relative_path: config/vuasrl_manipulation.srdf
+  CONFIG:
+    author_name: kimjaen
+    author_email: bak1916@gmail.com
+    generated_timestamp: 1694610607

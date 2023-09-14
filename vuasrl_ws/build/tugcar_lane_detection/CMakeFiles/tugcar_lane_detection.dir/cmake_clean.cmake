@@ -2,6 +2,7 @@ file(REMOVE_RECURSE
   "/home/kimjaen/vuasrl_ws/devel/lib/tugcar_lane_detection/tugcar_lane_detection"
   "/home/kimjaen/vuasrl_ws/devel/lib/tugcar_lane_detection/tugcar_lane_detection.pdb"
   "CMakeFiles/tugcar_lane_detection.dir/src/lane_fitting.cpp.o"
+  "CMakeFiles/tugcar_lane_detection.dir/src/lane_fitting.cpp.o.d"
 )
 
 # Per-language clean rules from dependency scanning.

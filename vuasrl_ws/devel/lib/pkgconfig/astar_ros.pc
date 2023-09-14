@@ -1,0 +1,8 @@
+prefix=/home/kimjaen/vuasrl_ws/devel
+
+Name: astar_ros
+Description: Description of astar_ros
+Version: 0.0.0
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: 

@@ -99,7 +99,7 @@ int main(int argc, char** argv)
             pass.setInputCloud(cloud.makeShared());
             pass.setFilterFieldName ("z");
             //pass.setFilterLimits (Cur_Pos_m[2]+0.05, Cur_Pos_m[2]+0.26);
-            pass.setFilterLimits (0.5, 2.0);
+            pass.setFilterLimits (3.0, 5.0);
             pass.filter(cloud_filtered);
 
             pcl::toROSMsg(cloud_filtered, output);

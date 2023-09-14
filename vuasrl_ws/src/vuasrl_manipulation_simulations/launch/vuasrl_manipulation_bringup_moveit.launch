@@ -1,0 +1,31 @@
+<launch>
+  <include file="$(find vuasrl_manipulation_simulations)/launch/vuasrl_manipulation_simulations_world.launch" />
+  <rosparam file="$(find vuasrl_manipulation_simulations)/config/controller_manager.yaml" command="load"/>
+  <rosparam file="$(find vuasrl_manipulation_simulations)/config/trajectory_control.yaml" command="load"/>
+  <rosparam file="$(find vuasrl_manipulation_simulations)/config/joint_state_controller.yaml" command="load" />
+  <rosparam file="$(find vuasrl_manipulation_simulations)/config/gazebo_controller.yaml" command="load" />
+  
+  <node name="controller_spawner" pkg="controller_manager" type="spawner" respawn="false" output="screen" args="vuasrl_manipulation_arm_controller vuasrl_manipulation_gripper_controller"/>
+ 
+  <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" respawn="false" output="screen">
+    <remap from="/joint_state" to="/joint_states"/>
+  </node>
+  <node name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher">
+    <remap from="joint_state" to="/joint_states"/>
+  </node>
+  
+  <include file="$(find vuasrl_manipulation_moveit)/launch/planning_context.launch">
+    <arg name="load_robot_description" value="false" />
+  </include>
+  
+  <include file="$(find vuasrl_manipulation_moveit)/launch/move_group.launch">
+    <arg name="publish_monitored_planning_scene" value="true" />
+  </include>
+  
+  <include file="$(find vuasrl_manipulation_moveit)/launch/moveit_rviz.launch">
+    <arg name="rviz_config" value="$(find vuasrl_manipulation_moveit)/launch/moveit.rviz" />
+  </include>
+  
+  <rosparam command="load" ns="vuasrl_manipulation" file="$(find vuasrl_manipulation_moveit)/config/ros_controllers.yaml"/>
+    
+</launch>

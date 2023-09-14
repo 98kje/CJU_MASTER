@@ -1,0 +1,8 @@
+prefix=/home/kimjaen/vuasrl_ws/install
+
+Name: vuasrl_car_nav
+Description: Description of vuasrl_car_nav
+Version: 0.0.0
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: 

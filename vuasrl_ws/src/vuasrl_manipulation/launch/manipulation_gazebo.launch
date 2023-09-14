@@ -1,0 +1,39 @@
+<?xml version="1.0" ?>
+
+<launch>
+  <!-- These are the arguments you can pass this launch file, for example paused:=true -->
+  <arg name="gui" default="true"/>
+  <arg name="paused" default="false"/>
+  <arg name="use_sim_time" default="true"/>
+  <arg name="headless" default="false"/>
+  <arg name="debug" default="false"/>
+  <arg name="world_name" default="smart_tugcar.world"/>
+  <arg name="world_file" default="$(find vuasrl_car_description)/models/$(arg world_name)"/>
+   
+  <rosparam file="$(find vuasrl_manipulation)/config/gazebo_controller.yaml" command="load"/>
+   
+
+  <!-- We resume the logic in empty_world.launch, changing only the name of the world to be launched -->
+  <include file="$(find gazebo_ros)/launch/empty_world.launch">
+    <arg name="debug" value="$(arg debug)" />
+    <arg name="world_name" value="$(arg world_file)"/>
+    <arg name="gui" value="$(arg gui)" />
+    <arg name="paused" value="$(arg paused)"/>
+    <arg name="use_sim_time" value="$(arg use_sim_time)"/>
+    <arg name="headless" value="$(arg headless)"/>
+  </include>
+
+  <!-- Load the URDF into the ROS Parameter Server -->
+  <include file="$(find vuasrl_manipulation)/launch/manipulation_upload.launch"/>
+  
+  <!-- Run controller utils -->
+  <include file="$(find vuasrl_manipulation)/launch/controller_utils.launch"/>
+
+  <!-- ros_control robotis manipulator launch file -->
+  <include file="$(find vuasrl_manipulation)/launch/manipulation_controller.launch"/>
+ 
+ <!-- push robot_description to factory and spawn robot in gazebo -->
+  <node name="spawn_gazebo_model" pkg="gazebo_ros" type="spawn_model" respawn="false" output="screen"
+    args="-urdf -param robot_description -model robot -x 0.0 -y 0.0 -z 1.0 -J joint1 0.0 -J joint2 0.0 -J joint3 0.0 -J joint4 0.0 -J grip_joint 0.0 -J grip_joint_sub 0.0"/>
+
+</launch>

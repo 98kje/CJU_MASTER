@@ -1,0 +1,8 @@
+prefix=/home/kimjaen/vuasrl_ws/install
+
+Name: vuasrl_arm_description
+Description: Description of vuasrl_arm_description
+Version: 0.0.0
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: roscpp std_msgs gazebo_ros gazebo_ros_control controller_manager xacro urdf

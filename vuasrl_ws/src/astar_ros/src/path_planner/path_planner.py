@@ -20,8 +20,8 @@ class PathPlanner:
         self.is_map_loaded = False
         
         self.goal_pose = Pose()
-        self.goal_pose.position.x = 5.0
-        self.goal_pose.position.y = 4.0
+        self.goal_pose.position.x = 10.0
+        self.goal_pose.position.y = 0.0
         self.goal = path_planner.Node.from_pose(self.goal_pose)
 
         self.map_subscriber = rospy.Subscriber("/local_map", OccupancyGrid, self.map_callback)

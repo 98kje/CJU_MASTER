@@ -22,7 +22,7 @@ class GoalPublish:
             print("processing ...")
                         
             self.goal_pose.header.stamp = rospy.Time.now()
-            self.goal_pose.pose.position = Point(0.0, 0.0, 0.0)
+            self.goal_pose.pose.position = Point(15.0, 5.0, 0.0)
             self.pub_goal_pose.publish(self.goal_pose)
 
             rate.sleep()

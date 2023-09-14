@@ -1,5 +1,5 @@
 <?xml version="1.0" ?>
-<robot name="vuasrl_car" xmlns:xacro="http://www.ros.org/wiki/xacro" >
+<robot name="vuasrl_manipulation" xmlns:xacro="http://www.ros.org/wiki/xacro" >
 
 <transmission name="rb_base_tran">
   <type>transmission_interface/SimpleTransmission</type>

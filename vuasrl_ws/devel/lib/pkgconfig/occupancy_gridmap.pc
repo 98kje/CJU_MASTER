@@ -1,0 +1,8 @@
+prefix=/home/kimjaen/vuasrl_ws/devel
+
+Name: occupancy_gridmap
+Description: Description of occupancy_gridmap
+Version: 0.0.0
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: 

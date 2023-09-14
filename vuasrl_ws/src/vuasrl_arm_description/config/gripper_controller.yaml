@@ -1,0 +1,8 @@
+gripper_position:
+  type: effort_controllers/JointPositionController
+  joint: grip_joint
+  pid: {p: 100, i: 0, d: 0}
+gripper_sub_position:
+  type: effort_controllers/JointPositionController
+  joint: grip_joint_sub
+  pid: {p: 100, i: 0, d: 0}

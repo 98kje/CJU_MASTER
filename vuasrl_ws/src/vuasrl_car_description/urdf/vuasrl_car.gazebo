@@ -1,6 +1,12 @@
 <?xml version="1.0" ?>
-<robot name="vuasrl_car" xmlns:xacro="http://www.ros.org/wiki/xacro" >
+<robot name="vuasrl_manipulation" xmlns:xacro="http://www.ros.org/wiki/xacro" >
 
+<!-- Include xtion_pro Sensors -->
+<xacro:include filename="$(find tugcar_description)/urdf/sensors/xtion_pro_live.urdf.xacro"/>
+     <material name="Cam_Color">
+        <color rgba="0.0 0.0 0.75 1.0"/>
+   </material>
+   
 <xacro:arg name="imu_visual"    default="false"/>
 
   
@@ -61,8 +67,8 @@
     <wheelSeparation>0.12</wheelSeparation>
     <wheelDiameter>0.130</wheelDiameter>
     <commandTopic>cmd_vel</commandTopic>
-    <odometryTopic>odom</odometryTopic>
-    <odometryFrame>odom</odometryFrame>
+    <odometryTopic>vuasrl/odom</odometryTopic>
+    <odometryFrame>vuasrl/odom</odometryFrame>
     <robotBaseFrame>base_link</robotBaseFrame>
     <publishTf>1</publishTf>
     <publishOdom>true</publishOdom>
@@ -139,13 +145,10 @@
     </sensor>
   </gazebo>
   
-<plugin name="camera_controller" filename="libgazebo_ros_camera.so">
-  <robotNamespace>cam</robotNamespace>
-  <imageTopicName>image_raw</imageTopicName>
-  <cameraInfoTopicName>camera_info</cameraInfoTopicName>
-  <frameName>camera::link</frameName>
-</plugin>
-
-
-
+    <!-- Define RGB-D sensor -->  
+  <xacro:xtion_pro_live name="mani_camera" parent="base">
+    <origin xyz="0.1345 -0.0015 0.1" rpy="${0.0 * deg_to_rad} ${360.0 * deg_to_rad} ${0.0 * deg_to_rad}"/>
+    <origin xyz="0 0 0" rpy="${-90 * deg_to_rad} ${0 * deg_to_rad} ${-90 * deg_to_rad}" />
+  </xacro:xtion_pro_live>
+  
 </robot>

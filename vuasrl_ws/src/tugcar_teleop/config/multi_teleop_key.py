@@ -163,11 +163,7 @@ if __name__=="__main__":
     topic_type = rospy.get_param("topic_type", "smart_tugcar")
 
     if topic_type == 'smart_tugcar':
-<<<<<<< HEAD
         topic_name = 'smart_tugcar/cmd_vel'
-=======
-        topic_name = 'cmd_vel'
->>>>>>> origin/main
 
     pub = rospy.Publisher(topic_name, Twist, queue_size=10)
 

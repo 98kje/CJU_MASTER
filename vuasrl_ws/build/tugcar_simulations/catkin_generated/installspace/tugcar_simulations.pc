@@ -1,0 +1,8 @@
+prefix=/home/kimjaen/vuasrl_ws/install
+
+Name: tugcar_simulations
+Description: Description of tugcar_simulations
+Version: 0.0.0
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: 

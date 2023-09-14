@@ -1,0 +1,14 @@
+gripper_controller:
+  type: effort_controllers/JointTrajectoryController
+  joints:
+    - grip_joint
+  constraints:
+      goal_time: 0.6
+      stopped_velocity_tolerance: 0.05
+      grip_joint: {trajectory: 0.1, goal: 0.1}
+  stop_trajectory_duration: 0.5
+  state_publish_rate:  25
+  action_monitor_rate: 10
+  gains: # Required because we're controlling an effort interface
+    grip_joint: {p: 100,  d: 1, i: 1, i_clamp: 1}
+    grip_joint_sub: {p: 100,  d: 1, i: 1, i_clamp: 1}

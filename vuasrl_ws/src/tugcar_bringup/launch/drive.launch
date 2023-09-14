@@ -1,6 +1,0 @@
-<launch>
-    <node name="lane_fitting" pkg="tugcar_lane_detection" type="lane_stop.py" output="screen" respawn="false" required="true">
-    </node>
-   <node name="teleop_keypad" pkg="tugcar_teleop" type="multi_teleop_key.py" output="screen" respawn="false" required="true">  
-    </node>
-</launch>

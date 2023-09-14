@@ -1,5 +1,5 @@
 <?xml version="1.0" ?>
-<robot name="vuasrl_car" xmlns:xacro="http://www.ros.org/wiki/xacro">
+<robot name="vuasrl_manipulation" xmlns:xacro="http://www.ros.org/wiki/xacro">
 
 <xacro:include filename="$(find vuasrl_car_description)/urdf/materials.xacro" />
 <xacro:include filename="$(find vuasrl_car_description)/urdf/vuasrl_car.trans" />
@@ -11,7 +11,7 @@
   <inertial>
     <origin xyz="-0.0024815786222996896 8.508916291582655e-12 0.0794086767825376" rpy="0 0 0"/>
     <mass value="4.692054269661653"/>
-    <inertia ixx="0.016864" iyy="0.034752" izz="0.046313" ixy="-0.0" iyz="0.0" ixz="0.000383"/>
+    <inertia ixx="0.016864" iyy="0.034781" izz="0.046341" ixy="0.0" iyz="0.0" ixz="-0.000207"/>
   </inertial>
   <visual>
     <origin xyz="0 0 0" rpy="0 0 0"/>
@@ -143,13 +143,13 @@
   <visual>
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <geometry>
-        <box size ="0.04 0.02 0.01"/>
+        <box size ="0.01 0.02 0.01"/>
       </geometry>
       <material name="white"/>
   </visual>
   <collision>
       <geometry>
-        <box size = "0.04 0.02 0.01"/>
+        <box size = "0.01 0.02 0.01"/>
       </geometry>
   </collision>
 </link>
@@ -189,7 +189,7 @@
 </joint>
 
 <joint name="lidar_base" type="fixed">
-  <origin xyz="-0.17 0.0 0.30" rpy="0 0 0"/>
+  <origin xyz="0.0 0.0 0.30" rpy="0 0 0"/>
   <parent link="base_link"/>
   <child link="ouster_link"/>   
 </joint>
@@ -197,8 +197,8 @@
 <joint name="imu_joint" type="fixed">
   <parent link="base_link"/>
   <child link="imu_link"/>
-  <origin xyz="-0.03 0 0.125" rpy="0 0 0"/>
+  <origin xyz="0.03 0 0.125" rpy="0 0 0"/>
 </joint>
 
-
+  
 </robot>

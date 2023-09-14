@@ -1,0 +1,8 @@
+prefix=/home/kimjaen/vuasrl_ws/install
+
+Name: cost_map
+Description: Description of cost_map
+Version: 0.0.1
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: roscpp std_msgs sensor_msgs cv_bridge image_transport image_geometry tf
